@@ -38,29 +38,7 @@ Installl the plugin in the vendor/plugin directory
 
   rails plugin install git://github.com/brightin/brightcontent.git
   
-Add routes for pages and other resources to your config/routes.rb
-
-  # public routing
-  resources :vacancies, :path => "over/vacatures", :only => [:index, :show]
-  root :to => "pages#show", :path => ''
-  constraints PageUrls.new do
-    get "*path" => "pages#show"
-  end
-  
-  #admin routing
-  get 'admin' => redirect("/admin/pages")
-  namespace :admin do
-    resources :pages do
-      get :position_tag, :on => :member      #for edit
-      get :position_tag, :on => :collection  #for new
-    end
-    resources :vacancies
-    resources :assets
-    resources :users
-    resource  :session, :only => [:new, :create, :destroy]
-  end
-
-Add the requirements to your Gemfile
+Add the requirements to your *Gemfile*
 
   gem 'acts_as_tree'
   gem 'acts_as_list'
@@ -68,14 +46,54 @@ Add the requirements to your Gemfile
   gem 'RedCloth'
   gem 'paperclip'
 
+Run bundle install
+
+  bundle install
+  
+Add routes for the admin  for pages and other resources to your config/routes.rb 
+
+  #admin routing
+  get 'admin' => redirect("/admin/pages")
+  namespace :admin do
+    resources :pages do
+      get :position_tag, :on => :member      #for edit
+      get :position_tag, :on => :collection  #for new
+    end
+    #resources :vacancies  #for example
+    resources :assets
+    resources :users
+    resource  :session, :only => [:new, :create, :destroy]
+  end
+
 Run sync to add migrations and public assets (CSS etc)
 
   rake brightcontent:sync
 
-Run migrations & seed (seed is not yet provided)
+Run migrations
 
   rake db:migrate
-  rake db:seed
+  
+Add a user to login
+
+  rails runner 'User.create({:email_address => "developers@brightin.nl", :password => "blabla"})'
+
+Run forest run!
+
+  rails s
+  
+and surf to http://0.0.0.0:3000/admin
+
+== Public site
+Add routing for your public site 
+
+  # public routing
+  # resources :vacancies, :path => "over/vacatures", :only => [:index, :show]
+  root :to => "pages#show", :path => ''
+  constraints PageUrls.new do
+    get "*path" => "pages#show"
+  end
+
+  
 
 
 Copyright (c) 2010 Raymond Vellener / Brightin, released under the MIT license
