@@ -42,6 +42,12 @@ a:hover {
   text-decoration: underline;
 }
 
+label {
+  font-size: 13px;
+  font-weight: bold;
+  display:inline;
+}
+
 /* default table style */
 table {
   width: 100%;
@@ -282,16 +288,18 @@ a.new_document {
   font-weight: bold;
   outline: none;
 }
+
   input[type='submit']:hover,
   a.new_document:hover {
     background: -moz-linear-gradient(top, #FDFDFD, #D8D8D8);
     background: -webkit-gradient(linear, 0 0, 0 100%, from(#FDFDFD), to(#D8D8D8));
     border-color: #A2A2A2;
   }
+  
   input[type='submit']:active,
-  a.new_document:active {
+    a.new_document:active {
     background: -moz-linear-gradient(top, #EFEFEF, #FFF);
-  background: -webkit-gradient(linear, 0 0, 0 100%, from(#EFEFEF), to(#FFF));
+    background: -webkit-gradient(linear, 0 0, 0 100%, from(#EFEFEF), to(#FFF));
   }
 
 input[type='checkbox'] {
@@ -299,16 +307,19 @@ input[type='checkbox'] {
   margin: 3px 6px 0 0;
 }
 
-
-label { font-size: 13px; font-weight: bold; display:inline; }
-
 form .error {
   width: 98%;
-padding: 10px;
-background-color: #ffeeee;
-font-weight: bold;
-color: #c00000;
- }
+  padding: 10px;
+  background-color: #ffeeee;
+  font-weight: bold;
+  color: #c00000;
+}
+ 
+form.error {
+  font-weight: bold;
+  color: #EF0000;
+  line-height: 10px;
+}
 
 .image {
 margin: 10px;
@@ -331,12 +342,6 @@ padding: 10px;
 .tree div {
   width: 40%;
   float: left;
-}
-
-form.error {
-  font-weight: bold;
-  color: #EF0000;
-  line-height: 10px;
 }
 
 a.new_document {
@@ -448,7 +453,9 @@ table tr.new:hover td a:hover {
     background-color: #e5e5e5;
   }
 
-  .pagination a, em, span {
+  .pagination a, 
+  .pagination em, 
+  .pagination span {
     padding: 4px 6px;
   }
 
