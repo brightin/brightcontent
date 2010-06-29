@@ -161,46 +161,48 @@ tbody td img:first-child {
     
     
 #content {
+  position:relative;
   padding: 20px;
   overflow: hidden;
 }
+
   .actions {
     width: 200px;
   }
   
   .actions a { float: left; }
-    .actions a { padding: 2px 5px; }
-    
-    .actions a.edit { color: #006CDD;}
-    .actions a.view { color: #48A000;}
-    .actions a.delete { color: #C90000;}
-    
-    .actions a:hover { color: #f5f5f5; text-decoration: none;}
-    
-    .actions a.edit:hover { background: #006CDD;}
-    .actions a.view:hover { background: #48A000;}
-    .actions a.delete:hover { background: #C90000;}
-    
-    .actions span {
-      cursor: pointer;
-      float: right;
-      display: block;
-      padding-left: 4px;
-      line-height: 19px;
-      width: 15px;
-      height: 19px;
-      margin-right: 3px;
-      font-weight: 900;
-      -moz-border-radius: 11px;
-      -webkit-border-radius: 11px;
-      border-radius: 11px;
-      color: #FFF;
-      text-shadow: #999 0 1px;
-      background: -moz-linear-gradient(top, #c9c9c9, #ccc);
-      background: -webkit-gradient(linear, 0 0, 0 100%, from(#c9c9c9), to(#ccc));
-      font-family: Arial;
-      font-size: 20px;
-    }
+  .actions a { padding: 2px 5px; }
+  
+  .actions a.edit { color: #006CDD;}
+  .actions a.view { color: #48A000;}
+  .actions a.delete { color: #C90000;}
+  
+  .actions a:hover { color: #f5f5f5; text-decoration: none;}
+  
+  .actions a.edit:hover { background: #006CDD;}
+  .actions a.view:hover { background: #48A000;}
+  .actions a.delete:hover { background: #C90000;}
+  
+  .actions span {
+    cursor: pointer;
+    float: right;
+    display: block;
+    padding-left: 4px;
+    line-height: 19px;
+    width: 15px;
+    height: 19px;
+    margin-right: 3px;
+    font-weight: 900;
+    -moz-border-radius: 11px;
+    -webkit-border-radius: 11px;
+    border-radius: 11px;
+    color: #FFF;
+    text-shadow: #999 0 1px;
+    background: -moz-linear-gradient(top, #c9c9c9, #ccc);
+    background: -webkit-gradient(linear, 0 0, 0 100%, from(#c9c9c9), to(#ccc));
+    font-family: Arial;
+    font-size: 20px;
+  }
 
 .flash {
   margin-bottom: 20px;
@@ -230,17 +232,17 @@ tbody td img:first-child {
   width: 20%;
 }
 
-form {
+#content .block {
   width: 700px;
   padding: 20px 35px 35px;
   background: #fff;
 }
 
-  form a:link {
-    text-decoration: underline;
-  }
+form a:link {
+  text-decoration: underline;
+}
 
-form#login {
+#login {
   width: 280px;
   margin: 55px auto 0 auto;
   -moz-box-shadow: 0 2px 3px #AFAFAF;
@@ -248,26 +250,22 @@ form#login {
   box-shadow: 0 2px 3px #AFAFAF;
 }
 
-  input[type='text'],
-  input[type='password'],
-  textarea {
-    width: 98%;
-    padding: 3px;
-    font-size: 15px;
-    font-family: "Lucida Grande", "Lucida Sans", "Arial";
-  }
+input[type='text'],
+input[type='password'],
+textarea {
+  width: 98%;
+  padding: 3px;
+  font-size: 15px;
+  font-family: "Lucida Grande", "Lucida Sans", "Arial";
+}
 
-  textarea {
-    height: 300px;
-  }
- 
-   {
-    
-  }
+textarea {
+  height: 300px;
+}
 
-  input[type='submit'],
-  a.new_document {
-    margin-right: 6px;
+input[type='submit'],
+a.new_document {
+  margin-right: 6px;
   padding: 5px 12px;
   background: #FFF;
   background: -moz-linear-gradient(top, #FFF, #DFDFDF);
@@ -283,94 +281,94 @@ form#login {
   font-size: 14px;
   font-weight: bold;
   outline: none;
+}
+  input[type='submit']:hover,
+  a.new_document:hover {
+    background: -moz-linear-gradient(top, #FDFDFD, #D8D8D8);
+    background: -webkit-gradient(linear, 0 0, 0 100%, from(#FDFDFD), to(#D8D8D8));
+    border-color: #A2A2A2;
   }
-    input[type='submit']:hover,
-    a.new_document:hover {
-      background: -moz-linear-gradient(top, #FDFDFD, #D8D8D8);
-      background: -webkit-gradient(linear, 0 0, 0 100%, from(#FDFDFD), to(#D8D8D8));
-      border-color: #A2A2A2;
-    }
-    input[type='submit']:active,
-    a.new_document:active {
-      background: -moz-linear-gradient(top, #EFEFEF, #FFF);
-    background: -webkit-gradient(linear, 0 0, 0 100%, from(#EFEFEF), to(#FFF));
-    }
-
-  input[type='checkbox'] {
-    float: left;
-    margin: 3px 6px 0 0;
+  input[type='submit']:active,
+  a.new_document:active {
+    background: -moz-linear-gradient(top, #EFEFEF, #FFF);
+  background: -webkit-gradient(linear, 0 0, 0 100%, from(#EFEFEF), to(#FFF));
   }
 
+input[type='checkbox'] {
+  float: left;
+  margin: 3px 6px 0 0;
+}
 
-  label { font-size: 13px; font-weight: bold; display:inline; }
 
-  form .error {
-    width: 98%;
-  padding: 10px;
-  background-color: #ffeeee;
+label { font-size: 13px; font-weight: bold; display:inline; }
+
+form .error {
+  width: 98%;
+padding: 10px;
+background-color: #ffeeee;
+font-weight: bold;
+color: #c00000;
+ }
+
+.image {
+margin: 10px;
+width: 300px;
+background-color: #eee;
+padding: 10px;
+}
+
+.image img {
+  margin-bottom: 10px;
+}
+
+.tree {
+  width: 700px;
+  overflow: hidden;
+  margin-top: 5px;
+  margin-bottom: 25px;
+}
+
+.tree div {
+  width: 40%;
+  float: left;
+}
+
+form.error {
   font-weight: bold;
-  color: #c00000;
-   }
+  color: #EF0000;
+  line-height: 10px;
+}
 
-  .image {
-  margin: 10px;
-  width: 300px;
-  background-color: #eee;
-  padding: 10px;
-  }
-
-  .image img {
-    margin-bottom: 10px;
-  }
-
-  .tree {
-    width: 700px;
-    overflow: hidden;
-    margin-top: 5px;
-    margin-bottom: 25px;
-  }
-
-  .tree div {
-    width: 40%;
-    float: left;
-  }
-
-  form.error {
-    font-weight: bold;
-    color: #EF0000;
-    line-height: 10px;
-  }
-
-  a.new_document {
+a.new_document {
+  height: 19px;
+  position: relative;
+  float: right;
+  text-decoration: none;
+  font-size: 15px;
+  font-family: "Lucida Grande";
+  padding-left: 32px;
+}
+  a.new_document span {
+    position: absolute;
+    left: 6px;
+    top: 5px;
+    display: block;
+    padding-left: 4px;
+    line-height: 19px;
+    width: 15px;
     height: 19px;
-    position: relative;
-    float: right;
-    text-decoration: none;
-    font-size: 15px;
-    font-family: "Lucida Grande";
-    padding-left: 32px;
+    margin-right: 3px;
+    font-weight: 900;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    color: #FFF;
+    text-shadow: #016F00 0 1px;
+    background: -moz-linear-gradient(top, #54BF53, #128F11);
+    background: -webkit-gradient(linear, 0 0, 0 100%, from(#54BF53), to(#128F11));
+    font-family: Arial;
+    font-size: 20px;
   }
-    a.new_document span {
-      position: absolute;
-      left: 6px;
-      top: 5px;
-      display: block;
-      padding-left: 4px;
-      line-height: 19px;
-      width: 15px;
-      height: 19px;
-      margin-right: 3px;
-      font-weight: 900;
-      -moz-border-radius: 10px;
-      -webkit-border-radius: 10px;
-      border-radius: 10px;
-      color: #FFF;
-      text-shadow: #016F00 0 1px;
-      background: -moz-linear-gradient(top, #54BF53, #128F11);
-      background: -webkit-gradient(linear, 0 0, 0 100%, from(#54BF53), to(#128F11));
-      font-family: Arial;
-      font-size: 20px;
-    }
 
 table tr td .hidden,
 table tr td .hidden a {
@@ -385,6 +383,18 @@ table tr.new td a {
 table tr.new:hover td a:hover {
   color: #48A000;
 }
+
+#content a.action_link {
+  text-decoration: none;
+  color: #006CDD;
+  padding: 4px 6px;
+}
+
+  #content a.action_link:hover {
+    color: #fff;
+    background: #006CDD;
+    text-decoration: none;
+  }
 
 /* assets */
 .assets {
@@ -416,4 +426,32 @@ table tr.new:hover td a:hover {
   .asset a.delete {
     float: right;
     color: #C90000;
+  }
+  
+/* Pagination */
+.pagination {
+  padding: 10px 10px 10px 0;
+}
+
+  .pagination em {
+    background-color: #e5e5e5;
+    font-weight: bold;
+    font-style: normal;
+  }
+
+  .pagination a {
+    color: #333;
+    text-decoration: none;
+  }
+
+  .pagination a:hover {
+    background-color: #e5e5e5;
+  }
+
+  .pagination a, em, span {
+    padding: 4px 6px;
+  }
+
+  .pagination .disabled {
+    color: #a9a9a9;
   }
