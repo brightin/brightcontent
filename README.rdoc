@@ -5,8 +5,7 @@ Yet another rails CMS / admin panel
 * For developers, to make a custom CMS for non-technical users
 * No standard 'cms-modules', we hate those, making custom is easy enough
 * Build in the rails way, use your normals models, only controllers and views are provided
-* Only exception: Page model is provided (with tree and draft / hidden). 
-* with pretty urls like /services/cleaning/houses
+* Only exception: Page model is provided with tree structure, draft, hidden and pretty urls like <tt>/services/cleaning/houses</tt>
 
 == Defaults in views
 Instead of generating views we build some default/override functions:
@@ -28,14 +27,13 @@ The list (index) and forms (new/edit) tries to find partials with the field name
 For example the field <tt>title</tt> will be rendered in the list by  <tt>_list_field_title.html.erb</tt> if it exists. If not, it will be rendered with a normal label and textbox (because its a string).
 
 == Default actions
-Default crud actions are included. @item (index) and @items are provided, next to the concrete names like @projects or @projects. Controllername should be ProjectController. You can overwrite the action in the controller.
+Default crud actions are included. Generic variables <tt>@item</tt> (index) and <tt>@items</tt> are provided, but also with the specific name like <tt>@vacancy</tt> or <tt>@vacancies</tt>. Controllername should match modelname. You can overwrite the actions in the controller.
 
 == Requirements
 * Rails 3
-* Uses Active
 * Uses ActiveRecord to find the type of column/field to render (in generic field)
 
-== Setup
+= Setup
 
 Install the plugin in the vendor/plugin directory
 
@@ -83,7 +81,7 @@ Run forest run!
   
 and surf to http://0.0.0.0:3000/admin
 
-== Add a new model to control in brightcontent
+== Add a new model to brightcontent
 
 Lets say, we want to projects. Just create the Project model the rails way:
 * Make migrations for project
@@ -104,7 +102,6 @@ Add new controller in <tt>app/controllers/admin/projects_controller.rb</tt> and 
       @form_fields = Project.column_names - ['created_at', 'updated_at', 'description']
     end
   end
-
 
 == Public site
 Add routing for your public site 
