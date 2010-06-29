@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <title>BrightContent</title>
+  <%= stylesheet_link_tag '/admin/stylesheets/layout', '/admin/stylesheets/custom' %>
+  <%= javascript_include_tag 'http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js' %>
+  <%= javascript_include_tag '/admin/javascripts/rails.js' %>
+  <%= csrf_meta_tag %>
+  <%= yield :additional_javascript %>
+</head>
+<body>
+  <div id="header">
+    <h1>BrightContent</h1> <%= link_to "view site", root_url, :id => "view_site" %>
+    <div id="user">
+      <% if @current_user %>
+      <span><%= @current_user.email_address %></span> | <%= link_to 'logout', admin_session_url, :method => 'delete' %>
+      <% end %>
+    </div>
+    <div id="nav">
+      <ul>
+        <% if @admin_controllers %>
+          <% @admin_controllers.each do |admin_controller| %>
+            <li><%= link_to admin_controller.humanize, "/admin/#{admin_controller}", :class => controller_name == admin_controller ? "active" : ""  %></li>
+          <% end %>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+  <div id="content">
+    <%= render "admin/default/flashes" %>
+    <%= yield %>
+  </div>
+</body>
+</html>

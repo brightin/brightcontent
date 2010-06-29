@@ -1,0 +1,83 @@
+<%= form_for [:admin, @item], :html => { :multipart => true } do |f| %>
+  <div class="field">
+    <%= f.label 'name', 'name'.to_s.humanize %>
+    <%= form_field f, 'name' %>
+    <%= error_message_on @item, 'name' %>
+  </div>
+  
+  <div class="field">
+    <%= f.label 'body', 'body'.to_s.humanize %>
+    <%= form_field f, 'body' %>
+    <%= error_message_on @item, 'body' %>
+    <%= content_for :additional_javascript do %>
+        <style type="text/css" media="all">@import "/javascripts/jtextbar/jtextbar.css";</style> 
+        <%= javascript_include_tag "jtextbar/jquery-jtextbar" %>
+        <script type="text/javascript">
+          $(document).ready(function() {
+            $("#page_body").jtextbar({format: "Textile"});
+          });
+        </script>
+    <% end %>
+  </div>
+  
+  <script type="text/javascript">
+    function remove_fields( link ) {
+        $(link).parent().find("input[type='hidden']").val(1);
+        $(link).parent().fadeOut(500);
+    }
+    
+    function add_fields(link, association, content) {
+        var new_id = new Date().getTime();
+        var regexp = new RegExp("new_" + association, "g");
+        $(link).prev().append( content.replace(regexp, new_id) );
+    }
+  </script>
+  
+  <div class="assets">
+      <% f.fields_for :assets do |builder| %>
+          <%= render find_partial('asset_fields'), :f => builder %>
+      <% end %>
+  </div>
+  <%= link_to_add_fields "Add asset", f, :assets %>
+  
+  <br />
+  <br />
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+      $('.parent_id select').bind('change', function(e){
+        $.ajax({
+          url:'position_tag',
+          data:({parent_id: $(this).val()})
+        });
+      });
+    });
+  </script>
+  
+  <div class="tree">
+    <div class="parent_id">
+      Parent<br />
+      <%= f.select :parent_id, options_for_select(page_pairs(Page.root, @page), @page.parent_id.try(:to_i)) %>
+    </div>
+    <div class="position">
+     <%= render :partial => 'position_tag', :locals => {:page => @page} %>
+    </div>
+  </div>
+  
+  
+  <div class="inline_field">
+  <%= f.label 'hidden', 'Hidden' %>
+  <%= form_field f, 'hidden' %>
+  </div>
+  
+  <div class="inline_field">
+  <%= f.label 'draft', 'Save as draft' %>
+  <%= form_field f, 'draft' %>
+  </div>
+  
+  <div style="clear:both;"></div>
+  
+  <%= submit_tag "Save" %>
+  <%= submit_tag "Save and continue", :name => "commit_and_continue" %> or
+  <%= link_to "cancel", [:admin, @model] %>
+<% end %>
