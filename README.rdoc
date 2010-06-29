@@ -24,13 +24,12 @@ Like DefaultViews, find partials in default folder if it cannot be found in the 
 The list (index) and forms (new/edit) tries to find partials with the field names. If it cannot be found, it uses generic fields (textfield for string etc.).
 For example the field <tt>title</tt> will be rendered in the list by <tt>_list_field_title.html.erb</tt> if exists. Else it will be rendered with a normal label and textbox (because its a string).
 
+== Default actions
+Default crud actions are included. @item (index) and @items are provided, next to the concrete names like Project. Controllername should be ProjectController. You can overwrite them in your controller.
+
 == Requirements
 * Rails 3
-* Acts as tree (plugin)
-* Acts as list (plugin)
-* Paperclip (gem)
-* Will paginate (rails 3 branch)
-* For now: Uses ActiveRecord models to find the type of column/field to render (in generic field)
+* Uses ActiveRecord models to find the type of column/field to render (in generic field)
 
 == Setup
 
