@@ -12,17 +12,17 @@ Yet another rails CMS / admin panel
 Instead of generating views we build some default/override functions
 
 === DefaultViews
-(mixin included in Admin::ApplicationController)
+(mixin included in <tt>Admin::ApplicationController</tt>)
 Finds views in the default folder if it cannot be found in the normal folder. 
-For example, if /app/views/vacancy/new.html.erb doesn't exist, it will look at /app/views/default/new.html.erb
+For example, if <tt>/app/views/vacancy/new.html.erb</tt> doesn't exist, it will look at <tt>/app/views/default/new.html.erb</tt>
 
 === Default partials
-(find_partial function in Admin Application Helper)
+(<tt>find_partial</tt> function in Admin Application Helper)
 Like DefaultViews, find partials in default folder if it cannot be found in the normals folder.
 
 === Default list and form fields
 The list (index) and forms (new/edit) tries to find partials with the field names. If it cannot be found, it uses generic fields (textfield for string etc.).
-For example the field 'title' will be rendered in the list by _list_field_title.html.erb if exists. Else it will be rendered with a normal label and textbox (because its a string).
+For example the field <tt>title</tt> will be rendered in the list by <tt>_list_field_title.html.erb</tt> if exists. Else it will be rendered with a normal label and textbox (because its a string).
 
 == Requirements
 * Rails 3
@@ -34,11 +34,11 @@ For example the field 'title' will be rendered in the list by _list_field_title.
 
 == Setup
 
-Installl the plugin in the vendor/plugin directory
+Install the plugin in the vendor/plugin directory
 
   rails plugin install git://github.com/brightin/brightcontent.git
   
-Add the requirements to your *Gemfile*
+Add the requirements to your <tt>Gemfile</tt>
 
   gem 'acts_as_tree'
   gem 'acts_as_list'
@@ -50,10 +50,10 @@ Run bundle install
 
   bundle install
   
-Add routes for the admin  for pages and other resources to your config/routes.rb 
+Add admin routes for pages and other resources in <tt>config/routes.rb</tt>
 
   #admin routing
-  get 'admin' => redirect("/admin/pages")
+  get 'admin' => redirect('/admin/pages')
   namespace :admin do
     resources :pages do
       get :position_tag, :on => :member      #for edit
@@ -65,12 +65,9 @@ Add routes for the admin  for pages and other resources to your config/routes.rb
     resource  :session, :only => [:new, :create, :destroy]
   end
 
-Run sync to add migrations and public assets (CSS etc)
+Run sync to add migrations and public assets (CSS etc) en run migrations
 
   rake brightcontent:sync
-
-Run migrations
-
   rake db:migrate
   
 Add a user to login
@@ -87,13 +84,11 @@ and surf to http://0.0.0.0:3000/admin
 Add routing for your public site 
 
   # public routing
-  # resources :vacancies, :path => "over/vacatures", :only => [:index, :show]
+  # resources :vacancies, :path => "over/vacatures", :only => [:index, :show]  #for example
   root :to => "pages#show", :path => ''
   constraints PageUrls.new do
     get "*path" => "pages#show"
   end
-
-  
 
 
 Copyright (c) 2010 Raymond Vellener / Brightin, released under the MIT license
