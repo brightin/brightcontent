@@ -1,0 +1,81 @@
+= Brightcontent
+
+Yet another rails CMS / admin panel
+
+* For developers, to make a custom CMS for non-technical users
+* No standard 'cms-modules', we hate those, making custom is easy enough
+* Build in the rails way, use your normals models, only controllers and views are provided
+* Only exception: Page model is provided (with tree with draft and hidden). 
+* with pretty urls like /services/cleaning/houses
+
+== Defaults in views
+Instead of generating views we build some default/override functions
+
+=== DefaultViews
+(mixin included in Admin::ApplicationController)
+Finds views in the default folder if it cannot be found in the normal folder. 
+For example, if /app/views/vacancy/new.html.erb doesn't exist, it will look at /app/views/default/new.html.erb
+
+=== Default partials
+(find_partial function in Admin Application Helper)
+Like DefaultViews, find partials in default folder if it cannot be found in the normals folder.
+
+=== Default list and form fields
+The list (index) and forms (new/edit) tries to find partials with the field names. If it cannot be found, it uses generic fields (textfield for string etc.).
+For example the field 'title' will be rendered in the list by _list_field_title.html.erb if exists. Else it will be rendered with a normal label and textbox (because its a string).
+
+== Requirements
+* Rails 3
+* Acts as tree (plugin)
+* Acts as list (plugin)
+* Paperclip (gem)
+* Will paginate (rails 3 branch)
+* For now: Uses ActiveRecord models to find the type of column/field to render (in generic field)
+
+== Setup
+
+Installl the plugin in the vendor/plugin directory
+
+  rails plugin install git://github.com/brightin/brightcontent.git
+  
+Add routes for pages and other resources to your config/routes.rb
+
+  # public routing
+  resources :vacancies, :path => "over/vacatures", :only => [:index, :show]
+  root :to => "pages#show", :path => ''
+  constraints PageUrls.new do
+    get "*path" => "pages#show"
+  end
+  
+  #admin routing
+  get 'admin' => redirect("/admin/pages")
+  namespace :admin do
+    resources :pages do
+      get :position_tag, :on => :member      #for edit
+      get :position_tag, :on => :collection  #for new
+    end
+    resources :vacancies
+    resources :assets
+    resources :users
+    resource  :session, :only => [:new, :create, :destroy]
+  end
+
+Add the requirements to your Gemfile
+
+  gem 'acts_as_tree'
+  gem 'acts_as_list'
+  gem 'will_paginate', :git => 'http://github.com/mislav/will_paginate.git', :branch => 'rails3'
+  gem 'RedCloth'
+  gem 'paperclip'
+
+Run sync to add migrations and public assets (CSS etc)
+
+  rake brightcontent:sync
+
+Run migrations & seed (seed is not yet provided)
+
+  rake db:migrate
+  rake db:seed
+
+
+Copyright (c) 2010 Raymond Vellener / Brightin, released under the MIT license
