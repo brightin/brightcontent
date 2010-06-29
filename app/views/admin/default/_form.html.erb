@@ -1,13 +1,15 @@
-<%= form_for [:admin, @item], :html => { :multipart => true } do |f| %>
-  <% @form_fields.each do |field| %>
-    <div class="field">
-      <%= f.label field, field.to_s.humanize %>
-      <%= form_field f, field %>
-      <%= error_message_on @item, field %>
-    </div>
-  <% end %>
+<div class="block">
+  <%= form_for [:admin, @item], :html => { :multipart => true } do |f| %>
+    <% @form_fields.each do |field| %>
+      <div class="field">
+        <%= f.label field, field.to_s.humanize %>
+        <%= form_field f, field %>
+        <%= error_message_on @item, field %>
+      </div>
+    <% end %>
   
-  <%= submit_tag "Save" %>
-  <%= submit_tag "Save and continue", :name => "commit_and_continue" %> or
-  <%= link_to "cancel", [:admin, @model] %>
-<% end %>
+    <%= submit_tag "Save" %>
+    <%= submit_tag "Save and continue", :name => "commit_and_continue" %> or
+    <%= link_to "cancel", [:admin, @model] %>
+  <% end %>
+</div>
