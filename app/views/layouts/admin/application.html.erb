@@ -13,7 +13,7 @@
 </head>
 <body>
   <div id="header">
-    <h1>BrightContent</h1> <%= link_to "view site", root_url, :id => "view_site" %>
+    <h1>BrightContent</h1> <%= link_to "view site", '/', :id => "view_site" %>
     <div id="user">
       <% if @current_user %>
       <span><%= @current_user.email_address %></span> | <%= link_to 'logout', admin_session_url, :method => 'delete' %>
