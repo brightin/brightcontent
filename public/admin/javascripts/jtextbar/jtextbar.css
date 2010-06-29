@@ -1,0 +1,119 @@
+/**
+* jTextBar default "skin".
+*
+* Example of rendered HTML:
+* 
+* <ul class="jtextbar-toolbar">
+*   <li class="bold" title="Bold Text [Ctrl+B]">Bold Text</li>
+*   <li class="italic" title="Italic Text [Ctrl+I]">Italic Text</li>
+*   <li class="h menu" title="Headline">Headline
+*     <ul style="display: none;">
+*     <li class="h1" title="Level 1 Headline [Ctrl+1]">Level 1 Headline</li>
+*     <li class="h2" title="Level 2 Headline [Ctrl+2]">Level 2 Headline</li>
+*     </ul>
+*   </li>
+*   <li class="link" title="Internal Link [Ctrl+L]">Internal Link</li>
+* </ul>
+*
+*/
+ 
+.jtextbar-toolbar {
+  position:relative;
+  bottom:-1px; /* Remove space between jtextbar and textarea. TODO:Fix Opera */
+  list-style:none;
+  width:255px;
+  height:30px;
+  margin:0.5em 0 0 0;
+  padding:0;
+ }
+.jtextbar-toolbar * {
+  margin:0;
+  padding:0; 
+}  
+.jtextbar-toolbar li {
+  text-indent: -9999em;
+  height:30px;
+  width:30px; /* default button width */
+  background:url(toolbar.png) no-repeat;
+  display:block;
+  text-decoration:none;
+  float:left;
+  cursor:pointer;
+  position:relative;
+}
+.jtextbar-toolbar li ul {
+  background:#fff;
+  border:1px solid #ddd;
+  display:block;
+  width:110px;
+  position:absolute;
+  top:30px;
+  left:0;
+}
+.jtextbar-toolbar li ul li {
+  text-indent:0px;
+  background:#fff;
+  list-style:none;
+  border-top:1px solid #eee;
+  font-family:Arial, sans-serif;
+  font-size:12px;
+  color:#555;
+  width:100px;
+  height:15px;
+  padding:5px;
+}
+.jtextbar-toolbar li ul li:hover, .jtextbar-toolbar li ul li.IE-hover {
+  background:#eee;
+}
+/* Buttons */
+.jtextbar-toolbar li.bold {
+  background-position: 0 0;
+}
+.jtextbar-toolbar li.italic {
+  background-position: -30px 0;
+}
+.jtextbar-toolbar li.listul {
+  background-position: -60px 0;
+}
+.jtextbar-toolbar li.list {
+  background-position: -90px 0; 
+}
+.jtextbar-toolbar li.h {
+  background-position: -120px 0;
+  width: 60px;
+}
+.jtextbar-toolbar li.link {
+  background-position: -180px 0;
+}
+.jtextbar-toolbar li.image {
+  background-position: -210px 0;
+}
+.jtextbar-toolbar li.more {
+  background-position: -240px 0;
+  width: 15px;
+}
+/* Buttons active */
+.jtextbar-toolbar li.bold:active, .jtextbar-toolbar span.IE-active li.bold {
+  background-position: 0 -30px;
+}
+.jtextbar-toolbar li.italic:active, .jtextbar-toolbar span.IE-active li.italic {
+  background-position: -30px -30px;
+}
+.jtextbar-toolbar li.listul:active, .jtextbar-toolbar span.IE-active li.listul {
+  background-position: -60px -30px;
+}
+.jtextbar-toolbar li.list:active, .jtextbar-toolbar span.IE-active li.list {
+  background-position: -90px -30px; 
+}
+.jtextbar-toolbar li.h:active, .jtextbar-toolbar span.IE-active li.h {
+  background-position: -120px -30px;
+}
+.jtextbar-toolbar li.link:active, .jtextbar-toolbar span.IE-active li.link {
+  background-position: -180px -30px;
+}
+.jtextbar-toolbar li.image:active, .jtextbar-toolbar span.IE-active li.image {
+  background-position: -210px -30px;
+}
+.jtextbar-toolbar li.more:active, .jtextbar-toolbar span.IE-active li.more {
+  background-position: -240px -30px;
+}

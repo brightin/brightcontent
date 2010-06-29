@@ -1,0 +1,35 @@
+<%= link_to "<span>+</span> New #{@model.name}".html_safe, polymorphic_url([:admin, @model], :action => "new"), :class => "new_document" %>
+
+
+<h2><%= @model.name.pluralize %></h2>
+<%= will_paginate @items %>
+<table>
+  <thead>
+    <tr>
+      <% @list_fields.each do |field| %>
+        <th><%= field.humanize %></th>
+      <% end %>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @items.each do |item| %>
+      <tr>
+        <% @list_fields.each do |field|%>
+        <td><%= list_field item, field %></td>
+        <% end %>
+        <td class="actions">
+          <%= link_to 'Edit', polymorphic_url([:admin, item], :action => "edit"), :class => "edit" %>
+          <%= link_to 'Show', polymorphic_url([:admin, item]), :class => "view" %>
+          <%= link_to 'Destroy', [:admin, item], :confirm => 'Are you sure?', :method => :delete, :class => "delete" %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br />
+
+<% if @model.all.size > 15 %>
+  <%= link_to "New #{@model.name}", polymorphic_url([:admin, @model], :action => "new"), :class => "new_document" %>
+  <%= will_paginate @items %>
+<% end %>
