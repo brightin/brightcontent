@@ -21,8 +21,8 @@ module Admin::ApplicationHelper
   end
   
   def error_message_on( item, field )
-    if @item.errors.on(field)
-      return content_tag(:div, @item.errors.on(field).to_s, :class => 'error')
+    unless @item.errors[field].blank?
+      return content_tag(:div, @item.errors[field].to_s, :class => 'error')
     end
     ""
   end
