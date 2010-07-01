@@ -1,3 +1,14 @@
+<%= content_for :additional_javascript do %>
+    <%= javascript_include_tag "/admin/javascripts/jtextbar/jquery-jtextbar" %>
+      <style type="text/css" media="all">@import "/admin/javascripts/jtextbar/jtextbar.css";</style>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $("textarea[id*='body']").jtextbar({format: "Textile"});
+      });
+    </script>
+<% end %>
+
+<div class="block">
 <%= form_for [:admin, @item], :html => { :multipart => true } do |f| %>
   <div class="field">
     <%= f.label 'name', 'name'.to_s.humanize %>
@@ -9,15 +20,6 @@
     <%= f.label 'body', 'body'.to_s.humanize %>
     <%= form_field f, 'body' %>
     <%= error_message_on @item, 'body' %>
-    <%= content_for :additional_javascript do %>
-        <style type="text/css" media="all">@import "/javascripts/jtextbar/jtextbar.css";</style> 
-        <%= javascript_include_tag "jtextbar/jquery-jtextbar" %>
-        <script type="text/javascript">
-          $(document).ready(function() {
-            $("#page_body").jtextbar({format: "Textile"});
-          });
-        </script>
-    <% end %>
   </div>
   
   <script type="text/javascript">
@@ -81,3 +83,4 @@
   <%= submit_tag "Save and continue", :name => "commit_and_continue" %> or
   <%= link_to "cancel", [:admin, @model] %>
 <% end %>
+</div>

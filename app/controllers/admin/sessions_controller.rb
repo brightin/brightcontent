@@ -17,7 +17,7 @@ class Admin::SessionsController < ActionController::Base
   
   def destroy
     reset_session
-    redirect_to root_url
+    redirect_to '/'
   end
   
   

@@ -1,21 +1,17 @@
 <tr>
    <td style="padding-left:10px;">
   <%= raw( tree_images(page, depth) ) %>
-  <div<%= raw(' class="hidden"') if page.hidden? %>>
+  <div class="<%= 'hidden ' if page.hidden? %><%= 'draft' if page.draft? %>">
     <%= link_to page.name, edit_admin_page_path( page ) %>
+  <% if page.draft? %>
+  	<em>draft</em>
+  <% end %>
 	<% if page.hidden? %>
-		 <em>(hidden)</em>
-	<% end %>
-	<% if page.draft? %>
-		<em style="color: #e00000;">(draft)</em>
+		 <span>(hidden)</span>
 	<% end %>
   </div>
   </td>
-  <td class="actions">
-    <%= link_to 'Edit', edit_admin_page_path( page ), :class => "edit" %>
-    <%= link_to 'Show', page.url, :class => "view" %>
-    <%= link_to 'Destroy', [:admin, page], :confirm => 'Are you sure?', :method => :delete, :class => "delete" %>
-  </td>
+  <%= render :partial => "admin/default/list_actions", :locals => { :item => page } %>
 </tr>
 <% page.children.each do |p| %>
   <%= render :partial => "admin/pages/table_row", :locals => { :page => p, :depth => depth+1 } %>
