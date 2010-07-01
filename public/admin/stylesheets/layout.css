@@ -88,8 +88,8 @@ tbody td img {
   display: block;
   float: left;
   margin-left: 20px;
-  opacity:0.40;
-  filter:alpha(opacity=40);
+  opacity: .4;
+  filter: alpha(opacity=40);
 }
 
 tbody td img:first-child {
@@ -98,7 +98,7 @@ tbody td img:first-child {
 
 #page_tree td { overflow: hidden; }
 #page_tree td:first-child { padding: 0px; }
-#page_tree td div { padding: 8px 5px; float: left; }
+#page_tree td div { padding: 10px 5px; float: left; }
 
 /* LAYOUT */
 #header {
@@ -238,7 +238,8 @@ tbody td img:first-child {
   width: 20%;
 }
 
-#content .block {
+#content .block,
+#login {
   width: 700px;
   padding: 20px 35px 35px;
   background: #fff;
@@ -254,6 +255,7 @@ form a:link {
   -moz-box-shadow: 0 2px 3px #AFAFAF;
   -webkit-box-shadow: 0 2px 3px #AFAFAF;
   box-shadow: 0 2px 3px #AFAFAF;
+  filter: progid:DXImageTransform.Microsoft.Shadow(color='#AFAFAF', Direction=135, Strength=4);
 }
 
 input[type='text'],
@@ -375,9 +377,24 @@ a.new_document {
     font-size: 20px;
   }
 
+table tr.draft,
 table tr td .hidden,
-table tr td .hidden a {
-  color: #999;
+table tr td .draft a {
+  color: #818181;
+}
+
+table .hidden span {
+  font-style: italic;
+}
+
+table .draft em {
+  padding: 2px 4px;
+  background-color: #C90000;
+  color: #FFF;
+  font-size: 9px;
+  font-weight: bold;
+  font-style: normal;
+  cursor: default;
 }
 
 table tr.new td a {
