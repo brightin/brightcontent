@@ -39,7 +39,7 @@ Default crud actions are included. Generic variables <tt>@items</tt> (index) and
 
 Run rails plugin to install the plugin in the vendor/plugin directory
 
-  $ rails plugin install git://github.com/brightin/brightcontent.git
+  $ rails plugin install git@github.com:brightin/brightcontent.git
   
 Add the requirements to your <tt>Gemfile</tt>
 
