@@ -8,7 +8,6 @@ module Admin::PagesHelper
   end
   
   def position_pairs(page)
-    page.parent_id ||= Page.root
     pages = page.siblings
     return [] if pages.size < 1 || page.parent_id.nil?
     i = 1
