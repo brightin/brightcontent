@@ -1,7 +1,7 @@
 module Admin::PagesHelper
   
   def page_pairs(page, current, prefix='')
-    return [] if current == page
+    return [] if page.nil? or current == page
     result = [[prefix + page.name, page.id]]
     page.children.each {|p| result += page_pairs(p, current, prefix + '-')} 
     result
