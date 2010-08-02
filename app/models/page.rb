@@ -25,10 +25,10 @@ class Page < ActiveRecord::Base
   end
   
   def url
-    '/' + crumm[1..-1].map(&:slug).join('/')
+    '/' + path[1..-1].map(&:slug).join('/')
   end
   
-  def crumm
+  def path
     ([self] + ancestors).reverse
   end
   
