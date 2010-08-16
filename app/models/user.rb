@@ -4,6 +4,6 @@ class User < ActiveRecord::Base
   end
   
   def before_save
-      self.username.downcase!
+      self.email_address.downcase!
   end
 end
