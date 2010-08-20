@@ -74,7 +74,7 @@ module Admin::DefaultActions
   end
   
   def model
-    Kernel.const_get(singular_name.humanize)
+    Kernel.const_get(singular_name.camelize)
   end  
   
   def singular
