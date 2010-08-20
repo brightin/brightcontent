@@ -68,7 +68,7 @@ Add admin routes for pages and other resources in <tt>config/routes.rb</tt>
     resource  :session, :only => [:new, :create, :destroy]
   end
 
-Run sync to add migrations and public assets (CSS etc) en run migrations
+Run sync to add migrations and public assets (CSS etc) and run migrations
 
   $ rake brightcontent:sync
   $ rake db:migrate
