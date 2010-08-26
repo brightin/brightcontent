@@ -1,0 +1,43 @@
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('<%= element %>').wymeditor({
+
+      html: '',
+      toolsItems: [
+        {'name': 'Bold', 'title': 'Strong', 'css': 'wym_tools_strong'}, 
+        {'name': 'Italic', 'title': 'Emphasis', 'css': 'wym_tools_emphasis'},
+        {'name': 'CreateLink', 'title': 'Link', 'css': 'wym_tools_link'},
+        {'name': 'Unlink', 'title': 'Unlink', 'css': 'wym_tools_unlink'},
+        {'name': 'InsertImage', 'title': 'Image', 'css': 'wym_tools_image'},
+        {'name': 'InsertOrderedList', 'title': 'Ordered_List',
+            'css': 'wym_tools_ordered_list'},
+        {'name': 'InsertUnorderedList', 'title': 'Unordered_List',
+            'css': 'wym_tools_unordered_list'},
+        {'name': 'Paste', 'title': 'Paste_From_Word',
+            'css': 'wym_tools_paste'},
+        {'name': 'Undo', 'title': 'Undo', 'css': 'wym_tools_undo'},
+        {'name': 'Redo', 'title': 'Redo', 'css': 'wym_tools_redo'},
+        {'name': 'ToggleHtml', 'title': 'HTML', 'css': 'wym_tools_html'}
+      ],
+      containersItems: [
+        {'name': 'P', 'title': 'Paragraph', 'css': 'wym_containers_p'},
+        {'name': 'H2', 'title': 'Heading_2', 'css': 'wym_containers_h2'},
+        {'name': 'H3', 'title': 'Heading_3', 'css': 'wym_containers_h3'}
+      ],
+      postInit: function(wym) {
+        wym.addCssRule( wym._doc.styleSheets[0], {
+          name: 'body',
+          css: 'background: #f0f0f0; font-family: "Lucida Grande", "Lucida Sans", "Arial"; font-size: 90%; padding-left: 0; padding-right: 0;'
+        });
+        wym.addCssRule( wym._doc.styleSheets[0], {
+          name: 'ul, ol',
+          css: 'border-left:20px solid #e0e0e0; padding:5px;'
+        });
+      }
+    });
+      
+    $("input[type='submit']").addClass('wymupdate');
+  });
+</script>
+
+<%= stylesheet_link_tag '/admin/stylesheets/wymeditor.css' %>
