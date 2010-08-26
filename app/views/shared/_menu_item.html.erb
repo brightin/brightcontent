@@ -1,0 +1,21 @@
+<%#
+  Recursive partial for rendering navigation menu's. Renders sub items for active items. Control the depth with the :depth local, unlimited by default.
+  
+  Examples:
+  
+  Top level menu including homepage:
+    render "shared/menu_item", :menu_item => Page.root, :depth => 1
+  
+  Second level menu with all sub items:
+    render :partial => "shared/menu_item", :collection => menu_item => @page.path[1].children
+  
+%>
+<% depth ||= -1 %>
+<li>
+  <%= link_to menu_item.name, menu_item.url, :class => active?(menu_item) ? "active" : "" %>
+  <% if depth != 0 && menu_item.children.visible.present? && active?(menu_item) %>
+    <ul>
+      <%= render :partial => "shared/menu_item", :collection => menu_item.children.visible, :locals => { :depth => depth - 1 } %>
+    </ul>
+  <% end %>
+</li>
