@@ -30,4 +30,11 @@ module Admin::PagesHelper
     return result + image_tag("/admin/images/#{filename}.gif")
   end
   
+  def parent_path(page)
+    parent_path = request.protocol + request.host_with_port
+    parent_path += page.parent.url unless page.parent.nil? || page.parent.url == "/"
+    parent_path += "/"
+    parent_path
+  end
+  
 end

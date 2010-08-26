@@ -21,8 +21,7 @@ module Admin::DefaultActions
   end
   
   def show
-    @form_fields ||= model.column_names - ['created_at', 'updated_at']
-    respond_with(self.singular = model.find(params[:id]))
+    redirect_to :action => :edit
   end
   
   def new
@@ -36,19 +35,24 @@ module Admin::DefaultActions
   end
   
   def create
-    respond_with(self.singular = model.create(params[singular_name.to_sym]), :location => params[:commit_and_continue] ? 
-      polymorphic_url([:admin, singular], :action => singular.errors.blank? ? "edit" : "new" ) : 
+    self.singular = model.new(params[singular_name.to_sym])
+    if singular.save
+      flash[:notice] = "saved!"
+    else
+      flash.now[:error] = singular.errors.full_messages.to_sentence
+    end
+    respond_with(singular, :location => params[:commit_and_continue] ? 
+      polymorphic_url([:admin, singular], :action => "edit" ) : 
       polymorphic_url([:admin, model])
-    )
+      )
   end
   
   def update
-    id = params[:id]
-    self.singular = model.find(id)
+    self.singular = model.find(params[:id])
     if singular.update_attributes(params[singular_name.to_sym])
       flash[:notice] = "saved!"
     else
-      flash[:error] = singular.errors.full_messages.to_sentence
+      flash.now[:error] = singular.errors.full_messages.to_sentence
     end
     respond_with(singular, :location => params[:commit_and_continue] ? 
       polymorphic_url([:admin, singular], :action => "edit") : 

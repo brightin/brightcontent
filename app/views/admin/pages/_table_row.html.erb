@@ -1,14 +1,14 @@
 <tr>
-   <td style="padding-left:10px;">
+  <td style="padding-left:10px;">
   <%= raw( tree_images(page, depth) ) %>
   <div class="<%= 'hidden ' if page.hidden? %><%= 'draft' if page.draft? %>">
     <%= link_to page.name, edit_admin_page_path( page ) %>
   <% if page.draft? %>
-  	<em>draft</em>
+    <em>draft</em>
   <% end %>
-	<% if page.hidden? %>
-		 <span>(hidden)</span>
-	<% end %>
+  <% if page.hidden? %>
+     <span>(hidden)</span>
+  <% end %>
   </div>
   </td>
   <%= render :partial => "admin/default/list_actions", :locals => { :item => page } %>
