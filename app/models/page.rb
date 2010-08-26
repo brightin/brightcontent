@@ -5,8 +5,15 @@ class Page < ActiveRecord::Base
   acts_as_tree  :order => :position
   scope :published, where(:draft => false)
   scope :visible, published.where(:hidden => false)
-  validates_presence_of :name
+  validates_presence_of :title, :name
+  validates_presence_of :url_name, :unless => :homepage?
+  validates_format_of :url_name, :with => /^[-a-z0-9]+$/, :if => "url_name.present?"
   after_save { PageUrls.mark_dirty }
+  
+  def initialize(*)
+    super
+    self.parent = Page.root
+  end
   
   def menu_item?
     published && visible
@@ -16,20 +23,20 @@ class Page < ActiveRecord::Base
     self.parent.children.last == self if self.parent
   end
   
-  def slug
-    if url_name.blank?
-      self.name.downcase.gsub(/[^a-z0-9']+/, "-")
-    else
-      url_name.downcase
-    end
+  def homepage?
+    self.parent.nil?
   end
   
   def url
-    '/' + path[1..-1].map(&:slug).join('/')
+    '/' + path[1..-1].map(&:url_name).join('/')
   end
   
   def path
     ([self] + ancestors).reverse
+  end
+  
+  def get_all_page_images
+    self.assets
   end
   
 end

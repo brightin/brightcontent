@@ -21,10 +21,8 @@ module Admin::ApplicationHelper
   end
   
   def error_message_on( item, field )
-    unless @item.errors[field].blank?
-      return content_tag(:div, @item.errors[field].to_s, :class => 'error')
-    end
-    ""
+    return content_tag(:div, @item.errors[field].to_sentence, :class => 'error') if @item.errors[field].present?
+    return ""
   end
   
   # nested form (used for assets)
@@ -33,10 +31,14 @@ module Admin::ApplicationHelper
   end
   
   def link_to_add_fields(name, f, association)
-     new_object = f.object.class.reflect_on_association(association).klass.new
-     fields = f.fields_for(association, new_object, :child_index => "new_#{association}") do |builder|
-       render(find_partial(association.to_s.singularize + "_fields"), :f => builder)
-     end
-     link_to_function(name, h("add_fields(this, \"#{association}\", \"#{escape_javascript(fields)}\")"), :class => 'add_field')
-   end
+    new_object = f.object.class.reflect_on_association(association).klass.new
+    fields = f.fields_for(association, new_object, :child_index => "new_#{association}") do |builder|
+     render(find_partial(association.to_s.singularize + "_fields"), :f => builder)
+    end
+    link_to_function(name, h("add_fields(this, \"#{association}\", \"#{escape_javascript(fields)}\")"), :class => 'add_field')
+  end
+  
+  def erroneous_fields(item)
+    item.errors.map {|k,v| k if v }.compact
+  end
 end
