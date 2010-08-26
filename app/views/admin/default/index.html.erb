@@ -17,7 +17,7 @@
         <% @list_fields.each_with_index do |field, index|%>
         <td><%= list_field item, field %> <%= "<em>draft</em>".html_safe if (item.draft? rescue nil) && index == 0 %></td>
         <% end %>
-        <%= render :partial => "admin/default/list_actions", :locals => { :item => item } %>
+        <%= render :partial => find_partial("list_actions"), :locals => { :item => item } %>
       </tr>
     <% end %>
   </tbody>
