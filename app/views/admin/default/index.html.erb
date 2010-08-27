@@ -13,9 +13,13 @@
   </thead>
   <tbody>
     <% @items.each do |item| %>
-      <tr<%= ' class="draft"'.html_safe if item.draft rescue nil %>>
+      <tr class="<%= 'hidden ' if (item.hidden? rescue nil) %><%= 'draft' if (item.draft? rescue nil) %>">
         <% @list_fields.each_with_index do |field, index|%>
-        <td><%= list_field item, field %> <%= "<em>draft</em>".html_safe if (item.draft? rescue nil) && index == 0 %></td>
+          <td>
+            <%= list_field item, field %> 
+            <%= "<em>draft</em>".html_safe if (item.draft? rescue nil) && index == 0 %>
+            <%= "<span>(hidden)</span>".html_safe if (item.hidden? rescue nil) && index == 0 %>
+          </td>
         <% end %>
         <%= render :partial => find_partial("list_actions"), :locals => { :item => item } %>
       </tr>
