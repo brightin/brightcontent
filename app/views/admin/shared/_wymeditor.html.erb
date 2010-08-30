@@ -25,14 +25,7 @@
         {'name': 'H3', 'title': 'Heading_3', 'css': 'wym_containers_h3'}
       ],
       postInit: function(wym) {
-        wym.addCssRule( wym._doc.styleSheets[0], {
-          name: 'body',
-          css: 'background: #f0f0f0; font-family: "Lucida Grande", "Lucida Sans", "Arial"; font-size: 90%; padding-left: 0; padding-right: 0;'
-        });
-        wym.addCssRule( wym._doc.styleSheets[0], {
-          name: 'ul, ol',
-          css: 'border-left:20px solid #e0e0e0; padding:5px;'
-        });
+        // werkt niet met multiple instances
       }
     });
       
