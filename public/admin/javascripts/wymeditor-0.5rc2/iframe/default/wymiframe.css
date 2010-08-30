@@ -20,7 +20,7 @@
 /* VISUAL FEEDBACK */
 
 /* basic */
-  body  { background: #e1e8f1;}
+  body  {background: #f0f0f0; font-family: "Lucida Grande", "Lucida Sans", "Arial"; font-size: 90%; padding-left: 0; padding-right: 0;}
  
 /* make HTML blocs visible */
   p,

@@ -421,10 +421,14 @@ a.new_document {
     font-size: 20px;
   }
 
-table tr.draft,
-table tr td .hidden,
-table tr td .draft a {
+table tr.hidden td span,
+table tr.draft td span,
+table tr.draft td a {
   color: #818181;
+}
+
+table tr.hidden span {
+  font-style: italic;
 }
 
 table .hidden span {

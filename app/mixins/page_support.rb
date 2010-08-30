@@ -2,7 +2,7 @@
 module PageSupport
   def self.included(base)
     base.send :before_filter, :set_page
-    base.send :helper_method, :homepage?, :active?
+    base.send :helper_method, :homepage?, :active?, :current?
   end
   
   private
@@ -26,5 +26,9 @@ module PageSupport
   
   def active?(page)
     @page.path.include? page
+  end
+  
+  def current?(page)
+    @page.path.last == page
   end
 end
