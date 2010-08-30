@@ -422,6 +422,7 @@ a.new_document {
   }
 
 table tr.hidden td span,
+table tr.draft td span,
 table tr.draft td a {
   color: #818181;
 }
