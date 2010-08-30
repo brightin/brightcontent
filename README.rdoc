@@ -59,8 +59,8 @@ Add admin routes for pages and other resources in <tt>config/routes.rb</tt>
   get 'admin' => redirect('/admin/pages')
   namespace :admin do
     resources :pages do
-      get :position_tag, :on => :member      #for edit
-      get :position_tag, :on => :collection  #for new
+      get :parent_specific_info, :on => :member      #for edit
+      get :parent_specific_info, :on => :collection  #for new
     end
     #resources :vacancies  #for example
     resources :assets
