@@ -10,6 +10,10 @@ class Page < ActiveRecord::Base
   validates_format_of :url_name, :with => /^[-a-z0-9]+$/, :if => "url_name.present?"
   after_save { PageUrls.mark_dirty }
   
+  def self.root_with_children
+    [root] + root.children
+  end
+  
   def initialize(*)
     super
     self.parent = Page.root
