@@ -41,10 +41,7 @@ module Admin::DefaultActions
     else
       flash.now[:error] = singular.errors.full_messages.to_sentence
     end
-    respond_with(singular, :location => params[:commit_and_continue] ? 
-      polymorphic_url([:admin, singular], :action => "edit" ) : 
-      polymorphic_url([:admin, model])
-      )
+    respond_with(singular, respond_options)
   end
   
   def update
@@ -54,10 +51,7 @@ module Admin::DefaultActions
     else
       flash.now[:error] = singular.errors.full_messages.to_sentence
     end
-    respond_with(singular, :location => params[:commit_and_continue] ? 
-      polymorphic_url([:admin, singular], :action => "edit") : 
-      polymorphic_url([:admin, model])
-      )
+    respond_with(singular, respond_options)
   end
   
   def destroy
@@ -97,5 +91,15 @@ module Admin::DefaultActions
   def plural=(value)
     instance_variable_set "@#{plural_name}", value
     instance_variable_set "@items", value
+  end
+  
+  def respond_options
+    return {} if singular.invalid?      # respond_with will render new anyway
+    
+    if params[:commit_and_continue]
+      { :location => polymorphic_url([:admin, singular], :action => "edit") }
+    else
+      { :location => polymorphic_url([:admin, model]) }
+    end
   end
 end
