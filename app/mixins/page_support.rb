@@ -2,7 +2,7 @@
 module PageSupport
   def self.included(base)
     base.send :before_filter, :set_page
-    base.send :helper_method, :homepage?, :active?, :current?
+    base.send :helper_method, :homepage?, :active?, :current?, :menu_item_classes
   end
   
   private
@@ -29,6 +29,14 @@ module PageSupport
   end
   
   def current?(page)
-    @page.path.last == page
+    @page == page
+  end
+  
+  def menu_item_classes(page)
+    classes = []
+    classes << [:current] if current? page
+    classes << [:active] if active? page
+    classes << [:root] if page.homepage?
+    classes
   end
 end

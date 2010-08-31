@@ -4,15 +4,15 @@
   Examples:
   
   Top level menu including homepage:
-    render "shared/menu_item", :menu_item => Page.root, :depth => 1
+    render :partial => "shared/menu_item", :collection => Page.root_with_children
   
   Second level menu with all sub items:
-    render :partial => "shared/menu_item", :collection => menu_item => @page.path[1].children
+    render :partial => "shared/menu_item", :collection => @page.path[1].children
   
 %>
 <% depth ||= -1 %>
 <li>
-  <%= link_to menu_item.name, menu_item.url, :class => active?(menu_item) ? "active" : "" %>
+  <%= link_to menu_item.name, menu_item.url, :class => menu_item_classes(menu_item) %>
   <% if depth != 0 && menu_item.children.visible.present? && active?(menu_item) %>
     <ul>
       <%= render :partial => "shared/menu_item", :collection => menu_item.children.visible, :locals => { :depth => depth - 1 } %>
