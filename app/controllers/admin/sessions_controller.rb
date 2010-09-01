@@ -1,5 +1,6 @@
 class Admin::SessionsController < ActionController::Base
   layout 'admin/application'
+  helper Admin::ApplicationHelper
   
   def new
   end
