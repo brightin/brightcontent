@@ -11,7 +11,7 @@
   <% end %>
   </div>
   </td>
-  <%= render :partial => "admin/default/list_actions", :locals => { :item => page } %>
+  <%= render find_partial("list_actions"), :item => page %>
 </tr>
 <% page.children.each do |p| %>
   <%= render :partial => "admin/pages/table_row", :locals => { :page => p, :depth => depth+1 } %>
