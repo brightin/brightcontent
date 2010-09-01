@@ -21,7 +21,7 @@
             <%= "<span>(hidden)</span>".html_safe if (item.hidden? rescue nil) && index == 0 %>
           </td>
         <% end %>
-        <%= render :partial => find_partial("list_actions"), :locals => { :item => item } %>
+        <%= render find_partial("list_actions"), :item => item %>
       </tr>
     <% end %>
   </tbody>
