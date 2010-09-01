@@ -10,7 +10,7 @@
   <%= javascript_include_tag '/admin/javascripts/rails' %>
   <%= csrf_meta_tag %>
   <%= yield :additional_javascript %>
-  <%= render :partial => "admin/shared/custom_head" %>'
+  <%= render find_partial("custom_head") %>
 </head>
 <body>
   <div id="header">
