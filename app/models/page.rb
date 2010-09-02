@@ -14,6 +14,10 @@ class Page < ActiveRecord::Base
     [root] + root.children
   end
   
+  def self.visible_root_with_children
+    [root] + root.children.visible
+  end
+  
   def initialize(*)
     super
     self.parent = Page.root
