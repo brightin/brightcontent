@@ -4,10 +4,10 @@
   Examples:
   
   Top level menu including homepage:
-    render :partial => "shared/menu_item", :collection => Page.root_with_children
+    render :partial => "shared/menu_item", :collection => Page.visible_root_with_children
   
   Second level menu with all sub items:
-    render :partial => "shared/menu_item", :collection => @page.path[1].children
+    render :partial => "shared/menu_item", :collection => @page.path[1].children.visible
   
 %>
 <% depth ||= -1 %>
