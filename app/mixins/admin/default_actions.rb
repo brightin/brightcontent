@@ -41,7 +41,7 @@ module Admin::DefaultActions
     else
       flash.now[:error] = singular.errors.full_messages.to_sentence
     end
-    respond_with(singular, respond_options)
+    respond_with(singular, :location => requested_location)
   end
   
   def update
@@ -51,13 +51,13 @@ module Admin::DefaultActions
     else
       flash.now[:error] = singular.errors.full_messages.to_sentence
     end
-    respond_with(singular, respond_options)
+    respond_with(singular, :location => requested_location)
   end
   
   def destroy
     self.singular = model.find(params[:id])
     singular.destroy
-    respond_with([:admin, singular], :status => :deleted) 
+    respond_with([:admin, singular], :status => :deleted, :location => params[:url])
   end
   
   
@@ -93,13 +93,13 @@ module Admin::DefaultActions
     instance_variable_set "@items", value
   end
   
-  def respond_options
-    return {} if singular.invalid?      # respond_with will render new anyway
-    
-    if params[:commit_and_continue]
-      { :location => polymorphic_url([:admin, singular], :action => "edit") }
+  def requested_location
+    if singular.invalid?
+      nil
+    elsif params[:commit_and_continue]
+      polymorphic_url([:admin, singular], :action => "edit")
     else
-      { :location => polymorphic_url([:admin, model]) }
+      polymorphic_url([:admin, model])
     end
   end
 end

@@ -24,7 +24,7 @@
       <ul>
         <% if @admin_controllers %>
           <% @admin_controllers.each do |admin_controller| %>
-            <li><%= link_to admin_controller.humanize, "/admin/#{admin_controller}", :class => controller_name == admin_controller ? "active" : ""  %></li>
+            <li><%= link_to admin_controller.titleize, "/admin/#{admin_controller}", :class => controller_name == admin_controller ? "active" : ""  %></li>
           <% end %>
         <% end %>
       </ul>

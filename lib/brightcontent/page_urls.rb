@@ -16,7 +16,7 @@ class PageUrls
   end
 
   def reload
-    @urls = Page.all.map(&:url)
+    @urls = Page.published.map(&:url)
     @timestamp = get_stamp
   end  
   

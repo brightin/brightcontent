@@ -1,6 +1,6 @@
-<%= link_to "<span>+</span> New #{@model.name}".html_safe, polymorphic_url([:admin, @model], :action => "new"), :class => "new_document" %>
+<%= link_to "<span>+</span> New #{@model.name.titleize}".html_safe, polymorphic_url([:admin, @model], :action => "new"), :class => "new_document" %>
 
-<h2><%= @model.name.pluralize %></h2>
+<h2><%= @model.name.pluralize.titleize %></h2>
 <%= will_paginate @items %>
 <table>
   <thead>
@@ -29,6 +29,6 @@
 <br />
 
 <% if @model.all.size > 15 %>
-  <%= link_to "<span>+</span> New #{@model.name}".html_safe, polymorphic_url([:admin, @model], :action => "new"), :class => "new_document" %>
+  <%= link_to "<span>+</span> New #{@model.name.titleize}".html_safe, polymorphic_url([:admin, @model], :action => "new"), :class => "new_document" %>
   <%= will_paginate @items %>
 <% end %>
