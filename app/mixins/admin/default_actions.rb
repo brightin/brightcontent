@@ -57,11 +57,7 @@ module Admin::DefaultActions
   def destroy
     self.singular = model.find(params[:id])
     singular.destroy
-    if params[:url]
-      redirect_to params[:url]
-    else
-      respond_with([:admin, singular], :status => :deleted)
-    end
+    respond_with([:admin, singular], :status => :deleted, :location => params[:url])
   end
   
   
