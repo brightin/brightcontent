@@ -364,22 +364,6 @@ form.error {
   line-height: 10px;
 }
 
-#form_buttons {
-  position: relative;
-}
-
-#form_buttons .overlay {
-  top: 0;
-  left: 0;
-  background-color: #fff;
-  position: absolute;
-  width: 700px;
-  height: 50px;
-  opacity: .5;
-  filter: alpha(opacity=50); /* IE lt 8 */
-  -ms-filter: "alpha(opacity=50)"; /* IE 8 */
-}
-
 .image {
 margin: 10px;
 width: 300px;

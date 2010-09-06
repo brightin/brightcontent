@@ -1,0 +1,65 @@
+div.wym_area_main {
+  margin-right: 150px;
+}
+
+.wym_skin_default {
+  position: relative;
+  border: 1px solid #e8e8e8;
+  background: #f4f4f4;
+  padding: 4px 5px
+}
+
+
+.wym_skin_default .wym_html textarea {
+  border: 1px solid #ccc;
+}
+
+.wym_skin_default .wym_iframe {
+  width: 99%;
+}
+
+.wym_skin_default .wym_iframe iframe {
+  height: 520px;
+  border: 1px solid #ccc;
+}
+
+.wym_skin_default .wym_area_right { 
+  position: absolute;
+  top: 36px;
+  left: 542px;
+  float: none;
+  width: 150px;
+}
+
+.wym_skin_default .wym_section a:hover {
+  background-color: #dedede;
+}
+
+.wym_skin_default .wym_dropdown h2 {
+  display: none;
+}
+
+.wym_skin_default .wym_dropdown ul {
+  display: block;
+  background: white;
+  position: static;
+}
+
+.wym_skin_default .wym_dropdown ul li {
+  font-size: 12px;
+}
+
+.wym_skin_default .wym_dropdown {
+  border: 1px solid #ccc;
+}
+
+.wym_skin_default .wym_dropdown ul {
+  margin-left: 0;
+  background-color: #f0f0f0;
+  padding: 5px 10px 5px 3px;
+  border-width: 0px;
+}
+
+.wym_classes {
+  display: none;
+}
