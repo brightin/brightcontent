@@ -1,15 +1,15 @@
-<div id="form_buttons">
-  <%= submit_tag "Save" %>
-  <%= submit_tag "Save and continue", :name => "commit_and_continue" %>
-  <%= hidden_field :commit, :save_and_continue %> or
-  <%= link_to "cancel", [:admin, @model] %>
-</div>
+<%= submit_tag "Save" %>
+<%= submit_tag "Save and continue", :name => "commit_and_continue" %>
+<%= hidden_field :commit, :save_and_continue %> or
+<%= link_to "cancel", [:admin, @model] %>
 
 <script type="text/javascript">
   $(function () {
     $('form').submit(function () {
+      if ( $(this).hasClass('disabled') ) { return false }
+      
       setTimeout(function () {
-        $('#form_buttons').append( $('<div class="overlay">&nbsp;</div>') );
+        $('form').addClass('disabled');
       }, 1);
     });
   });
