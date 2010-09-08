@@ -6,10 +6,7 @@
   $(function () {
     $('form').submit(function () {
       if ( $(this).hasClass('disabled') ) { return false }
-      
-      setTimeout(function () {
-        $('form').addClass('disabled');
-      }, 1);
+      $('form').addClass('disabled');
     });
   });
 </script>
