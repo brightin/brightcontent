@@ -11,7 +11,7 @@
     <br />
     <br />
 
-    <% if (erroneous_fields(@page) & [:name, :url_name, :parent_id, :position, :meta_keywords, :meta_description]).empty? %>
+    <% if (invalid_fields(@page) & [:name, :url_name, :parent_id, :position, :meta_keywords, :meta_description]).empty? %>
       <div class="fields more_options" style="display: none;">
     <% else %>
       <div class="fields more_options">
@@ -43,7 +43,7 @@
           <% else %>
             <div class="field">
               <%= f.label 'url_name', 'Url' %>
-              <% if erroneous_fields(@page).include? :url_name %>
+              <% if invalid_fields(@page).include? :url_name %>
                 <div class="url_name" style="display: none;">
               <% else %>
                 <div class="url_name">
@@ -51,7 +51,7 @@
                   <span class="parent_path"><%= parent_path @page %></span><span id="url_name_preview"><%= @page.url_name %></span>
                   <%= link_to_function "edit", "jQuery('.url_name').toggle()" %>
                 </div>
-              <% if erroneous_fields(@page).include? :url_name %>
+              <% if invalid_fields(@page).include? :url_name %>
                 <div class="url_name">
               <% else %>
                 <div class="url_name" style="display: none;">
