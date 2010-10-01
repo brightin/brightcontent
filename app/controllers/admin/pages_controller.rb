@@ -15,6 +15,6 @@ class Admin::PagesController < Admin::ApplicationController
   # used by the form via ajax
   def parent_specific_info
     @page = Page.find_by_id(params[:id]) || Page.new
-    @page.parent_id = params[:parent_id]
+    @page.parent = Page.find(params[:parent_id])
   end
 end
