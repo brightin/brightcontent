@@ -38,7 +38,7 @@ module Admin::ApplicationHelper
     link_to_function(name, h("add_fields(this, \"#{association}\", \"#{escape_javascript(fields)}\")"), :class => 'add_field')
   end
   
-  def erroneous_fields(item)
+  def invalid_fields(item)
     item.errors.map {|k,v| k if v }.compact
   end
 end
