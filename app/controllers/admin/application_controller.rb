@@ -1,6 +1,6 @@
 class Admin::ApplicationController < ActionController::Base
-  include DefaultActions
-  include DefaultViews
+  include Admin::DefaultActions
+  include Admin::DefaultViews
   before_filter :login_required
   respond_to :html, :xml, :json
   
