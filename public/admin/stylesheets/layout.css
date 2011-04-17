@@ -223,7 +223,7 @@ tbody td img:first-child {
     background: #66bf23;
   }
   
-  .flash.error {
+  .flash.error, .flash.alert {
     text-shadow: #cf2200 0 2px 0;
     background: #f32718;
   }
