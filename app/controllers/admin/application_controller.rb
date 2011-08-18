@@ -15,7 +15,7 @@ class Admin::ApplicationController < ActionController::Base
   
   def login_required
     if User.find_by_id(session['admin_user_id']).nil?
-      session['admin_return_to'] = request.request_uri
+      session['admin_return_to'] = request.url
       redirect_to new_admin_session_url
     else
       @current_user = User.find_by_id(session['admin_user_id'])
