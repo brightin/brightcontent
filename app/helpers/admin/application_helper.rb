@@ -14,8 +14,8 @@ module Admin::ApplicationHelper
   end
   
   def find_partial(name)
-    [controller_path, "admin/default"].each do |prefix|
-      return "#{prefix}/#{name}" if lookup_context.exists?(name, prefix, true)
+    [controller_path, "admin/application"].each do |prefix|
+      return "#{prefix}/#{name}" if lookup_context.exists?(name, [prefix], true)
     end
     nil
   end

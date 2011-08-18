@@ -52,7 +52,7 @@ Add the requirements to your <tt>Gemfile</tt>
 
   gem 'acts_as_tree'
   gem 'acts_as_list'
-  gem 'will_paginate', '~> 3.0.pre2'
+  gem 'will_paginate', :git => 'http://github.com/mislav/will_paginate.git', :branch => 'rails3'
   gem 'RedCloth'
   gem 'paperclip'
 
