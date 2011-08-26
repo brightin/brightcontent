@@ -1,0 +1,19 @@
+<%= link_to "<span>+</span> New #{@model.name.titleize}".html_safe, polymorphic_url([:brightcontent, @model], :action => "new"), :class => "new_document" %>
+<h2><%= @model.name.pluralize.titleize %></h2>
+
+<table id="page_tree" >
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render(:partial => "brightcontent/pages/table_row", :locals => { :page => Page.root, :depth => 0 }) if !Page.root.nil? %>
+  </tbody>
+</table>
+<br />
+
+<% if @model.all.size > 15 %>
+  <%= link_to "<span>+</span> New #{@model.name.titleize}".html_safe, polymorphic_url([:brightcontent, @model], :action => "new"), :class => "new_document" %>
+<% end %>

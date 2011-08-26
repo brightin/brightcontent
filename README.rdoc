@@ -15,25 +15,14 @@ Brightcontent, yet another rails CMS / admin panel
 * Only exception: Page model is provided with tree structure, draft, hidden and pretty urls like <tt>/services/cleaning/houses</tt>
 
 == Defaults in views
-Brightcontent has some few default/overwrite functions.:
-
-=== Default views
-Finds views in the default folder if it cannot be found in the normal folder. 
-For example, if <tt>/app/views/vacancy/new.html.erb</tt> doesn't exist, it will look at <tt>/app/views/default/new.html.erb</tt>
-
-DefaultViews is a mixin included in <tt>Admin::ApplicationController</tt>
-
-=== Default partials
-Like DefaultViews, find partials in default folder if it cannot be found in the normals folder.
-
-Implemented by <tt>find_partial</tt> function in <tt>Admin::ApplicationHelper</tt>
+Use the controller inheritance chain for overriding views (Rails 3.1 feature.)
 
 === Default list and form fields
 The list (index) and forms (new/edit) tries to find partials with the field names. If it cannot be found, it uses generic fields (textfield for string etc.).
 
 For example the field <tt>title</tt> will be rendered in the list by  <tt>_list_field_title.html.erb</tt> if it exists. If not, it will be rendered with a normal label and textbox (because its a string).
 
-<tt>index.html.erb</tt> and <tt>_form.html.erb</tt> uses <tt>list_field</tt> and <tt>form_field</tt> functions in <tt>Admin::ApplicationHelper</tt> 
+<tt>index.html.erb</tt> and <tt>_form.html.erb</tt> uses <tt>list_field</tt> and <tt>form_field</tt> functions in <tt>Brightcontent::ApplicationHelper</tt> 
 
 == Default actions
 Default crud actions are included. Generic variables <tt>@items</tt> (index) and <tt>@item</tt>(new, edit) are provided, but also with the specific name like <tt>@vacancies</tt> or <tt>@vacancy</tt>. Controllername should match modelname. You can overwrite the actions in the controller.
@@ -50,21 +39,17 @@ Run rails plugin to install the plugin in the vendor/plugin directory
   
 Add the requirements to your <tt>Gemfile</tt>
 
-  gem 'acts_as_tree'
-  gem 'acts_as_list'
-  gem 'will_paginate', :git => 'http://github.com/mislav/will_paginate.git', :branch => 'rails3'
-  gem 'RedCloth'
-  gem 'paperclip'
-
+  gem 'brightcontent'
+  
 Run bundle install
 
   $ bundle install
   
 Add admin routes for pages and other resources in <tt>config/routes.rb</tt>
 
-  #admin routing
+  #brightcontent routing
   get 'admin' => redirect('/admin/pages')
-  namespace :admin do
+  namespace :brightcontent, path: 'admin' do
     resources :pages do
       get :parent_specific_info, :on => :member      #for edit
       get :parent_specific_info, :on => :collection  #for new
@@ -77,7 +62,7 @@ Add admin routes for pages and other resources in <tt>config/routes.rb</tt>
 
 Run sync to add migrations and public assets (CSS etc) and run migrations
 
-  $ rake brightcontent:sync
+  $ rake brightcontent:install:migrations
   $ rake db:migrate
   
 Run rails runner to add a user to login
@@ -93,18 +78,19 @@ and surf to http://0.0.0.0:3000/admin
 == Add a new model to brightcontent
 
 Lets say, we want to add projects. Just create the <tt>Project</tt> model the rails way:
-* Make migrations for project
-* Rake db:migrate
-* Add model file: <tt>app/models/project.rb</tt>
+  $ rails g model Project name:string description:text
+  $ rake db:migrate
 
 Then, for brightcontent:
-Add the resource projects to <tt>config/routes.rb</tt> under the *admin namespace*.
+  $ rails g controller Brightcontent::Projects
+
+Add the resource projects to <tt>config/routes.rb</tt> under the *brightcontent namespace*:
 
   resources :projects
 
-Add a new controller in <tt>app/controllers/admin/projects_controller.rb</tt> .Inherit from <tt>Admin::ApplicationController</tt>. You can specify fields to show in index(list) and edit (form) by setting @list_fields and @form_fields in a before_filter. 
+Open <tt>app/controllers/brightcontent/projects_controller.rb</tt>. Inherit from <tt>Brightcontent::ApplicationController</tt>. You can specify fields to show in index(list) and edit (form) by setting @list_fields and @form_fields in a before_filter. 
 
-  class Admin::ProjectController < Admin::ApplicationController
+  class Brightcontent::ProjectsController < Brightcontent::ApplicationController
     before_filter :set_fields
     
     private
@@ -127,4 +113,4 @@ Add routing for your public site
   end
 
 
-Copyright (c) 2010 Raymond Vellener / Brightin, released under the MIT license
+Copyright (c) 2010-2011 Raymond Vellener / Brightin, released under the MIT license
