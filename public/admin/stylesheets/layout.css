@@ -365,7 +365,7 @@ form.error {
 }
 
 .image {
-margin: 10px;
+margin: 10px 0;
 width: 300px;
 background-color: #eee;
 padding: 10px;
