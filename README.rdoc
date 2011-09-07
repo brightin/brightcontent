@@ -75,6 +75,12 @@ Run forest run!
   
 and surf to http://0.0.0.0:3000/admin
 
+== Precompiled assets and brightcontent/custom.css
+
+If you want to use precompiled assets you need to add brightcontent/custom.css to the precompile list in <tt>production.rb</tt>:
+
+  config.assets.precompile += %w( brightcontent/custom.css )
+
 == Add a new model to brightcontent
 
 Lets say, we want to add projects. Just create the <tt>Project</tt> model the rails way:
