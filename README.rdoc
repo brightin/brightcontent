@@ -82,7 +82,7 @@ Run sync to add migrations and public assets (CSS etc) and run migrations
   
 Run rails runner to add a user to login
 
-  $ rails runner 'User.create({:email_address => "developers@brightin.nl", :password => "blabla"})'
+  $ rails runner 'User.create({:email_address => "admin@example.com", :password => "password"})'
 
 Run forest run!
 
