@@ -16,7 +16,7 @@ module Brightcontent::DefaultActions
   
   # Crud actions
   def index
-    @list_fields ||= model.column_names - ['created_at', 'updated_at', 'password']
+    @list_fields ||= model.column_names - ['created_at', 'updated_at', 'password_digest']
     respond_with(self.plural = model.try(:paginate, :page => params[:page]) || model.all)
   end
   
