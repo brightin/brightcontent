@@ -91,7 +91,7 @@ Vacancy.create( [
   ])
 User.create( [
     {
-      :email_address => "developers@brightin.nl",
-      :password => "blabla"
+      :email_address => "admin@example.com",
+      :password => "password"
     }
   ])
