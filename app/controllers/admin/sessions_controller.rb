@@ -26,7 +26,8 @@ class Admin::SessionsController < ActionController::Base
   
   def login(email_address, password)
     request.session_options.delete(:id)
-    session['admin_user_id'] = User.authenticate(email_address, password).try(:id)
+    user = User.find_by_email_address(email_address)
+    session['admin_user_id'] = user && user.authenticate(password).try(:id)
   end
   
   def return_to_url
