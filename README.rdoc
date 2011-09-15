@@ -17,7 +17,8 @@ Change these lines in your <code>Gemfile</code>
   gem 'paperclip'
 To this
   gem 'brightcontent', path: 'vendor/gems/brightcontent'
-Run `bundle` \n
+Run `bundle`
+
 Change this line in your <code>Gemfile</code>
   namespace :admin
 To this
