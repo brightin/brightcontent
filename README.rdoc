@@ -1,3 +1,34 @@
+== Update from plugin to gem
+Remove the plugin
+  $ rm -rf vendor/plugins/brightcontent
+Add the plugin in `vendor/gems`
+  $ mkdir vendor/gems
+  $ cd vendor/gems
+  $ git clone git@github.com:brightin/brightcontent.git
+  $ git checkout origin/rails-3.1-gem
+Change these lines in your `Gemfile`
+  # BrightContent
+
+  gem 'acts_as_tree'
+  gem 'acts_as_list'
+  gem 'will_paginate', '~> 3.0.pre2'
+  gem 'RedCloth'
+  gem 'paperclip'
+To this
+  gem 'brightcontent', path: 'vendor/gems/brightcontent'
+Run `bundle`
+Change this line in your `Gemfile`
+  namespace :admin
+To this
+  namespace :brightcontent, path: 'admin' do
+Install migrations and migrate
+  $ rake brightcontent:install:migrations
+  $ rake db:migrate
+
+
+
+
+
   
   
    ___     _      _   _    ___         _           _   
@@ -13,6 +44,7 @@ Brightcontent, yet another rails CMS / admin panel
 * No standard 'cms-modules', we hate those, making custom is easy enough
 * Build in the rails way, use your normals models, only controllers and views are provided
 * Only exception: Page model is provided with tree structure, draft, hidden and pretty urls like <tt>/services/cleaning/houses</tt>
+
 
 == Defaults in views
 Use the controller inheritance chain for overriding views (Rails 3.1 feature.)
