@@ -19,7 +19,7 @@ To this
   gem 'brightcontent', path: 'vendor/gems/brightcontent'
 Run <code>bundle</code>
 
-Change this line in your <code>Gemfile</code>
+Change this line in <code>config/routes.rb</code>
   namespace :admin
 To this
   namespace :brightcontent, path: 'admin' do
