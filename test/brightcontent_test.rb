@@ -1,8 +1,7 @@
 require 'test_helper'
 
 class BrightcontentTest < ActiveSupport::TestCase
-  # Replace this with your real tests.
-  test "the truth" do
-    assert true
+  test "truth" do
+    assert_kind_of Module, Brightcontent
   end
 end
