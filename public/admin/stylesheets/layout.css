@@ -240,30 +240,30 @@ tbody td img:first-child {
 		padding: 12px 0 10px 10px;
 		overflow: hidden;
 	}
-		
+
 		.fields .field {
 			margin-bottom: 4px;
 			min-height: 26px;
 			vertical-align: top;
 		}
-		
+
 		.fields .field input,
 		.fields .field textarea { font-size: 13px; width: 75%; }
-		
+
 		.fields .field textarea { height: auto;}
 		.fields .field.textarea label { float: left; }
-		
+
 		.fields .field .url_name { display: inline-block;  }
-		
+
 		.fields .field .url_name span { display: inline-block; padding: 6px 0; }
-		        
+
 		.fields .field label { display: inline-block; width: 125px; font-weight: normal;}
-		        
+
 		.fields .field #page_parent_id { width: 185px; }
 		.fields .field #page_name { width: 175px; }
-		
+
 		.fields .field .parent_path { color: #666; }
-		 
+
 .field {
   margin-bottom: 20px;
 }
@@ -365,7 +365,7 @@ form.error {
 }
 
 .image {
-margin: 10px;
+margin: 10px 0;
 width: 300px;
 background-color: #eee;
 padding: 10px;
