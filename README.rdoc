@@ -1,13 +1,13 @@
 == Update from plugin to gem
 Remove the plugin
   $ rm -rf vendor/plugins/brightcontent
-Add the plugin in ```vendor/gems```
+Add the plugin in <code>vendor/gems</code>
   $ mkdir vendor/gems
   $ cd vendor/gems
   $ git clone git@github.com:brightin/brightcontent.git
   $ cd brightcontent
   $ git checkout -b rails-3.1-gem origin/rails-3.1-gem
-Change these lines in your `Gemfile`
+Change these lines in your <code>Gemfile</code>
   # BrightContent
 
   gem 'acts_as_tree'
@@ -18,7 +18,7 @@ Change these lines in your `Gemfile`
 To this
   gem 'brightcontent', path: 'vendor/gems/brightcontent'
 Run `bundle`
-Change this line in your `Gemfile`
+Change this line in your <code>Gemfile</code>
   namespace :admin
 To this
   namespace :brightcontent, path: 'admin' do
@@ -26,9 +26,8 @@ Install migrations and migrate
   $ rake brightcontent_engine:install:migrations
   $ rake db:migrate
 
-&nbsp;
-  
-  
+.
+
    ___     _      _   _    ___         _           _   
   | _ )_ _(_)__ _| |_| |_ / __|___ _ _| |_ ___ _ _| |_ 
   | _ \ '_| / _` | ' \  _| (__/ _ \ ' \  _/ -_) ' \  _|
