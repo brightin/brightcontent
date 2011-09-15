@@ -1,5 +1,0 @@
-<td class="actions">
-  <%= link_to 'Edit', polymorphic_url([:admin, item], :action => "edit"), :class => "edit" %>
-  <%= link_to('Show', polymorphic_url(item), :class => "view") rescue nil %>
-  <%= link_to 'Destroy', polymorphic_url([:admin, item], :url => request.url), :confirm => 'Are you sure?', :method => :delete, :class => "delete" %>
-</td>

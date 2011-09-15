@@ -1,0 +1,12 @@
+<%= submit_tag "Save" %>
+<%= submit_tag "Save and continue", :name => "commit_and_continue" %> or
+<%= link_to "cancel", [:brightcontent, @model] %>
+
+<script type="text/javascript">
+  $(function () {
+    $('form').submit(function () {
+      if ( $(this).hasClass('disabled') ) { return false }
+      $('form').addClass('disabled');
+    });
+  });
+</script>

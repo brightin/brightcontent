@@ -1,0 +1,176 @@
+<div class="block">
+  <%= form_for [:brightcontent, @item], :html => { :multipart => true } do |f| %>
+
+    <div class="field">
+      <%= f.label 'title', 'title'.to_s.humanize %>
+      <%= f.text_field 'title' %>
+      <%= error_message_on @item, 'title' %>
+    </div>
+
+    <%= link_to_function "Options", "jQuery('.more_options').slideToggle()" %>
+    <br />
+    <br />
+
+    <% if (invalid_fields(@page) & [:name, :url_name, :parent_id, :position, :meta_keywords, :meta_description]).empty? %>
+      <div class="fields more_options" style="display: none;">
+    <% else %>
+      <div class="fields more_options">
+    <% end %>
+        <div class="section">
+          <% unless @page.homepage? %>
+            <div class="field tree">
+              <div class="parent_id">
+                <%= f.label 'parent_id', 'Menu parent' %><%= f.select :parent_id, options_for_select(page_pairs(Page.root, @page), @page.parent_id.try(:to_i)) %>
+              </div>
+              <div class="position">
+                <%= render 'position_tag', :page => @page %>
+              </div>
+            </div>
+          <% end %>
+
+          <div class="field">
+            <%= f.label 'name', 'Menu name' %><%= form_field f, 'name' %>
+            <%= error_message_on @item, 'name' %>
+          </div>
+
+          <% if @page.homepage? %>
+            <div class="field">
+              <%= f.label 'url_name', 'Url' %>
+              <div class="url_name">
+                <span class="parent_path"><%= parent_path @page %></span>
+              </div>
+            </div>
+          <% else %>
+            <div class="field">
+              <%= f.label 'url_name', 'Url' %>
+              <% if invalid_fields(@page).include? :url_name %>
+                <div class="url_name" style="display: none;">
+              <% else %>
+                <div class="url_name">
+              <% end %>
+                  <span class="parent_path"><%= parent_path @page %></span><span id="url_name_preview"><%= @page.url_name %></span>
+                  <%= link_to_function "edit", "jQuery('.url_name').toggle()" %>
+                </div>
+              <% if invalid_fields(@page).include? :url_name %>
+                <div class="url_name">
+              <% else %>
+                <div class="url_name" style="display: none;">
+              <% end %>
+                  <span class="parent_path"><%= parent_path @page %></span>
+                  <%= form_field f, 'url_name' %>
+                  <%= link_to_function "ok", "jQuery('.url_name').toggle()" %>
+                </div>
+              <%= error_message_on @item, 'url_name' %>
+            </div>
+          <% end %>
+        </div>
+  
+        <div class="section">
+          <div class="field textarea">
+            <%= f.label 'meta_description', 'Meta description' %>
+            <%= f.text_area :meta_description, :rows => 2 %>
+            <%# form_field f, 'meta_description' %>
+            <%= error_message_on @item, 'meta_description' %>
+          </div>
+      
+          <div class="field textarea">
+            <%= f.label 'meta_keywords', 'Meta keywords' %>
+            <%= f.text_area :meta_keywords, :rows => 2 %>
+            <%# form_field f, 'meta_keywords' %>
+            <%= error_message_on @item, 'meta_keywords' %>
+          </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+      (function ($) {      
+    
+        // ****************************************
+        // Auto update name and url_name when editing title / name
+        function url_escape(string) {
+          return string.toLowerCase().replace(/[^-a-z0-9]/g, '-').replace(/-+/g, '-').replace(/(^-|-$)/, '');
+        }
+    
+        var old_title = $("#page_title").val(),
+            old_name = $("#page_name").val(),
+            new_record = <%= @page.new_record? %>;
+    
+        setInterval(function () {
+          var new_title = $("#page_title").val();
+          if ( $("#page_name").val() == old_title )
+            $("#page_name").val( new_title );
+          old_title = new_title;
+      
+          var new_name = $("#page_name").val();
+          if ( new_record && $("#page_url_name").val() == url_escape(old_name) )
+            $("#page_url_name").val( url_escape(new_name) );
+          $("#url_name_preview").html( $("#page_url_name").val() );
+          old_name = new_name;
+        }, 150);
+    
+    
+        // ****************************************
+        // When changing parent update position dropdown and preview url
+        $('.parent_id select').change(function () {
+          $.ajax({
+            url: 'parent_specific_info',
+            dataType: 'script',
+            data: {parent_id: $(this).val() }
+          });
+        });
+    
+      })(jQuery);
+    </script>
+
+    <div class="field">
+      <%= f.label 'teaser', 'teaser'.to_s.humanize %>
+      <%= f.text_area :teaser, :style => 'height: 40px;' %>
+      <%= error_message_on @item, 'teaser' %>
+    </div>
+
+    <div class="field">
+      <%= f.label 'body', 'body'.to_s.humanize %>
+      <%= form_field f, 'body' %>
+      <%= render "wymeditor", :element => "#page_body" %>
+      <%= error_message_on @item, 'body' %>
+    </div>
+
+    <div class="assets">
+      <%= f.fields_for :assets do |builder| %>
+        <%= render 'asset_fields', :f => builder %>
+      <% end %>
+    </div>
+    <%= link_to_add_fields "Add asset", f, :assets %>
+
+    <script type="text/javascript">
+      function remove_fields( link ) {
+        $(link).parent().find("input[type='hidden']").val(1);
+        $(link).parent().fadeOut(500);
+      }
+  
+      function add_fields(link, association, content) {
+        var new_id = new Date().getTime();
+        var regexp = new RegExp("new_" + association, "g");
+        $(link).prev().append( content.replace(regexp, new_id) );
+      }
+    </script>
+
+    <br />
+    <br />
+
+    <div class="inline_field">
+    <%= f.label 'draft', 'Draft' %> (not published)
+    <%= form_field f, 'draft' %>
+    </div>
+
+
+    <div class="inline_field">
+    <%= f.label 'hidden', 'Hidden' %> from menu's
+    <%= form_field f, 'hidden' %>
+    </div>
+
+
+    <div style="clear:both;"></div>
+
+    <%= render "form_buttons" %>
+  <% end %>
+</div>
