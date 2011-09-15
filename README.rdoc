@@ -1,11 +1,12 @@
 == Update from plugin to gem
 Remove the plugin
   $ rm -rf vendor/plugins/brightcontent
-Add the plugin in `vendor/gems`
+Add the plugin in ```vendor/gems```
   $ mkdir vendor/gems
   $ cd vendor/gems
   $ git clone git@github.com:brightin/brightcontent.git
-  $ git checkout origin/rails-3.1-gem
+  $ cd brightcontent
+  $ git checkout -b rails-3.1-gem origin/rails-3.1-gem
 Change these lines in your `Gemfile`
   # BrightContent
 
@@ -22,13 +23,10 @@ Change this line in your `Gemfile`
 To this
   namespace :brightcontent, path: 'admin' do
 Install migrations and migrate
-  $ rake brightcontent:install:migrations
+  $ rake brightcontent_engine:install:migrations
   $ rake db:migrate
 
-
-
-
-
+&nbsp;
   
   
    ___     _      _   _    ___         _           _   
