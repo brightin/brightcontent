@@ -21,13 +21,13 @@ module Brightcontent::PagesHelper
     
     page.ancestors[0..-2].reverse.each do |p|
       name = p.last? ? "empty" : "l"
-      result += image_tag( "/brightcontent/#{name}.gif")
+      result += image_tag( "brightcontent/#{name}.gif")
     end
     
     filename = "t"
     filename = "end" if page.last?
     filename = "empty" if skip_last
-    return result + image_tag("/brightcontent/#{filename}.gif")
+    return result + image_tag("brightcontent/#{filename}.gif")
   end
   
   def parent_path(page)
