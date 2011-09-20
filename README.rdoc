@@ -26,6 +26,9 @@ To this
 Install migrations and migrate
   $ rake brightcontent_engine:install:migrations
   $ rake db:migrate
+Move admin controllers to brightcontent folder
+  $ mv app/controllers/admin app/controllers/brightcontent
+Replace all references to Admin class in your admin controllers (in app/controllers/brightcontent) with Brightcontent
 
 .
 
