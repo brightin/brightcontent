@@ -35,6 +35,7 @@ module Brightcontent::DefaultActions
   end
   
   def create
+    @form_fields ||= model.column_names - ['created_at', 'updated_at']
     self.singular = model.new(params[singular_name.to_sym])
     if singular.save
       flash[:notice] = "saved!"
@@ -45,6 +46,7 @@ module Brightcontent::DefaultActions
   end
   
   def update
+    @form_fields ||= model.column_names - ['created_at', 'updated_at']
     self.singular = model.find(params[:id])
     if singular.update_attributes(params[singular_name.to_sym])
       flash[:notice] = "saved!"
