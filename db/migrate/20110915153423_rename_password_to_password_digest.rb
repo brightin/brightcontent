@@ -9,6 +9,7 @@ class RenamePasswordToPasswordDigest < ActiveRecord::Migration
     
     User.all.each do |u|
       password = u.password_digest
+      password = SecureRandom.hex if password.nil? || password.empty?
       u.password = password
       u.password_confirmation = password
       u.save!
