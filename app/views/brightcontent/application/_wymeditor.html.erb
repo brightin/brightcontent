@@ -1,7 +1,23 @@
 <script type="text/javascript">
   $(document).ready(function(){
+    
+    // fixes to handle Rails assets pipeline fingerprint url's on production
+    WYMeditor.editor.prototype.computeBasePath = function() {
+      return jQuery(jQuery.grep(jQuery('script'), function(s){
+        return (s.src && s.src.match(/jquery(-.*)?\.wymeditor(\.pack|\.min|\.packed)?\.js(\?.*)?$/ ))
+      })).attr('src').replace(/jquery(-.*)?\.wymeditor(\.pack|\.min|\.packed)?\.js(\?.*)?$/, '');
+    };
+    WYMeditor.editor.prototype.computeWymPath = function() {
+      return jQuery(jQuery.grep(jQuery('script'), function(s){
+        return (s.src && s.src.match(/jquery(-.*)?\.wymeditor(\.pack|\.min|\.packed)?\.js(\?.*)?$/ ))
+      })).attr('src');
+    };
+    // jquery is packed in application.js so use external google api for jquery
+    WYMeditor.editor.prototype.computeJqueryPath = function() {
+      return "https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"
+    };
+    
     $('<%= element %>').wymeditor({
-      jQueryPath: "https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js",
       html: '',
       toolsItems: [
         {'name': 'Bold', 'title': 'Strong', 'css': 'wym_tools_strong'}, 
