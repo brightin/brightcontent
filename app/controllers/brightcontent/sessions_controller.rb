@@ -26,7 +26,7 @@ class Brightcontent::SessionsController < ActionController::Base
   
   def login(email_address, password)
     request.session_options.delete(:id)
-    session['brightcontent_user_id'] = User.authenticate(email_address, password).try(:id)
+    session['brightcontent_user_id'] = User.authenticate(email_address, password || nil).try(:id)
   end
   
   def return_to_url
