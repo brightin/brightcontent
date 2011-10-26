@@ -1,0 +1,6 @@
+.field
+  - if f.object[:asset_file_name].nil?
+    = f.file_field :asset
+  - else
+    = f.object[:asset_file_name]
+  = link_to_remove_fields "remove", f
