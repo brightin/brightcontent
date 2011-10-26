@@ -17,7 +17,7 @@
       #user
         - if @current_user
           %span= @current_user.email_address
-          " | "
+          =" | "
           = link_to 'logout', brightcontent_session_url, method: 'delete'
       #nav
         %ul
