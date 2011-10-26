@@ -1,12 +1,6 @@
 == Update from plugin to gem
 Remove the plugin
   $ rm -rf vendor/plugins/brightcontent
-Add the plugin in <code>vendor/gems</code>
-  $ mkdir vendor/gems
-  $ cd vendor/gems
-  $ git clone git@github.com:brightin/brightcontent.git
-  $ cd brightcontent
-  $ git checkout -b rails-3.1-gem origin/rails-3.1-gem
 Change these lines in your <code>Gemfile</code>
   # BrightContent
 
@@ -16,7 +10,7 @@ Change these lines in your <code>Gemfile</code>
   gem 'RedCloth'
   gem 'paperclip'
 To this
-  gem 'brightcontent', path: 'vendor/gems/brightcontent'
+  gem 'brightcontent', git: 'git@github.com:brightin/brightcontent.git'
 Run <code>bundle</code>
 
 Change this line in <code>config/routes.rb</code>
