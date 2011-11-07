@@ -89,8 +89,8 @@ Add admin routes for pages and other resources in <tt>config/routes.rb</tt>
 
 Install migrations and migrate
 
-  $ rake brightcontent:install:migrations
-  $ rake db:migrate
+  $ bundle exec rake brightcontent_engine:install:migrations
+  $ bundle exec rake db:migrate
   
 Run rails runner to add a user to login
 
