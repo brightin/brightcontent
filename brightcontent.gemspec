@@ -23,6 +23,8 @@ Gem::Specification.new do |s|
   s.add_dependency 'will_paginate', '~> 3.0'
   s.add_dependency 'RedCloth'
   s.add_dependency 'paperclip'
+  s.add_dependency 'bcrypt-ruby', '~> 3.0'
+  s.add_dependency 'haml', '~> 3.1'
 
   s.add_development_dependency "sqlite3"
 end
