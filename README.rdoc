@@ -31,12 +31,8 @@ Default crud actions are included. Generic variables <tt>@items</tt> (index) and
 * Uses ActiveRecord to find the type of column/field to render (in generic field)
 
 = Setup
-
-Run rails plugin to install the plugin in the vendor/plugin directory
-
-  $ rails plugin install git@github.com:brightin/brightcontent.git
   
-Add the requirements to your <tt>Gemfile</tt>
+Add the gem to your <tt>Gemfile</tt>
 
   gem 'brightcontent', git: git://github.com/brightin/brightcontent.git
   
