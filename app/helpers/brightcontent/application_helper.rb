@@ -16,7 +16,7 @@ module Brightcontent::ApplicationHelper
   end
   
   def error_message_on( item, field )
-    return content_tag(:div, @item.errors[field].to_sentence, class: 'error') if @item.errors[field].present?
+    return content_tag(:div, item.errors[field].to_sentence, class: 'error') if item.errors[field].present?
     return ""
   end
   
