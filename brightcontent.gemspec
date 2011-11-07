@@ -20,7 +20,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'jquery-rails'
   s.add_dependency 'acts_as_tree'
   s.add_dependency 'acts_as_list'
-  s.add_dependency 'will_paginate', '~> 3.0'
+  s.add_dependency 'kaminari', '~> 0.12.4'
   s.add_dependency 'RedCloth'
   s.add_dependency 'paperclip'
   s.add_dependency 'bcrypt-ruby', '~> 3.0'
