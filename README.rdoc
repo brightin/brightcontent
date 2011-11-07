@@ -38,7 +38,7 @@ Run rails plugin to install the plugin in the vendor/plugin directory
   
 Add the requirements to your <tt>Gemfile</tt>
 
-  gem 'brightcontent'
+  gem 'brightcontent', git: git://github.com/brightin/brightcontent.git
   
 Run bundle install
 
