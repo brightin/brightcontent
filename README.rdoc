@@ -1,31 +1,3 @@
-== Update from plugin to gem
-Remove the plugin
-  $ rm -rf vendor/plugins/brightcontent
-Change these lines in your <code>Gemfile</code>
-  # BrightContent
-
-  gem 'acts_as_tree'
-  gem 'acts_as_list'
-  gem 'will_paginate', '~> 3.0.pre2'
-  gem 'RedCloth'
-  gem 'paperclip'
-To this
-  gem 'brightcontent', git: 'git@github.com:brightin/brightcontent.git'
-Run <code>bundle</code>
-
-Change this line in <code>config/routes.rb</code>
-  namespace :admin
-To this
-  namespace :brightcontent, path: 'admin' do
-Install migrations and migrate
-  $ rake brightcontent_engine:install:migrations
-  $ rake db:migrate
-Move admin controllers to brightcontent folder
-  $ mv app/controllers/admin app/controllers/brightcontent
-Replace all references to Admin class in your admin controllers (in app/controllers/brightcontent) with Brightcontent
-
-.
-
    ___     _      _   _    ___         _           _   
   | _ )_ _(_)__ _| |_| |_ / __|___ _ _| |_ ___ _ _| |_ 
   | _ \ '_| / _` | ' \  _| (__/ _ \ ' \  _/ -_) ' \  _|
@@ -144,6 +116,35 @@ Add routing for your public site
   constraints PageUrls.new do
     get "*path" => "pages#show"
   end
+
+
+== Updating from plugin to gem
+Remove the plugin
+  $ rm -rf vendor/plugins/brightcontent
+Change these lines in your <code>Gemfile</code>
+  # BrightContent
+
+  gem 'acts_as_tree'
+  gem 'acts_as_list'
+  gem 'will_paginate', '~> 3.0.pre2'
+  gem 'RedCloth'
+  gem 'paperclip'
+To this
+  gem 'brightcontent', git: 'git@github.com:brightin/brightcontent.git'
+Run <code>bundle</code>
+
+Change this line in <code>config/routes.rb</code>
+  namespace :admin
+To this
+  namespace :brightcontent, path: 'admin' do
+Install migrations and migrate
+  $ rake brightcontent_engine:install:migrations
+  $ rake db:migrate
+Move admin controllers to brightcontent folder
+  $ mv app/controllers/admin app/controllers/brightcontent
+Replace all references to Admin class in your admin controllers (in app/controllers/brightcontent) with Brightcontent
+
+
 
 
 Copyright (c) 2010-2011 Raymond Vellener / Brightin, released under the MIT license
