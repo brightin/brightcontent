@@ -1,6 +1,6 @@
 require 'acts_as_tree'
 require 'acts_as_list'
-require 'kaminari'
+require 'will_paginate'
 require 'RedCloth'
 require 'paperclip'
 
