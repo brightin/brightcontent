@@ -18,6 +18,6 @@
             = "<span>(hidden)</span>".html_safe if (item.hidden? rescue nil) && index == 0
         = render "list_actions", :item => item
 %br
-- if @model.all.size > 15
+- if @items.count > 15
   = link_to "<span>+</span> New #{@model.name.titleize}".html_safe, polymorphic_url([:brightcontent, @model], :action => "new"), :class => "new_document"
   = will_paginate @items
