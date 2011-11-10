@@ -21,7 +21,7 @@ module Brightcontent::PagesHelper
     
     page.ancestors[0..-2].reverse.each do |p|
       name = p.last? ? "empty" : "l"
-      result += image_tag( "brightcontent/#{name}.gif")
+      result += image_tag( "brightcontent/#{name}.gif", :class => 'page_tree')
     end
     
     filename = "t"

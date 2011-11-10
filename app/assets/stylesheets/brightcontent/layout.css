@@ -82,7 +82,7 @@ thead {
     td.actions { float: none; }
 
 /* PAGES  LIST */
-tbody td img {
+tbody td img.page_tree {
   display: block;
   float: left;
   margin-left: 20px;
