@@ -1,7 +1,7 @@
 class Brightcontent::UsersController < Brightcontent::ApplicationController
   respond_to :html
   
-  before_filter :set_form_fields, only: %w[new edit update]
+  before_filter :set_form_fields, only: %w[new create edit update]
   
   private
   
