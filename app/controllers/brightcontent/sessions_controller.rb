@@ -9,7 +9,7 @@ class Brightcontent::SessionsController < ActionController::Base
     @email_address = params[:email_address]
     @password = params[:password]
     if login(@email_address, @password)
-      redirect_to return_to_url || brightcontent_pages_url
+      redirect_to return_to_url || (brightcontent_pages_url rescue '/admin')
     else
       flash[:error] = "Nope.. that's not correct"
       render :new
