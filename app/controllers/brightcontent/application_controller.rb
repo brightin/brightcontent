@@ -20,4 +20,8 @@ class Brightcontent::ApplicationController < ActionController::Base
       @current_user = User.find_by_id(session['brightcontent_user_id'])
     end
   end
+  
+  def current_user
+    @current_user
+  end
 end
