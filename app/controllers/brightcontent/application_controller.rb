@@ -17,11 +17,11 @@ class Brightcontent::ApplicationController < ActionController::Base
       session['brightcontent_return_to'] = request.url
       redirect_to new_brightcontent_session_url
     else
-      @current_user = User.find_by_id(session['brightcontent_user_id'])
+      current_user
     end
   end
   
   def current_user
-    @current_user
+    @current_user ||= User.find_by_id(session['brightcontent_user_id'])
   end
 end
