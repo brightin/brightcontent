@@ -274,7 +274,20 @@ tbody td img:first-child {
   width: 35%;
 }
 
-#content .block,
+#content .block {
+  background: transparent;
+  padding: 0;
+  width: 770px;
+}
+
+#content .block fieldset {
+  padding: 20px 35px 35px;
+  margin: 0 0 20px;
+  width: 700px;
+  background: #fff;
+  border: 0 none;
+}
+
 #login {
   width: 700px;
   padding: 20px 35px 35px;
