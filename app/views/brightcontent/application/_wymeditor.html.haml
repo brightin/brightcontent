@@ -3,12 +3,12 @@
     // fixes to handle Rails assets pipeline fingerprint url's on production
     WYMeditor.editor.prototype.computeBasePath = function() {
       return jQuery(jQuery.grep(jQuery('script'), function(s){
-        return (s.src && s.src.match(/jquery(-.*)?\.wymeditor(\.pack|\.min|\.packed)?\.js(\?.*)?$/ ))
-      })).attr('src').replace(/jquery(-.*)?\.wymeditor(\.pack|\.min|\.packed)?\.js(\?.*)?$/, '');
+        return (s.src && s.src.match(/jquery(-.*)?\.wymeditor(\.pack|\.min|\.packed)?(-.*)?\.js(\?.*)?$/ ))
+      })).attr('src').replace(/jquery(-.*)?\.wymeditor(\.pack|\.min|\.packed)?(-.*)?\.js(\?.*)?$/, '');
     };
     WYMeditor.editor.prototype.computeWymPath = function() {
       return jQuery(jQuery.grep(jQuery('script'), function(s){
-        return (s.src && s.src.match(/jquery(-.*)?\.wymeditor(\.pack|\.min|\.packed)?\.js(\?.*)?$/ ))
+        return (s.src && s.src.match(/jquery(-.*)?\.wymeditor(\.pack|\.min|\.packed)?(-.*)?\.js(\?.*)?$/ ))
       })).attr('src');
     };
     // jquery is packed in application.js so use external google api for jquery
