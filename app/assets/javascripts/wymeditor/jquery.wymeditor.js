@@ -746,10 +746,10 @@ WYMeditor.computeWymPath = function () {
                 }
                 return (
                     s.src.match(
-                        /jquery\.wymeditor(\.pack|\.min|\.packed)?\.js(\?.*)?$/
+                        /jquery(-.*)?\.wymeditor(\.pack|\.min|\.packed)?(-.*)?\.js(\?.*)?$/
                     ) ||
                     s.src.match(
-                            /\/core\.js(\?.*)?$/
+                            /\/core(-.*)?\.js(\?.*)?$/
                         )
                 );
             }
@@ -808,7 +808,7 @@ WYMeditor.computeJqueryPath = function () {
                 return (
                     s.src &&
                     s.src.match(
-                            /jquery(-(.*)){0,1}(\.pack|\.min|\.packed)?\.js(\?.*)?$/
+                            /jquery(-(.*)){0,1}(\.pack|\.min|\.packed)?(-.*)?\.js(\?.*)?$/
                         )
                 );
             }
