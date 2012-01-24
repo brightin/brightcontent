@@ -801,19 +801,20 @@ WYMeditor.computeBasePath = function (wymPath) {
     * Plus the jquery-<version> variants
 */
 WYMeditor.computeJqueryPath = function () {
-    return jQuery(
-        jQuery.grep(
-            jQuery('script'),
-            function (s) {
-                return (
-                    s.src &&
-                    s.src.match(
-                            /jquery(-(.*)){0,1}(\.pack|\.min|\.packed)?(-.*)?\.js(\?.*)?$/
-                        )
-                );
-            }
-        )
-    ).attr('src');
+    return "https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"
+    // return jQuery(
+    //     jQuery.grep(
+    //         jQuery('script'),
+    //         function (s) {
+    //             return (
+    //                 s.src &&
+    //                 s.src.match(
+    //                         /jquery(-(.*)){0,1}(\.pack|\.min|\.packed)?(-.*)?\.js(\?.*)?$/
+    //                     )
+    //             );
+    //         }
+    //     )
+    // ).attr('src');
 };
 
 /********** DIALOGS **********/
