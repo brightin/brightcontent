@@ -12,7 +12,7 @@
       })).attr('src');
     };
     // jquery is packed in application.js so use external google api for jquery
-    WYMeditor.editor.prototype.computeJqueryPath = function() {
+    WYMeditor.computeJqueryPath = function () = function() {
       return "https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"
     };
     $('#{element}').wymeditor({
