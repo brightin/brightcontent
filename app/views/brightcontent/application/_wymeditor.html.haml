@@ -17,6 +17,9 @@
     // WYMeditor.computeJqueryPath = function () = function() {
     //   return "https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"
     // };
+    
+    $("input[type='submit']").addClass('wymupdate');
+
     $('#{element}').wymeditor({
       basePath: "/assets/wymeditor/",
       jQueryPath: "https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js",
@@ -55,7 +58,6 @@
       }
     });
       
-    $("input[type='submit']").addClass('wymupdate');
   });
 
 = stylesheet_link_tag 'wymeditor/wymeditor.css'
