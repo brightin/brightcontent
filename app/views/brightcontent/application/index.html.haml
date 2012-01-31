@@ -10,7 +10,7 @@
       %th
   %tbody
     - @items.each do |item|
-      %tr{class:"#{'hidden ' if (item.hidden? rescue nil)}#{'draft' if (item.draft? rescue nil)}"}
+      %tr{class:"#{'hidden' if (item.hidden? rescue nil)} #{'draft' if (item.draft? rescue nil)} #{ cycle('odd', 'even')}"}
         - @list_fields.each_with_index do |field, index|
           %td
             = list_field item, field
