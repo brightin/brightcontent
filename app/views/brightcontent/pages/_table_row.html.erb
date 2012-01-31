@@ -1,4 +1,4 @@
-<tr class="<%= 'hidden ' if page.hidden? %><%= 'draft' if page.draft? %>">
+<tr class="<%= 'hidden ' if page.hidden? %><%= 'draft' if page.draft? %> <%= cycle('odd', 'even') %>">
   <td style="padding-left:10px;">
   <%= raw( tree_images(page, depth) ) %>
   <div>
