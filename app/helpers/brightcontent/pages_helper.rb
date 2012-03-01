@@ -27,7 +27,7 @@ module Brightcontent::PagesHelper
     filename = "t"
     filename = "end" if page.last?
     filename = "empty" if skip_last
-    return result + image_tag("brightcontent/#{filename}.gif")
+    return result + image_tag("brightcontent/#{filename}.gif", :class => 'page_tree')
   end
   
   def parent_path(page)
