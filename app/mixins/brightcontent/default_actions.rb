@@ -11,13 +11,14 @@ module Brightcontent::DefaultActions
   
   def initialize
     @model = model
+    @search_fields = []
     super
   end
   
   # Crud actions
   def index
     @list_fields ||= model.column_names - ['created_at', 'updated_at', 'password_digest']
-    respond_with(self.plural = model.try(:paginate, :page => params[:page]) || model.all)
+    respond_with( responder_model )
   end
   
   def show
@@ -64,6 +65,20 @@ module Brightcontent::DefaultActions
   
   
   private
+  
+  def responder_model(m=nil)
+    m = model unless m.present?
+    if @search_fields.present?
+      @search_term = params[:term]
+      if @search_term.present?
+        @search_fields.each do |field|
+          m = m.where("#{field} like ?", "%#{@search_term}%")
+        end
+      end
+    end
+    m = m.try(:paginate, :page => params[:page]) || m
+    self.plural = m
+  end
   
   def plural_name
     self.controller_name
