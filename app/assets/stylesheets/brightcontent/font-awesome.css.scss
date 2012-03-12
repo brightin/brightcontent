@@ -22,32 +22,17 @@
 
     */
 
-@mixin font-face($name, $font-files, $eot: false, $weight: false, $style: false) {
-  $iefont: unquote("#{$eot}?#iefix");
-  @font-face {
-    font-family: quote($name);
-    @if $eot {
-      src: font-url($eot);
-      $font-files: font-url($iefont) unquote("format('eot')"), $font-files; }
-    src: $font-files;
-    @if $weight {
-      font-weight: $weight; }
-    @if $style {
-      font-style: $style; } } }
-   
-$font_path: "../font/fontawesome-webfont" !default;
-
-@include font-face(
-  'FontAwesome',
-  font-files(
-    "#{$font_path}.woff", woff,
-    "#{$font_path}.ttf", truetype,
-    "#{$font_path}.otf", opentype,
-    "#{$font_path}.svgz#FontAwesomeRegular", svg,
-    "#{$font_path}.svg#FontAwesomeRegular", svg),
-  '#{$font_path}.eot',
-  normal,
-  normal);
+@font-face {
+  font-family: 'FontAwesome';
+  src: url('../font/fontawesome-webfont.eot');
+  src: url('../font/fontawesome-webfont.eot?#iefix') format('embedded-opentype'),
+     url('../font/fontawesome-webfont.woff') format('woff'),
+     url('../font/fontawesome-webfont.ttf') format('truetype'),
+     url('../font/fontawesome-webfont.svgz#FontAwesomeRegular') format('svg'),
+     url('../font/fontawesome-webfont.svg#FontAwesomeRegular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
 
 /* sprites.less reset */
 [class^="icon-"],
