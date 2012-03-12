@@ -459,24 +459,22 @@ a.new_document {
   
   span {
     position: absolute;
-    left: 6px;
-    top: 5px;
+    left: 7px;
+    top: 4px;
     display: block;
-    padding-left: 4px;
-    line-height: 19px;
-    width: 15px;
-    height: 19px;
-    margin-right: 3px;
+    padding: 1px;
+    line-height: 1em;
+    width: 1em;
+    height: 1em;
+    margin: 1px 3px 0 0;
     font-weight: 900;
-    -moz-border-radius: 10px;
-    -webkit-border-radius: 10px;
-    border-radius: 10px;
+    border-radius: 1em;
     color: #FFF;
-    text-shadow: #016F00 0 1px;
+    text-shadow:  0 1px 0 #016F00;
     background: -moz-linear-gradient(top, #54BF53, #128F11);
     background: -webkit-gradient(linear, 0 0, 0 100%, from(#54BF53), to(#128F11));
-    font-family: Arial;
-    font-size: 20px;
+    font-size: 17px;
+    text-align: center;
   }
 }
 
