@@ -25,7 +25,9 @@ Gem::Specification.new do |s|
   s.add_dependency 'paperclip'
   s.add_dependency 'bcrypt-ruby', '~> 3.0'
   s.add_dependency 'haml', '~> 3.1'
-  s.add_dependency 'bourbon'
+  
+  # bug in rails, fixed in the 3.2 branch
+  # s.add_dependency 'bourbon'
 
   s.add_development_dependency "sqlite3"
 end
