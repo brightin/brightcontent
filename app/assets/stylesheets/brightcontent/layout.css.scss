@@ -626,3 +626,8 @@ table tr.new:hover td a:hover {
     border: 0;
   }
 }
+
+/* Font-Awesome */
+.boolean { line-height: inherit; }
+.boolean.icon-minus { color: #ccc; }
+.boolean.icon-ok { color: #48a000; font-size: 1.2em; }
