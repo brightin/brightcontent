@@ -30,8 +30,9 @@
           - @list_fields.each_with_index do |field, index|
             %td
               = list_field item, field
-              = "<em>draft</em>".html_safe if (item.draft? rescue nil) && index == 0
-              = "<span>(hidden)</span>".html_safe if (item.hidden? rescue nil) && index == 0
+              - if index == 0
+                = "<em>draft</em>".html_safe if (item.draft? rescue nil)
+                = "<span>(hidden)</span>".html_safe if (item.hidden? rescue nil)
           = render "list_actions", :item => item
 
 %br
