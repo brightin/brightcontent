@@ -6,7 +6,14 @@ module Brightcontent::ApplicationHelper
   end
   
   def list_field(item, field_name)
-    render_if_exists("list_field_#{field_name}", item: item, field_name: field_name) || item.send(field_name)
+    result = render_if_exists("list_field_#{field_name}", item: item, field_name: field_name)
+    if result.nil?
+      if item.class.column_names.include?(field_name) && item.column_for_attribute( field_name ).type == :boolean
+        result = render_if_exists("list_field_boolean", item: item, field_name: field_name)
+      end
+      result = item.send(field_name) if result.nil?
+    end
+    result
   end
   
   def render_if_exists(*args)
