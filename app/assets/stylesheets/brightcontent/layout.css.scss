@@ -320,6 +320,20 @@ a#view_site {
   background: #fff;
 }
 
+.created_by {
+  margin: 1em;
+  text-align: center;
+  a {
+    display: inline-block;
+    padding: 2px 4px;
+    color: #999;
+    &:hover {
+      color: #666;
+      text-decoration: none;
+    }
+  }
+}
+
 form a {
   color: #479DF0;
   text-decoration: none;
