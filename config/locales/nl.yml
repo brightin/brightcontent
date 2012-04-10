@@ -1,0 +1,5 @@
+nl:
+  will_paginate:
+    next_label: "Volgende"
+    previous_label: "Vorige"
+    page_gap: "..."
