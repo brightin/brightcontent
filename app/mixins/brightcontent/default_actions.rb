@@ -74,7 +74,7 @@ module Brightcontent::DefaultActions
         query = []
         terms = []
         @search_fields.each do |field|
-          query << "#{field} like ?"
+          query << "#{field} LIKE ?"
           terms << "%#{@search_term}%"
         end
         m = m.where([query.join(" OR "), terms].flatten)
