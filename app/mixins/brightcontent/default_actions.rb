@@ -71,9 +71,14 @@ module Brightcontent::DefaultActions
     if @search_fields.present?
       @search_term = params[:term]
       if @search_term.present?
+        like_keyword = ::ActiveRecord::Base.connection.adapter_name == "PostgreSQL" ? "ILIKE" : "LIKE"
+        query = []
+        terms = []
         @search_fields.each do |field|
-          m = m.where("#{field} like ?", "%#{@search_term}%")
+          query << "#{field} #{like_keyword} ?"
+          terms << "%#{@search_term}%"
         end
+        m = m.where([query.join(" OR "), terms].flatten)
       end
     end
     m = m.try(:paginate, :page => params[:page]) || m
