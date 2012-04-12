@@ -1,14 +1,14 @@
 #login
-= form_tag brightcontent_session_path, :method => :post do |f|
-  %h2 Login
-  .field
-    = label_tag :email_address, "Email address"
-    = text_field_tag :email_address, @email_address, :autofocus =>'autofocus'
-  .field
-    = label_tag :password, "Password"
-    = password_field_tag :password, @password
-  
-  = submit_tag "Login"
+  = form_tag brightcontent_session_path, :method => :post do |f|
+    %h2 Login
+    .field
+      = label_tag :email_address, "Email address"
+      = text_field_tag :email_address, @email_address, :autofocus =>'autofocus'
+    .field
+      = label_tag :password, "Password"
+      = password_field_tag :password, @password
+    
+    = submit_tag "Login"
 
 .created_by
   =link_to "Created by Brightin", "http://www.brightin.nl"
