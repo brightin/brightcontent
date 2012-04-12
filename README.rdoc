@@ -34,7 +34,7 @@ Default crud actions are included. Generic variables <tt>@items</tt> (index) and
   
 Add the gem to your <tt>Gemfile</tt>
 
-  gem 'brightcontent', git: git://github.com/brightin/brightcontent.git
+  gem 'brightcontent', git: 'git://github.com/brightin/brightcontent.git'
   
 Run bundle install
 
