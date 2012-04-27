@@ -81,6 +81,14 @@ module Brightcontent::DefaultActions
         m = m.where([query.join(" OR "), terms].flatten)
       end
     end
+
+    if @filters.present?
+      @filter = params[:filter]
+      if @filter.present? && @filters.include?(@filter)
+        m = m.send(@filter.to_sym)
+      end
+    end
+
     m = m.try(:paginate, :page => params[:page]) || m
     self.plural = m
   end
