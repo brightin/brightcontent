@@ -26,6 +26,14 @@ module Brightcontent::ApplicationHelper
     return content_tag(:div, item.errors[field].to_sentence, class: css_class) if item.errors[field].present?
     return ""
   end
+
+  def link_to_filter(filter = nil)
+    if filter.present?
+      return link_to filter.humanize, "?filter=#{filter}", :class => ('active' if params[:filter] == filter)
+    else
+      return link_to 'All', polymorphic_url([:brightcontent, @model]), :class => ('active' unless params[:filter])
+    end
+  end
   
   # nested form (used for assets)
   def link_to_remove_fields(name, f)
