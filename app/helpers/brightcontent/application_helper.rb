@@ -29,9 +29,9 @@ module Brightcontent::ApplicationHelper
 
   def link_to_filter(filter = nil)
     if filter.present?
-      return link_to filter.humanize, "?filter=#{filter}", :class => ('active' if params[:filter] == filter)
+      return link_to "#{filter.humanize} (#{@model.send(filter).count})", "?filter=#{filter}", :class => ('active' if params[:filter] == filter)
     else
-      return link_to 'All', polymorphic_url([:brightcontent, @model]), :class => ('active' unless params[:filter])
+      return link_to "All (#{@model.count})", polymorphic_url([:brightcontent, @model]), :class => ('active' unless params[:filter])
     end
   end
   
