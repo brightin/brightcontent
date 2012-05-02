@@ -10,7 +10,7 @@
       %br/
       %br/
       
-      .fields.more_options{:style => (invalid_fields(@page) & [:name, :url_name, :parent_id, :position, :meta_keywords, :meta_description]).empty? ? "display: none;" : ""}
+      .fields.more_options{:style => "#{((invalid_fields(@page) & [:name, :url_name, :parent_id, :position, :meta_keywords, :meta_description]).empty?) ? 'display: none;' : ''}"}
         .section
           - unless @page.homepage?
             .field.tree
@@ -20,29 +20,29 @@
               .position
                 = render 'position_tag', :page => @page
         
-        .field
-          = f.label 'name', 'Menu name'
-          = form_field f, 'name'
-          = error_message_on @item, 'name'
-        
-        - if @page.homepage?
           .field
-            = f.label 'url_name', 'Url'
-            .url_name
-              %span.parent_path= parent_path @page
+            = f.label 'name', 'Menu name'
+            = form_field f, 'name'
+            = error_message_on @item, 'name'
         
-        - else
-          .field
-            = f.label 'url_name', 'Url'
-            .url_name{:style => (invalid_fields(@page).include? :url_name ? "display: none;" : "")}
-              %span.parent_path= parent_path @page
-              %span#url_name_preview= @page.url_name
-              = link_to_function "edit", "jQuery('.url_name').toggle()"
-            .url_name{:style => (invalid_fields(@page).include? :url_name ? "" : "display: none;")}
-              %span.parent_path= parent_path @page
-              = form_field f, 'url_name'
-              = link_to_function "ok", "jQuery('.url_name').toggle()"
-              = error_message_on @item, 'url_name'
+          - if @page.homepage?
+            .field
+              = f.label 'url_name', 'Url'
+              .url_name
+                %span.parent_path= parent_path @page
+        
+          - else
+            .field
+              = f.label 'url_name', 'Url'
+              .url_name{:style => "#{(invalid_fields(@page).include? :url_name) ? 'display: none;' : ''}"}
+                %span.parent_path= parent_path @page
+                %span#url_name_preview= @page.url_name
+                = link_to_function "edit", "jQuery('.url_name').toggle()"
+              .url_name{:style => "#{(invalid_fields(@page).include? :url_name) ? '' : 'display: none;'}"}
+                %span.parent_path= parent_path @page
+                = form_field f, 'url_name'
+                = link_to_function "ok", "jQuery('.url_name').toggle()"
+                = error_message_on @item, 'url_name'
       
         .section
           .field.textarea
