@@ -74,10 +74,28 @@ module Brightcontent::DefaultActions
         like_keyword = ::ActiveRecord::Base.connection.adapter_name == "PostgreSQL" ? "ILIKE" : "LIKE"
         query = []
         terms = []
+        possible_joins = []
         @search_fields.each do |field|
-          query << "#{field} #{like_keyword} ?"
-          terms << "%#{@search_term}%"
+          if field.include?(".")
+            field = field.split(".")
+            possible_joins << field[0].singularize.to_sym
+          end
         end
+
+        if possible_joins.present?
+          possible_joins.uniq!
+          possible_joins.each do |join_model|
+            m = m.joins(join_model)
+          end
+        end
+
+        @search_fields.each do |field|
+            query << "#{field} #{like_keyword} ?"
+            terms << "%#{@search_term}%"
+        end
+        
+        # Offer.joins(:brand).where("brands.name LIKE ? OR offer.body LIKE ?", '%oxbow%', '%oxbow%').to_sql
+        # "SELECT \"offers\".* FROM \"offers\" INNER JOIN \"brands\" ON \"brands\".\"id\" = \"offers\".\"brand_id\" WHERE (brands.name LIKE '%oxbow%' OR offer.body LIKE '%test%') ORDER BY available_at DESC, id DESC"
         m = m.where([query.join(" OR "), terms].flatten)
       end
     end
