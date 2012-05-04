@@ -61,7 +61,6 @@
       .field
         = f.label 'body', 'body'.to_s.humanize
         = form_field f, 'body'
-        = render "wymeditor", :element => "#page_body"
         = error_message_on @item, 'body'
       .assets
         = f.fields_for :assets do |builder|
