@@ -95,7 +95,6 @@
     var regexp = new RegExp("new_" + association, "g");
     $(link).prev().append( content.replace(regexp, new_id) );
   }
-
   (function ($) {      
     
     // ****************************************
@@ -106,7 +105,7 @@
     
     var old_title = $("#page_title").val(),
         old_name = $("#page_name").val(),
-        new_record =  @page.new_record? ;
+        new_record =  "#{@page.new_record?}";
     
     setInterval(function () {
       var new_title = $("#page_title").val();
