@@ -20,7 +20,7 @@ module Brightcontent::PagesHelper
     result = ""
     
     page.ancestors[0..-2].reverse.each do |p|
-      name = p.last? ? "empty" : "l"
+      name = Page.where(:parent_id => p.parent_id).order("position DESC").first == p ? "empty" : "l"
       result += image_tag( "brightcontent/#{name}.gif", :class => 'page_tree')
     end
     
