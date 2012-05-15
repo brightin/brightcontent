@@ -1,5 +1,5 @@
 class Page < ActiveRecord::Base
-  include ActiveRecord::Acts::Tree
+  include ActsAsTree
   
   has_many :assets, :as => :attachable, :dependent => :destroy
   accepts_nested_attributes_for :assets, :allow_destroy => true
@@ -21,11 +21,6 @@ class Page < ActiveRecord::Base
     [root] + root.children.visible
   end
   
-  def initialize(*)
-    super
-    self.parent = Page.root
-  end
-  
   def menu_item?
     published && visible
   end
@@ -35,7 +30,11 @@ class Page < ActiveRecord::Base
   end
   
   def homepage?
-    self.parent.nil?
+    !Page.any? || root?
+  end
+  
+  def root?
+    Page.root == self
   end
   
   def url
@@ -49,5 +48,5 @@ class Page < ActiveRecord::Base
   def get_all_page_images
     self.assets
   end
-  
+
 end
