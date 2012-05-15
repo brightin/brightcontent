@@ -9,14 +9,13 @@
       = link_to_function "Options", "jQuery('.more_options').slideToggle()"
       %br/
       %br/
-      
       .fields.more_options{:style => "#{((invalid_fields(@page) & [:name, :url_name, :parent_id, :position, :meta_keywords, :meta_description]).empty?) ? 'display: none;' : ''}"}
         .section
           - unless @page.homepage?
             .field.tree
               .parent_id
                 = f.label 'parent_id', 'Menu parent'
-                = f.select :parent_id, options_for_select(page_pairs(Page.root, @page), @page.parent_id.try(:to_i))
+                = f.select :parent_id, options_for_select(page_pairs(Page.root, @page), @page.parent_id)
               .position
                 = render 'position_tag', :page => @page
         
