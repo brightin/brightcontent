@@ -25,7 +25,8 @@ module Brightcontent::PagesHelper
     end
     
     filename = "t"
-    filename = "end" if page.last?
+    # Ideally we want to use 'if page.last?' but acts_as_list/rails3.2 has an issue with sanitizetizing a hash in acts_as_list->list.rb
+    filename = "end" if Page.where(:parent_id => page.parent_id).order("position DESC").first == page
     filename = "empty" if skip_last
     return result + image_tag("brightcontent/#{filename}.gif", :class => 'page_tree')
   end
