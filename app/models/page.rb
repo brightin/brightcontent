@@ -1,5 +1,5 @@
 class Page < ActiveRecord::Base
-  include ActiveRecord::Acts::Tree
+  include ActsAsTree
   
   has_many :assets, :as => :attachable, :dependent => :destroy
   accepts_nested_attributes_for :assets, :allow_destroy => true
@@ -10,6 +10,7 @@ class Page < ActiveRecord::Base
   validates_presence_of :title, :name
   validates_presence_of :url_name, :unless => :homepage?
   validates_format_of :url_name, :with => /^[-a-z0-9]+$/, :if => "url_name.present?"
+  validates_length_of :name, :title, :url_name, :resource, :meta_keywords, :meta_description, :maximum => 255
   after_save { PageUrls.mark_dirty }
   
   def self.root_with_children
@@ -18,11 +19,6 @@ class Page < ActiveRecord::Base
   
   def self.visible_root_with_children
     [root] + root.children.visible
-  end
-  
-  def initialize(*)
-    super
-    self.parent = Page.root
   end
   
   def menu_item?
@@ -34,7 +30,11 @@ class Page < ActiveRecord::Base
   end
   
   def homepage?
-    self.parent.nil?
+    !Page.any? || root?
+  end
+  
+  def root?
+    Page.root == self
   end
   
   def url
@@ -48,5 +48,5 @@ class Page < ActiveRecord::Base
   def get_all_page_images
     self.assets
   end
-  
+
 end
