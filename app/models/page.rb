@@ -10,6 +10,7 @@ class Page < ActiveRecord::Base
   validates_presence_of :title, :name
   validates_presence_of :url_name, :unless => :homepage?
   validates_format_of :url_name, :with => /^[-a-z0-9]+$/, :if => "url_name.present?"
+  validates_length_of :name, :title, :url_name, :resource, :meta_keywords, :meta_description, :maximum => 255
   after_save { PageUrls.mark_dirty }
   
   def self.root_with_children
