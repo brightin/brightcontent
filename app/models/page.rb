@@ -3,7 +3,7 @@ class Page < ActiveRecord::Base
   
   has_many :assets, :as => :attachable, :dependent => :destroy
   accepts_nested_attributes_for :assets, :allow_destroy => true
-  acts_as_list  scope: 'parent_id'
+  acts_as_list  scope: :parent_id
   acts_as_tree  order: 'position'
   scope :published, where(:draft => false)
   scope :visible, published.where(:hidden => false)
