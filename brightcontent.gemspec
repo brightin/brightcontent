@@ -7,14 +7,15 @@ require "brightcontent/version"
 Gem::Specification.new do |s|
   s.name        = "brightcontent"
   s.version     = Brightcontent::VERSION
-  s.authors     = ["TODO: Your name"]
-  s.email       = ["TODO: Your email"]
-  s.homepage    = "TODO"
-  s.summary     = "TODO: Summary of Brightcontent."
-  s.description = "TODO: Description of Brightcontent."
+  s.authors     = ["Developers at Brightin"]
+  s.email       = ["developers@brightin.nl"]
+  s.homepage    = "http://brightin.nl"
+  s.summary     = "Brightcontent gem"
+  s.description = "Brightcontent, yet another rails CMS / admin panel"
+
 
   s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.rdoc"]
-  s.test_files = Dir["test/**/*"]
+  s.test_files = Dir["spec/**/*"]
 
   s.add_dependency "rails", "~> 3.2.9"
   #s.add_dependency "jquery-rails"
