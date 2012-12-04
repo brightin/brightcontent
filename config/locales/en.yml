@@ -1,5 +1,0 @@
-en:
-  will_paginate:
-    next_label: "Next"
-    previous_label: "Previous"
-    page_gap: "..."
