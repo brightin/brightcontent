@@ -1,5 +1,0 @@
-<td class="actions">
-  <%= link_to 'Edit', polymorphic_url([:brightcontent, item], :action => "edit"), :class => "edit" %>
-  <%= link_to 'Show', item.url, :class => "view" %>
-  <%= link_to 'Destroy', polymorphic_url([:brightcontent, item], :url => request.url), :confirm => 'Are you sure?', :method => :delete, :class => "delete" %>
-</td>
