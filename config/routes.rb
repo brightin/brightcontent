@@ -3,6 +3,7 @@ Brightcontent::Engine.routes.draw do
   get 'logout', to: 'sessions#destroy'
 
   resources :users
+  resources :pages
   resources :sessions
 
   root to: "pages#index"

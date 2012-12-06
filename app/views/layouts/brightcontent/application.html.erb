@@ -8,13 +8,17 @@
 </head>
 <body>
 
-<%= link_to "Logout", logout_path %>
+<div id="user_menu">
+  <%= link_to "Logout", logout_path %>
+</div>
 
-<%= flash.each do |key,value| %>
-  <div class="flash <%= key.to_s%>">
-    <%= value %>
-  </div>
-<% end %>
+<nav>
+  <ul id="menu">
+    <li><%= link_to "Pages", pages_path %></li>
+  </ul>
+</nav>
+
+<%= render "application/show_flash_names" %>
 
 <%= yield %>
 

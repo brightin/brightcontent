@@ -32,5 +32,4 @@ feature "Login" do
     fill_in "Password", with: "password"
     click_button "Login"
   end
-
 end
