@@ -8,6 +8,8 @@
 </head>
 <body>
 
+<%= link_to "Logout", logout_path %>
+
 <%= flash.each do |key,value| %>
   <div class="flash <%= key.to_s%>">
     <%= value %>
