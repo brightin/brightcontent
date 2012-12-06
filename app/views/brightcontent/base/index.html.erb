@@ -1,0 +1,22 @@
+<div id="overview">
+  <h1><%= collection_name %></h1>
+
+  <table>
+    <thead>
+      <tr>
+        <% list_fields.each do |list_field| %>
+          <th><%= list_field %></th>
+        <% end %>
+      </tr>
+    </thead>
+    <tbody>
+      <% collection.each do |item| %>
+        <tr>
+          <% list_fields.each do |list_field| %>
+            <td><%= item[list_field] %></td>
+          <% end %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

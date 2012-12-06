@@ -1,3 +1,5 @@
+require "inherited_resources"
+
 require "brightcontent/rails/routes"
 require "brightcontent/routes_parser"
 require "brightcontent/engine"
