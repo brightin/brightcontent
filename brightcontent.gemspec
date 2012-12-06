@@ -17,6 +17,7 @@ Gem::Specification.new do |s|
   s.add_dependency "rails", "~> 3.2.9"
   s.add_dependency "jquery-rails"
   s.add_dependency "bcrypt-ruby"
+  s.add_dependency "inherited_resources"
 
   s.add_development_dependency "sqlite3"
   s.add_development_dependency "rspec-rails"
