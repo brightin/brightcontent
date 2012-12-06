@@ -15,8 +15,8 @@
 <nav>
   <ul id="menu">
     <li><%= link_to "Pages", pages_path %></li>
-    <% resources.each do |resource| %>
-      <li><%= link_to resource, "#" %></li>
+    <% resources.each do |resource_name| %>
+      <li><%= link_to resource_name.humanize, url_for(controller: resource_name) %></li>
     <% end %>
   </ul>
 </nav>
