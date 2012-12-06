@@ -1,3 +1,5 @@
 Rails.application.routes.draw do
-  mount Brightcontent::Engine => "/admin"
+  brightcontent_namespace 'admin' do
+    resources :blogs
+  end
 end
