@@ -15,6 +15,9 @@
 <nav>
   <ul id="menu">
     <li><%= link_to "Pages", pages_path %></li>
+    <% resources.each do |resource| %>
+      <li><%= link_to resource, "#" %></li>
+    <% end %>
   </ul>
 </nav>
 
