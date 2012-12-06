@@ -4,6 +4,11 @@ module Brightcontent
 
     private
 
+    def resources
+      @resources ||= RoutesParser.parse
+    end
+    helper_method :resources
+
     def current_user
       @current_user ||= User.find(session[:brightcontent_user_id]) if session[:brightcontent_user_id]
     end
