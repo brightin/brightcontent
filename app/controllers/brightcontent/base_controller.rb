@@ -3,7 +3,7 @@ require_dependency "brightcontent/application_controller"
 module Brightcontent
   class BaseController < ApplicationController
     inherit_resources
-    helper_method :collection_name, :list_fields, :form_fields
+    helper_method :list_fields, :form_fields
 
     def show
       redirect_to action: :edit
@@ -22,10 +22,6 @@ module Brightcontent
     end
 
     private
-
-    def collection_name
-      resource_class.to_s.humanize.pluralize
-    end
 
     def list_fields
       form_fields

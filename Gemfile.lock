@@ -153,7 +153,6 @@ DEPENDENCIES
   brightcontent!
   capybara
   factory_girl_rails
-  jquery-rails
   launchy
   rspec-rails
   sqlite3

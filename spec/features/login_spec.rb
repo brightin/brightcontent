@@ -15,13 +15,13 @@ feature "Login" do
 
   scenario "Login with valid credentials" do
     login
-    page.should have_content "Pagina's"
+    page.should have_content "Pages"
   end
 
   scenario "Logout" do
     login
     click_link "Logout"
-    page.should have_content "Login"
+    page.should have_content "Please sign in"
   end
 
   private

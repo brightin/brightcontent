@@ -11,14 +11,24 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121206225720) do
+ActiveRecord::Schema.define(:version => 20121207132810) do
 
   create_table "blogs", :force => true do |t|
     t.string   "name"
-    t.string   "body"
+    t.text     "body"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  create_table "pages", :force => true do |t|
+    t.string   "name"
+    t.text     "body"
+    t.string   "slug"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "pages", ["slug"], :name => "index_pages_on_slug"
 
   create_table "users", :force => true do |t|
     t.string   "email"

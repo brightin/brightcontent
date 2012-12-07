@@ -1,13 +1,13 @@
 <div id="overview">
-  <h1><%= collection_name %></h1>
 
-  <%= link_to "Add", polymorphic_url(resource_class, action: :new) %>
+  <%= link_to "Create new #{resource_instance_name.to_s}", polymorphic_url(resource_class, action: :new), class: "btn btn-primary btn-right" %>
+  <h1><%= resource_collection_name.to_s.humanize %></h1>
 
-  <table>
+  <table class="table table-hover">
     <thead>
       <tr>
         <% list_fields.each do |list_field| %>
-          <th><%= list_field %></th>
+          <th><%= list_field.humanize %></th>
         <% end %>
         <th></th>
       </tr>
