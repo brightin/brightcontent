@@ -1,0 +1,8 @@
+<% collection.each do |item| %>
+  <tr>
+    <% list_fields.each do |field| %>
+      <td><%= render_list_field(item, field) %></td>
+    <% end %>
+    <td><%= render "list_actions", item: item %></td>
+  </tr>
+<% end %>

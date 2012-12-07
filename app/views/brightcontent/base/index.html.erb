@@ -7,16 +7,11 @@
         <% list_fields.each do |list_field| %>
           <th><%= list_field %></th>
         <% end %>
+        <th></th>
       </tr>
     </thead>
     <tbody>
-      <% collection.each do |item| %>
-        <tr>
-          <% list_fields.each do |list_field| %>
-            <td><%= item[list_field] %></td>
-          <% end %>
-        </tr>
-      <% end %>
+      <%= render "list", collection: collection, list_fields: list_fields  %>
     </tbody>
   </table>
 </div>
