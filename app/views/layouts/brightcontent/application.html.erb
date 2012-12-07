@@ -25,10 +25,7 @@
           <%= link_to "Brightcontent", root_path, class: "brand" %>
           <div class="nav-collapse collapse">
             <ul class="nav" id="menu">
-              <li><%= link_to "Pages", pages_path %></li>
-              <% menu_items.each do |menu_item_name| %>
-                <li><%= link_to menu_item_name.humanize, url_for(controller: menu_item_name) %></li>
-              <% end %>
+              <%= render "menu" %>
             </ul>
             <ul class="nav pull-right">
               <li><%= link_to "Logout", logout_path %></li>

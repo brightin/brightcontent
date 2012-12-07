@@ -1,7 +1,7 @@
 module Brightcontent
   class ApplicationController < ActionController::Base
     before_filter :authorize
-    helper_method :menu_items, :current_user
+    helper_method :resource_classes, :current_user
     layout "brightcontent/application"
 
     private
@@ -14,7 +14,7 @@ module Brightcontent
       redirect_to login_url, alert: "Not authorized" if current_user.nil?
     end
 
-    def menu_items
+    def resource_classes
       RoutesParser.parse
     end
   end

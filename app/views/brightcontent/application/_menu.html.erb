@@ -1,0 +1,5 @@
+<li><%= link_to "Pages", pages_path %></li>
+<% resource_classes.each do |resource_class| %>
+  <li><%= link_to resource_class.model_name.human.pluralize, polymorphic_url(resource_class) %></li>
+<% end %>
+<li><%= link_to "Users", users_path %></li>
