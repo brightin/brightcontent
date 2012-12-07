@@ -17,4 +17,12 @@ feature "Resources index" do
     end
   end
 
+  scenario "Multiple pages for items with more than 30 items" do
+    40.times { create :blog }
+    click_link "Blogs"
+    page.should have_css("tbody tr", :count => 30)
+    click_link "Next"
+    page.should have_css("tbody tr", :count => 11)
+  end
+
 end

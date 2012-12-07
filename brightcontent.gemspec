@@ -19,6 +19,7 @@ Gem::Specification.new do |s|
   s.add_dependency "bcrypt-ruby"
   s.add_dependency "inherited_resources"
   s.add_dependency "simple_form"
+  s.add_dependency "will_paginate"
 
   s.add_development_dependency "sqlite3"
   s.add_development_dependency "rspec-rails"
