@@ -3,6 +3,6 @@
     <% list_fields.each do |field| %>
       <td><%= render_list_field(item, field) %></td>
     <% end %>
-    <td><%= render "list_actions", item: item %></td>
+    <td class="list-actions"><%= render "list_actions", item: item %></td>
   </tr>
 <% end %>

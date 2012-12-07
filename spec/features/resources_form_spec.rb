@@ -15,7 +15,7 @@ feature "Resources form" do
   end
 
   scenario "add a item" do
-    click_link "Add"
+    click_link "Create new blog"
     fill_in "Name", with: "test-name"
     fill_in "Body", with: "test-body"
     click_button "Create Blog"

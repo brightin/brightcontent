@@ -10,7 +10,7 @@ feature "Resources index" do
     click_link "Blogs"
     page.should have_link "Logout"
     within "#overview" do
-      ["Blogs", "name", "body", "Edit", @blog.name, @blog.body].each do |name|
+      ["Blogs", "Name", "Body", "Edit", @blog.name, @blog.body].each do |name|
         page.should have_content name
       end
       page.should have_no_content "created_at"

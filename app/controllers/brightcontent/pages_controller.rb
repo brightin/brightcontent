@@ -1,7 +1,7 @@
 require_dependency "brightcontent/application_controller"
 
 module Brightcontent
-  class PagesController < ApplicationController
+  class PagesController < BaseController
     def index
     end
   end

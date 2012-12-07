@@ -2,8 +2,8 @@ module Brightcontent
   class Engine < ::Rails::Engine
     isolate_namespace Brightcontent
 
-    config.generators do |g|
-      g.test_framework :rspec
+    initializer "Brightcontent precompile hook", :group => :all do |app|
+      app.config.assets.precompile += ['brightcontent/brightcontent.js', 'brightcontent/brightcontent.css']
     end
   end
 end
