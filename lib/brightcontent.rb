@@ -1,6 +1,7 @@
 require "inherited_resources"
 require "simple_form"
 require "jquery-rails"
+require "will_paginate"
 
 require "brightcontent/rails/routes"
 require "brightcontent/routes_parser"
