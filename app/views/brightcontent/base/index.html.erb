@@ -1,6 +1,8 @@
 <div id="overview">
   <h1><%= collection_name %></h1>
 
+  <%= link_to "Add", polymorphic_url(resource_class, action: :new) %>
+
   <table>
     <thead>
       <tr>
