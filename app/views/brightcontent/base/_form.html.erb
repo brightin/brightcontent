@@ -1,0 +1,13 @@
+<%= simple_form_for resource do |form| %>
+  <%= form.error_notification %>
+
+  <div class="form-inputs">
+    <% form_fields.each do |form_field| %>
+      <%= render_form_field(form, form_field) %>
+    <% end %>
+  </div>
+
+  <div class="form-actions">
+    <%= form.button :submit %>
+  </div>
+<% end %>
