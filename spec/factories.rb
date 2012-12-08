@@ -9,6 +9,11 @@ FactoryGirl.define do
     password_confirmation "password"
   end
 
+  factory :page, class: Brightcontent::Page do
+    name "Pagina"
+    body "Body"
+  end
+
   factory :blog do
     name "Blogname"
     body "Inhoud"
