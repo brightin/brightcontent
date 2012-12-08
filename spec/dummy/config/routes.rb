@@ -4,4 +4,7 @@ Rails.application.routes.draw do
   brightcontent_namespace 'admin' do
     resources :blogs
   end
+
+  root to: "pages#index"
+  get "*path" => "pages#show"
 end
