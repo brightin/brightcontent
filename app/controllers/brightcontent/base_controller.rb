@@ -15,6 +15,10 @@ module Brightcontent
     end
 
     def form_fields
+      default_fields
+    end
+
+    def default_fields
       resource_class.column_names - %w{id created_at updated_at password_digest}
     end
 
