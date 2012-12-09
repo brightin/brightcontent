@@ -14,9 +14,15 @@ module Brightcontent
   autoload :RoutesParser, 'brightcontent/routes_parser'
   autoload :DefaultActions, 'brightcontent/default_actions'
 
-  # Keys that should have whitespace stripped.
+  # The default resources contained in the engine
   mattr_accessor :engine_resources
   @@engine_resources = %w{pages sessions users}
+
+  # Default way to setup Brightcontent.
+  # Run rails g brightcontent:install to create initializer
+  def self.setup
+    yield self
+  end
 
   # Prevent engine isolation of models
   # Watch out with migrations, still adds prefix
