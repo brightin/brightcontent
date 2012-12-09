@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :blogs
 
-  brightcontent_namespace 'admin' do
+  brightcontent_resources do
     resources :blogs
   end
 
