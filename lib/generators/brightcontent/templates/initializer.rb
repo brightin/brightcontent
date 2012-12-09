@@ -1,3 +1,4 @@
 Brightcontent.setup do |config|
-  #No config options yet!
+  # The path where the admin interface should mount.
+  config.path = "admin"
 end

@@ -18,6 +18,10 @@ module Brightcontent
   mattr_accessor :engine_resources
   @@engine_resources = %w{pages sessions users}
 
+  # The path where the admin interface should mount
+  mattr_accessor :path
+  @@path = "admin"
+
   # Default way to setup Brightcontent.
   # Run rails g brightcontent:install to create initializer
   def self.setup

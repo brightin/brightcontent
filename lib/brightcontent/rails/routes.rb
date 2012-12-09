@@ -1,8 +1,8 @@
 module ActionDispatch::Routing
   class Mapper
-    def brightcontent_namespace(name, &block)
+    def brightcontent_resources(&block)
       define_user_resources(&block) if block_given?
-      mount Brightcontent::Engine => name
+      mount Brightcontent::Engine => Brightcontent.path
     end
 
     private
