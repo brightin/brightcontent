@@ -1,20 +1,28 @@
 require 'spec_helper'
 
 feature "Menu" do
-  background do
-    valid_login
-  end
 
   scenario "Shows default menu" do
-    within "#menu" do
-      page.should have_link "Pages"
-      page.should have_no_link "Sessions"
-    end
+    sign_in
+    menu_should_have_link "Pages"
+    menu_should_not_have_link "Sessions"
   end
 
   scenario "Shows menu for extra resources" do
+    sign_in
+    menu_should_have_link "Blogs"
+  end
+
+  def menu_should_have_link(link_name)
     within "#menu" do
-      page.should have_link "Blogs"
+      page.should have_link link_name
     end
   end
+
+  def menu_should_not_have_link(link_name)
+    within "#menu" do
+      page.should have_no_link link_name
+    end
+  end
+
 end

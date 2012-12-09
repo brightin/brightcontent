@@ -1,4 +1,4 @@
-def valid_login
+def sign_in
   user = create(:user)
   visit "/admin"
   fill_in "Email", with: user.email
