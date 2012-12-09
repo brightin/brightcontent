@@ -1,43 +1,50 @@
 require 'spec_helper'
 
 feature "Resources index" do
+
   background do
-    valid_login
+    sign_in
   end
 
-  context "Single item" do
-    background do
-      @blog = create :blog
-      click_link "Blogs"
-    end
+  scenario "Visit the index view of resource" do
+    visit_blogs_page
+    page_should_have_valid_table
+  end
 
-    scenario "View the index of the resource" do
-      within "#overview" do
-        ["Blogs", "Name", "Body", "Edit", @blog.name, @blog.body].each do |name|
-          page.should have_content name
-        end
-        page.should have_no_content "created_at"
-      end
+  scenario "Multiple pages for items with more than 30 items" do
+    given_31_blog_items
+    visit_blogs_page
+    page.should have_css("tbody tr", :count => 30)
+    click_link "Next"
+    page.should have_css("tbody tr", :count => 1)
+  end
+
+  scenario "Editable paginate count" do
+    given_10_per_page
+    given_31_blog_items
+    visit_blogs_page
+    page.should have_css("tbody tr", :count => 10)
+  end
+
+  def visit_blogs_page
+    click_link "Blogs"
+  end
+
+  def page_should_have_valid_table
+    within "#overview" do
+      page.should have_content "Blogs"
+      page.should have_content "Name"
+      page.should have_content "Body"
+      page.should have_no_content "created_at"
     end
   end
 
-  context "Multiple items" do
-    background do
-      40.times { create :blog }
-      click_link "Blogs"
-    end
+  def given_31_blog_items
+    31.times { create :blog }
+  end
 
-    scenario "Multiple pages for items with more than 30 items" do
-      page.should have_css("tbody tr", :count => 30)
-      click_link "Next"
-      page.should have_css("tbody tr", :count => 10)
-    end
-
-    scenario "Editable paginate count" do
-      class Brightcontent::BlogsController ; per_page 10 ; end
-      click_link "Blogs"
-      page.should have_css("tbody tr", :count => 10)
-    end
+  def given_10_per_page
+    Brightcontent::BlogsController.class_eval { per_page 10 }
   end
 
 end

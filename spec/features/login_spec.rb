@@ -1,35 +1,29 @@
 require 'spec_helper'
 
 feature "Login" do
-  background do
-    @user = create(:user)
-  end
- 
+
   scenario "Login with invalid credentials" do
-    visit "/admin"
-    fill_in "Email", with: @user.email
-    fill_in "Password", with: "wrongpass"
-    click_button "Login"
+    sign_in_with_invalid_email
     page.should have_content "invalid"
   end
 
   scenario "Login with valid credentials" do
-    login
+    sign_in
     page.should have_content "Pages"
   end
 
-  scenario "Logout" do
-    login
+  scenario "User logs out" do
+    sign_in
     click_link "Logout"
     page.should have_content "Please sign in"
   end
 
-  private
-
-  def login
+  def sign_in_with_invalid_email
+    @user = create(:user)
     visit "/admin"
     fill_in "Email", with: @user.email
-    fill_in "Password", with: "password"
+    fill_in "Password", with: "wrongpass"
     click_button "Login"
   end
+
 end
