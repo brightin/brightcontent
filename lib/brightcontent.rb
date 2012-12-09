@@ -14,13 +14,14 @@ module Brightcontent
   autoload :RoutesParser, 'brightcontent/routes_parser'
   autoload :DefaultActions, 'brightcontent/default_actions'
 
-  # The default resources contained in the engine
   mattr_accessor :engine_resources
   @@engine_resources = %w{pages sessions users}
 
-  # The path where the admin interface should mount
   mattr_accessor :path
   @@path = "admin"
+
+  mattr_accessor :application_name
+  @@application_name = Rails.application.class.parent_name
 
   # Default way to setup Brightcontent.
   # Run rails g brightcontent:install to create initializer
