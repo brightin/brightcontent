@@ -15,7 +15,7 @@ Brightcontent, yet another rails CMS / admin panel
 == Installation
 Include the gem in your Gemfile:
 
-  gem "brightcontent", :git => "git:github.com/stexy/brightcontent.git"
+  gem "brightcontent", :git => "git@github.com:stexy/brightcontent.git"
 
 Generate the initializer, copy migrations and edit routes file. This can be done via a generator:
 
