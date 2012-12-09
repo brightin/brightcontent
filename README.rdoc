@@ -20,10 +20,34 @@ Include the gem in your Gemfile:
 
 Generate the initializer, copy migrations and edit routes file. This can be done via a generator. Migrate the database afterwards:
 
-  $ rails generator brightcontent:install
+  $ rails generate brightcontent:install
   $ rake db:migrate
 
 Go to <tt>/admin</tt> and login with default user (email: <tt>admin@example.com</tt> / password: <tt>password</tt>).
+
+== Add a resource to Brightcontent
+Lets say, we want to add projects. Just create the <tt>Project</tt> model the rails way:
+  $ rails g model Project name:string description:text
+  $ rake db:migrate
+
+=== Automatic
+To add the resource to brightcontent run:
+
+  $ rails generate brightcontent:resource Project
+
+=== Manually
+If you prefer to do it manually add a resources-route to the routes file in the <tt>brightcontent_resources</tt> block:
+
+  brightcontent_resources do
+    resourcs :projects
+  end
+
+Create a dir in the controllers directory named <tt>brightcontent</tt>. In this dir, create a new controller called <tt>projects_controller.rb</tt>. The class should inherit from <tt>Brightcontent::BaseController</tt>:
+
+  class Brightcontent::ProjectsController < Brightcontent::Basecontroller
+  end
+
+Gratz! Projects can now be controlled with Brightcontent.
 
 == Pages
 
