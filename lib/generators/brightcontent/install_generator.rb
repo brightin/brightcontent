@@ -18,6 +18,11 @@ module Brightcontent
         "    #resources :vacancies  #for example\n" \
         "  end"
       end
+
+      def copy_custom_assets
+        copy_file "../../../../app/assets/stylesheets/brightcontent/custom.css", "app/assets/stylesheets/brightcontent/custom.css"
+        copy_file "../../../../app/assets/javascripts/brightcontent/custom.js", "app/assets/stylesheets/brightcontent/custom.js"
+      end
     end
   end
 end
