@@ -18,16 +18,12 @@ Include the gem in your Gemfile:
 
   gem "brightcontent", :git => "git@github.com:stexy/brightcontent.git"
 
-Generate the initializer, copy migrations and edit routes file. This can be done via a generator:
+Generate the initializer, copy migrations and edit routes file. This can be done via a generator. Migrate the database afterwards:
 
   $ rails generator brightcontent:install
-
-Generate default user and migrate:
-
-  $ rails runner 'Brightcontent::User.create({:email_address => "admin@example.com", :password => "password"})'
   $ rake db:migrate
 
-Go to <tt>/admin</tt> and login.
+Go to <tt>/admin</tt> and login with default user (email: <tt>admin@example.com</tt> / password: <tt>password</tt>).
 
 == Pages
 

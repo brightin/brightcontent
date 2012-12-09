@@ -1,9 +1,14 @@
 module Brightcontent
   module Generators
     class InstallGenerator < Rails::Generators::Base
+      include Rails::Generators::Migration
       source_root File.expand_path("../templates", __FILE__)
 
       desc "Creates a Brightcontent initializer, copy migrations, edit routes file"
+
+      def self.next_migration_number(path)
+        Time.now.utc.strftime("%Y%m%d%H%M%S")
+      end
 
       def copy_initializer
         template "initializer.rb", "config/initializers/brightcontent.rb"
@@ -11,6 +16,10 @@ module Brightcontent
 
       def copy_migrations
         rake "brightcontent:install:migrations"
+      end
+
+      def generate_default_user
+        migration_template "add_default_user.rb", "db/migrate/add_default_user.brightcontent.rb"
       end
 
       def add_routes
