@@ -4,7 +4,7 @@ Brightcontent::Engine.routes.draw do
 
   resources :users
   resources :pages
-  resources :sessions
+  resources :sessions, only: [:new, :create, :destroy]
 
   root to: "pages#index"
 end
