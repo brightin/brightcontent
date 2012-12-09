@@ -23,7 +23,7 @@ module Brightcontent
       end
 
       def add_routes
-        route "brightcontent_namespace 'admin' do\n" \
+        route "brightcontent_resources do\n" \
         "    #resources :vacancies  #for example\n" \
         "  end"
       end
