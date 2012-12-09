@@ -2,6 +2,7 @@ require "inherited_resources"
 require "simple_form"
 require "jquery-rails"
 require "will_paginate"
+require "awesome_nested_set"
 
 require "brightcontent/rails/routes"
 require "brightcontent/engine"
