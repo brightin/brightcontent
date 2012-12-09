@@ -23,6 +23,10 @@ module Brightcontent
         copy_file "../../../../app/assets/stylesheets/brightcontent/custom.css", "app/assets/stylesheets/brightcontent/custom.css"
         copy_file "../../../../app/assets/javascripts/brightcontent/custom.js", "app/assets/stylesheets/brightcontent/custom.js"
       end
+
+      def setup_directory
+        empty_directory "app/controllers/brightcontent"
+      end
     end
   end
 end
