@@ -1,8 +1,8 @@
-   ___     _      _   _    ___         _           _
-  | _ )_ _(_)__ _| |_| |_ / __|___ _ _| |_ ___ _ _| |
-  | _ \ '_| / _` | ' \  _| (__/ _ \ ' \  _/ -_) ' \  _|
-  |___/_| |_\__, |_||_\__|\___\___/_||_\__\___|_||_\__|
-            |___/
+     ___     _      _   _    ___         _           _
+    | _ )_ _(_)__ _| |_| |_ / __|___ _ _| |_ ___ _ _| |
+    | _ \ '_| / _` | ' \  _| (__/ _ \ ' \  _/ -_) ' \  _|
+    |___/_| |_\__, |_||_\__|\___\___/_||_\__\___|_||_\__|
+              |___/
 
 
 Brightcontent, yet another rails CMS / admin panel
@@ -18,12 +18,12 @@ Installation
 
 Include the gem in your Gemfile:
 
-  gem "brightcontent", :git => "git@github.com:stexy/brightcontent.git"
+    gem "brightcontent", :git => "git@github.com:stexy/brightcontent.git"
 
 Generate the initializer, copy migrations and edit routes file. This can be done via a generator. Migrate the database afterwards:
 
-  $ rails generate brightcontent:install
-  $ rake db:migrate
+    $ rails generate brightcontent:install
+    $ rake db:migrate
 
 Go to `/admin` and login with default user (email: `admin@example.com` / password: `password`).
 
@@ -68,5 +68,5 @@ Brightcontent provides an admin panel for all defined resources, additionally it
 This adds an extra layer on top of your existing routes. However when there aren't any routes available for the specific url, Rails cannot render the page. Therefore it is best to add a catch-all route (at the very bottom of the file) for all general pages:
 
 ```ruby
-  get "*path" => "pages#show"
+get "*path" => "pages#show"
 ```
