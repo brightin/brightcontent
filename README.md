@@ -18,7 +18,9 @@ Installation
 
 Include the gem in your Gemfile:
 
-    gem "brightcontent", :git => "git@github.com:stexy/brightcontent.git"
+```ruby
+gem "brightcontent", :git => "git@github.com:stexy/brightcontent.git"
+```
 
 Generate the initializer, copy migrations and edit routes file. This can be done via a generator. Migrate the database afterwards:
 
