@@ -21,7 +21,7 @@ module Brightcontent
   @@path = "admin"
 
   mattr_accessor :application_name
-  @@application_name = Rails.application.class.parent_name
+  @@application_name = "Brightcontent"
 
   # Default way to setup Brightcontent.
   # Run rails g brightcontent:install to create initializer
