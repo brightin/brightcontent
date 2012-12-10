@@ -14,7 +14,7 @@ Brightcontent, yet another rails CMS / admin panel
 * Rails 3.1+ only
 
 Installation
-============
+------------
 
 Include the gem in your Gemfile:
 
@@ -28,40 +28,20 @@ Generate the initializer, copy migrations and edit routes file. This can be done
 Go to `/admin` and login with default user (email: `admin@example.com` / password: `password`).
 
 Add a resource to Brightcontent
-===============================
+-------------------------------
 
 Lets say, we want to add projects. Just create the `Project` model the rails way:
     $ rails g model Project name:string description:text
     $ rake db:migrate
 
-Automatic
----------
 To add the resource to brightcontent run:
 
     $ rails generate brightcontent:resource Project
 
-Manually
---------
-
-If you prefer to do it manually add a resources-route to the routes file in the `brightcontent_resources` block:
-
-```ruby
-brightcontent_resources do
-  resourcs :projects
-end
-```
-
-Create a dir in the controllers directory named `brightcontent`. In this dir, create a new controller called `projects_controller.rb`. The class should inherit from `Brightcontent::BaseController`:
-
-```ruby
-class Brightcontent::ProjectsController < Brightcontent::Basecontroller
-end
-```
-
 Gratz! Projects can now be controlled with Brightcontent.
 
 Pages
-=====
+-----
 
 Brightcontent provides an admin panel for all defined resources, additionally it gives you a Page model with tree structure and pretty urls. Every page relates to a specific path. For example, you could create a page with the path `/about/team`. The page is available on the url via `current_page`.
 
