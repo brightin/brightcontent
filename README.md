@@ -19,7 +19,7 @@ Installation
 Include the gem in your Gemfile:
 
 ```ruby
-gem "brightcontent", :git => "git@github.com:stexy/brightcontent.git"
+gem "brightcontent", :git => "git://github.com/stexy/brightcontent.git"
 bundle install
 ```
 
