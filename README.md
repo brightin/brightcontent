@@ -20,6 +20,7 @@ Include the gem in your Gemfile:
 
 ```ruby
 gem "brightcontent", :git => "git@github.com:stexy/brightcontent.git"
+bundle install
 ```
 
 Generate the initializer, copy migrations and edit routes file. This can be done via a generator. Migrate the database afterwards:
