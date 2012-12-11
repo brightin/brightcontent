@@ -7,7 +7,12 @@ module Brightcontent
     end
 
     initializer "Include Brightcontent methods" do
-      Brightcontent.include_page_methods
+      ActiveSupport.on_load(:action_controller) do
+        include PageMethods
+      end
+      ActiveSupport.on_load(:action_view) do
+        include PageMethods
+      end
     end
   end
 end
