@@ -5,14 +5,15 @@ require "brightcontent/version"
 Gem::Specification.new do |s|
   s.name        = "brightcontent"
   s.version     = Brightcontent::VERSION
-  s.authors     = ["Developers at Brightin"]
-  s.email       = ["developers@brightin.nl"]
+  s.email       = "developers@brightin.nl"
   s.homepage    = "http://brightin.nl"
   s.summary     = "Brightcontent gem"
   s.description = "Brightcontent, yet another Rails CMS / admin panel"
+  s.authors     = ["Developers at Brightin"]
 
-  s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.md"]
-  s.test_files = Dir["spec/**/*"]
+  s.files         = `git ls-files`.split("\n")
+  s.test_files    = `git ls-files -- spec/*`.split("\n")
+  s.require_paths = ["lib"]
 
   s.add_dependency "rails", "~> 3.2.9"
   s.add_dependency "jquery-rails"
