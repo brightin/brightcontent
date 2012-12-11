@@ -16,10 +16,7 @@ module Brightcontent
 
       def copy_migrations
         rake "brightcontent:install:migrations"
-      end
-
-      def generate_default_user
-        migration_template "add_default_user.rb", "db/migrate/add_default_user.brightcontent.rb"
+        sleep 1
       end
 
       def add_routes
@@ -35,7 +32,13 @@ module Brightcontent
 
       def setup_directory
         empty_directory "app/controllers/brightcontent"
+        empty_directory "app/views/brightcontent"
       end
+
+      def generate_default_user
+        migration_template "add_default_user.rb", "db/migrate/add_default_user.brightcontent.rb"
+      end
+
     end
   end
 end
