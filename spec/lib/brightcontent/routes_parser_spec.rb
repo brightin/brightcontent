@@ -5,31 +5,29 @@ class Article ; end
 
 module Brightcontent
   describe RoutesParser do
+    let(:engine_resources) { %w{pages sessions users} }
     let(:routes_hash) do
       [ {}, nil, {:action=>"admin"},
       {:action=>"index", :controller=>"brightcontent/blogs"},
       {:action=>"create", :controller=>"brightcontent/blogs"} ]
     end
 
-    before { Brightcontent.stub(:engine_resources).and_return(["pages", "sessions", "users"]) }
+    subject(:parser) { RoutesParser.parse(routes_hash, engine_resources) }
 
-    it "extracts resource from hash" do
-      RoutesParser.parse(routes_hash).should eq [Blog]
+    it { should eq [Blog] }
+
+    context "with extra resource" do
+      before { routes_hash << {:action=>"index", :controller=>"brightcontent/articles"} }
+      it { should eq [Blog, Article] }
     end
 
-    it "extracts multiple resources from hash" do
-      routes_hash << {:action=>"index", :controller=>"brightcontent/articles"}
-      RoutesParser.parse(routes_hash).should eq [Blog, Article]
-    end
-
-    it "ignores the pages route" do
-      routes_hash << {:action=>"index", :controller=>"brightcontent/pages"}
-      RoutesParser.parse(routes_hash).should eq [Blog]
-    end
-
-    it "ignores the pages route" do
-      routes_hash << {:action=>"index", :controller=>"brightcontent/sessions"}
-      RoutesParser.parse(routes_hash).should eq [Blog]
+    context "with engine resources" do
+      before do
+        engine_resources.each do |resource_name|
+          routes_hash << {:action=>"index", :controller=>"brightcontent/#{resource_name}"}
+        end
+      end
+      it { should eq [Blog] }
     end
 
   end
