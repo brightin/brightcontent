@@ -98,7 +98,7 @@ SimpleForm.setup do |config|
   config.label_class = 'control-label'
 
   # You can define the class to use on all forms. Default is simple_form.
-  # config.form_class = :simple_form
+  config.form_class = 'form-horizontal'
 
   # You can define which elements should obtain additional classes
   # config.generate_additional_classes_for = [:wrapper, :label, :input]
@@ -138,5 +138,5 @@ SimpleForm.setup do |config|
   # config.inputs_discovery = true
 
   # Cache SimpleForm inputs discovery
-  # config.cache_discovery = !Rails.env.development?
+  config.cache_discovery = !Rails.env.development?
 end
