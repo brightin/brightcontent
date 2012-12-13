@@ -4,6 +4,7 @@ PATH
     brightcontent (2.0.0.alpha1)
       awesome_nested_set
       bcrypt-ruby
+      bootstrap-wysihtml5-rails
       inherited_resources
       jquery-rails
       rails (~> 3.2.9)
@@ -45,6 +46,8 @@ GEM
     awesome_nested_set (2.1.5)
       activerecord (>= 3.0.0)
     bcrypt-ruby (3.0.1)
+    bootstrap-wysihtml5-rails (0.3.1.13)
+      railties (>= 3.0)
     builder (3.0.4)
     capybara (2.0.1)
       mime-types (>= 1.16)
