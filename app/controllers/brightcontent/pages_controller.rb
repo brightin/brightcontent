@@ -5,7 +5,7 @@ module Brightcontent
     private
 
     def list_fields
-      default_fields - %w{body depth lft rgt parent_id}
+      default_fields - %w{body depth lft rgt parent_id slug}
     end
 
     def form_fields

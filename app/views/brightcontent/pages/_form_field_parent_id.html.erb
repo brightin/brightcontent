@@ -1,1 +1,1 @@
-<%= form.input :parent_id, collection: Brightcontent::Page.all %>
+<%= form.input :parent_id, collection: page_selector(form.object) %>
