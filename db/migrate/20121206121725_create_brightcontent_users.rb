@@ -1,6 +1,6 @@
 class CreateBrightcontentUsers < ActiveRecord::Migration
   def change
-    create_table :users do |t|
+    create_table :brightcontent_users do |t|
       t.string :email
       t.string :password_digest
 

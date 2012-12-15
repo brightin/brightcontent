@@ -30,10 +30,4 @@ module Brightcontent
     yield self
   end
 
-  # Prevent engine isolation of models
-  # Watch out with migrations, still adds prefix
-  def self.table_name_prefix
-    nil
-  end
-
 end

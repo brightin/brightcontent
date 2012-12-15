@@ -16,7 +16,7 @@ module Brightcontent
 
       def copy_migrations
         rake "brightcontent:install:migrations"
-        sleep 1
+        sleep 2
       end
 
       def add_routes
