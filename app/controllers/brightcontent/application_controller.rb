@@ -7,7 +7,7 @@ module Brightcontent
     private
 
     def current_user
-      @current_user ||= User.find(session[:brightcontent_user_id]) if session[:brightcontent_user_id]
+      @current_user ||= AdminUser.find(session[:brightcontent_user_id]) if session[:brightcontent_user_id]
     end
 
     def authorize

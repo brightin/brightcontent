@@ -3,7 +3,7 @@ FactoryGirl.define do
     "person#{n}@example.com"
   end
  
-  factory :user, class: Brightcontent::User do
+  factory :admin_user, class: Brightcontent::AdminUser do
     email
     password "password"
     password_confirmation "password"
