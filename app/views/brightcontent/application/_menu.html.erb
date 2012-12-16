@@ -2,4 +2,3 @@
 <% resource_classes.each do |resource_class| %>
   <li><%= link_to resource_class.model_name.human.pluralize, polymorphic_url(resource_class) %></li>
 <% end %>
-<li><%= link_to "Users", admin_users_path %></li>
