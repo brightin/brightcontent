@@ -19,7 +19,7 @@ feature "Login" do
   end
 
   def sign_in_with_invalid_email
-    @user = create(:user)
+    @user = create(:admin_user)
     visit "/admin"
     fill_in "Email", with: @user.email
     fill_in "Password", with: "wrongpass"

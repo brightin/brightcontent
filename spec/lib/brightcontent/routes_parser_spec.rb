@@ -5,7 +5,7 @@ class Article ; end
 
 module Brightcontent
   describe RoutesParser do
-    let(:engine_resources) { %w{pages sessions users} }
+    let(:engine_resources) { %w{pages sessions admin_users} }
     let(:routes_hash) do
       [ {}, nil, {:action=>"admin"},
       {:action=>"index", :controller=>"brightcontent/blogs"},

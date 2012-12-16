@@ -16,7 +16,7 @@ module Brightcontent
   autoload :DefaultActions, 'brightcontent/default_actions'
 
   mattr_accessor :engine_resources
-  @@engine_resources = %w{pages sessions users}
+  @@engine_resources = %w{pages sessions admin_users}
 
   mattr_accessor :path
   @@path = "admin"
