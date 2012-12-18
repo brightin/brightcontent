@@ -5,7 +5,7 @@ class Article ; end
 
 module Brightcontent
   describe RoutesParser do
-    let(:engine_resources) { %w{pages sessions admin_users} }
+    let(:engine_resources) { %w{sessions admin_users} }
     let(:routes_hash) do
       [ {}, nil, {:action=>"admin"},
       {:action=>"index", :controller=>"brightcontent/blogs"},
@@ -14,11 +14,11 @@ module Brightcontent
 
     subject(:parser) { RoutesParser.parse(routes_hash, engine_resources) }
 
-    it { should eq [Blog] }
+    it { should eq ["blogs"] }
 
     context "with extra resource" do
       before { routes_hash << {:action=>"index", :controller=>"brightcontent/articles"} }
-      it { should eq [Blog, Article] }
+      it { should eq ["blogs", "articles"] }
     end
 
     context "with engine resources" do
@@ -27,7 +27,7 @@ module Brightcontent
           routes_hash << {:action=>"index", :controller=>"brightcontent/#{resource_name}"}
         end
       end
-      it { should eq [Blog] }
+      it { should eq ["blogs"] }
     end
 
   end
