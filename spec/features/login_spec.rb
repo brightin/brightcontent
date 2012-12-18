@@ -9,7 +9,7 @@ feature "Login" do
 
   scenario "Login with valid credentials" do
     sign_in
-    page.should have_content "Pages"
+    page.should have_content "Admin users"
   end
 
   scenario "User logs out" do

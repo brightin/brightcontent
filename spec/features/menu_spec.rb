@@ -4,7 +4,6 @@ feature "Menu" do
 
   scenario "Shows default menu" do
     sign_in
-    menu_should_have_link "Pages"
     menu_should_not_have_link "Sessions"
   end
 

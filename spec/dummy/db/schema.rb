@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121207132810) do
+ActiveRecord::Schema.define(:version => 20121218145153) do
 
   create_table "blogs", :force => true do |t|
     t.string   "name"
@@ -26,19 +26,5 @@ ActiveRecord::Schema.define(:version => 20121207132810) do
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
   end
-
-  create_table "brightcontent_pages", :force => true do |t|
-    t.string   "name"
-    t.text     "body"
-    t.string   "slug"
-    t.integer  "depth"
-    t.integer  "lft"
-    t.integer  "rgt"
-    t.integer  "parent_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  add_index "brightcontent_pages", ["slug"], :name => "index_brightcontent_pages_on_slug"
 
 end
