@@ -2,6 +2,7 @@ require "inherited_resources"
 require "simple_form"
 require "jquery-rails"
 require "will_paginate"
+require "bootstrap-wysihtml5-rails"
 
 require "brightcontent/rails/routes"
 require "brightcontent/engine"
@@ -26,11 +27,6 @@ module Brightcontent
   # Run rails g brightcontent:install to create initializer
   def self.setup
     yield self
-  end
-
-  # Include helpers for controller, overwritable
-  # TODO: Can only be overwritten once
-  def self.include_page_methods
   end
 
 end
