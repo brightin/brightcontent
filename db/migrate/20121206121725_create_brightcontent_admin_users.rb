@@ -6,5 +6,7 @@ class CreateBrightcontentAdminUsers < ActiveRecord::Migration
 
       t.timestamps
     end
+
+    Brightcontent::AdminUser.create!(:email => 'admin@example.com', :password => 'password')
   end
 end
