@@ -28,4 +28,9 @@ module Brightcontent
     yield self
   end
 
+  # Include helpers for controller, overwritable
+  # TODO: Can only be overwritten once
+  def self.include_page_methods
+  end
+
 end
