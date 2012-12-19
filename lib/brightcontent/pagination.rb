@@ -16,8 +16,8 @@ module Brightcontent
 
     private
 
-    def collection
-      collection ||= end_of_association_chain.paginate(page: params[:page], per_page: self.class.per_page_count)
+    def end_of_association_chain
+      super.paginate(page: params[:page], per_page: self.class.per_page_count)
     end
 
   end
