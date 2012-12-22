@@ -1,10 +1,10 @@
 $:.push File.expand_path("../lib", __FILE__)
 
-require "brightcontent/core/version"
+version = File.read(File.expand_path("../../VERSION",__FILE__)).strip
 
 Gem::Specification.new do |s|
   s.name        = "brightcontent-core"
-  s.version     = Brightcontent::Core::VERSION
+  s.version     = version
   s.email       = "developers@brightin.nl"
   s.homepage    = "http://brightin.nl"
   s.summary     = "Brightcontent core"
