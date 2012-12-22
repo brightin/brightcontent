@@ -1,3 +1,3 @@
 Brightcontent::Engine.routes.draw do
-  resources :pages
+  resources :assets, only: [:create, :destroy]
 end
