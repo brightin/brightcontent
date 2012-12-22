@@ -13,13 +13,6 @@
 
 ActiveRecord::Schema.define(:version => 20121207132810) do
 
-  create_table "blogs", :force => true do |t|
-    t.string   "name"
-    t.text     "body"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
   create_table "brightcontent_admin_users", :force => true do |t|
     t.string   "email"
     t.string   "password_digest"
