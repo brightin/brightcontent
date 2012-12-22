@@ -19,7 +19,7 @@ Installation
 Include the gem in your Gemfile:
 
 ```ruby
-gem "brightcontent", "~> 2.0.0.alpha3"
+gem "brightcontent", "~> 2.0.0.alpha5"
 bundle install
 ```
 
