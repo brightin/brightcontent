@@ -12,8 +12,7 @@ Gem::Specification.new do |s|
   s.description = "Brightcontent, yet another Rails CMS / admin panel"
   s.authors     = ["Developers at Brightin"]
 
-  s.files         = `git ls-files`.split("\n")
-  s.test_files    = `git ls-files -- spec/*`.split("\n")
+  s.files         = Dir['VERSION', 'README.md', 'lib/**/*']
   s.require_paths = ["lib"]
 
   s.add_dependency "brightcontent-core", version
