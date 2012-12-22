@@ -17,4 +17,5 @@ Gem::Specification.new do |s|
 
   s.add_dependency "brightcontent-core", version
   s.add_dependency "brightcontent-pages", version
+  s.add_dependency "brightcontent-assets", version
 end
