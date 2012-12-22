@@ -8,7 +8,7 @@ PATH
 PATH
   remote: ../core
   specs:
-    brightcontent-core (2.0.0.alpha1)
+    brightcontent-core (2.0.0.alpha2)
       bcrypt-ruby
       bootstrap-wysihtml5-rails
       inherited_resources
