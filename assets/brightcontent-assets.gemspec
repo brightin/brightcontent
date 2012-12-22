@@ -3,7 +3,7 @@ $:.push File.expand_path("../lib", __FILE__)
 version = File.read(File.expand_path("../../VERSION",__FILE__)).strip
 
 Gem::Specification.new do |s|
-  s.name        = "brightcontent-pages"
+  s.name        = "brightcontent-assets"
   s.version     = version
   s.email       = "developers@brightin.nl"
   s.homepage    = "http://brightin.nl"
@@ -16,6 +16,8 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
 
   s.add_dependency "brightcontent-core", version
+  s.add_dependency "paperclip"
+  s.add_dependency "jquery-fileupload-rails"
 
   s.add_development_dependency "sqlite3"
   s.add_development_dependency "rspec-rails"

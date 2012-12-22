@@ -1,4 +1,5 @@
 require "brightcontent-core"
+require "paperclip"
 
 require "brightcontent/assets/engine"
 

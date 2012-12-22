@@ -1,0 +1,13 @@
+<% if item.persisted? %>
+  <div id="assets">
+    <% item.assets.each do |asset| %>
+      <%= image_tag asset.asset.url %>
+    <% end %>
+  </div>
+
+  <%= form_for item.assets.new, remote: true do |p| %>
+    <%= p.file_field :asset %>
+  <% end %>
+<% else %>
+  First save to enable uploads
+<% end %>
