@@ -1,10 +1,11 @@
 $:.push File.expand_path("../lib", __FILE__)
+$:.push File.expand_path("..", __FILE__)
 
-require "brightcontent/version"
+require "core/lib/brightcontent/core/version"
 
 Gem::Specification.new do |s|
   s.name        = "brightcontent"
-  s.version     = Brightcontent::VERSION
+  s.version     = Brightcontent::Core::VERSION
   s.email       = "developers@brightin.nl"
   s.homepage    = "http://brightin.nl"
   s.summary     = "Brightcontent gem"
@@ -15,17 +16,6 @@ Gem::Specification.new do |s|
   s.test_files    = `git ls-files -- spec/*`.split("\n")
   s.require_paths = ["lib"]
 
-  s.add_dependency "rails", "~> 3.2.9"
-  s.add_dependency "jquery-rails"
-  s.add_dependency "bcrypt-ruby"
-  s.add_dependency "inherited_resources"
-  s.add_dependency "simple_form"
-  s.add_dependency "will_paginate"
-  s.add_dependency "bootstrap-wysihtml5-rails"
-
-  s.add_development_dependency "sqlite3"
-  s.add_development_dependency "rspec-rails"
-  s.add_development_dependency "capybara"
-  s.add_development_dependency "launchy"
-  s.add_development_dependency "factory_girl_rails"
+  s.add_dependency "brightcontent-core"
+  s.add_dependency "brightcontent-pages"
 end

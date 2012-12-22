@@ -1,0 +1,26 @@
+$:.push File.expand_path("../lib", __FILE__)
+
+require "brightcontent/pages/version"
+
+Gem::Specification.new do |s|
+  s.name        = "brightcontent-pages"
+  s.version     = Brightcontent::Pages::VERSION
+  s.email       = "developers@brightin.nl"
+  s.homepage    = "http://brightin.nl"
+  s.summary     = "Pages resource for brightcontent"
+  s.description = "Separate pages resource for brightcontent"
+  s.authors     = ["Developers at Brightin"]
+
+  s.files         = `git ls-files`.split("\n")
+  s.test_files    = `git ls-files -- spec/*`.split("\n")
+  s.require_paths = ["lib"]
+
+  s.add_dependency "brightcontent-core"
+  s.add_dependency "awesome_nested_set"
+
+  s.add_development_dependency "sqlite3"
+  s.add_development_dependency "rspec-rails"
+  s.add_development_dependency "capybara"
+  s.add_development_dependency "launchy"
+  s.add_development_dependency "factory_girl_rails"
+end
