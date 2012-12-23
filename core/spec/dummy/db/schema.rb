@@ -11,13 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121206225720) do
+ActiveRecord::Schema.define(:version => 20121223131824) do
 
   create_table "blogs", :force => true do |t|
     t.string   "name"
     t.text     "body"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.boolean  "featured"
   end
 
   create_table "brightcontent_admin_users", :force => true do |t|

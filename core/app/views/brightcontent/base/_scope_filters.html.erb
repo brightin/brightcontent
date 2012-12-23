@@ -1,0 +1,4 @@
+Show only: 
+<% scopes_configuration.each do |scope| %>
+  <%= link_to scope[1][:as].to_s.humanize, link_for_scope(scope[1]) %> 
+<% end %>

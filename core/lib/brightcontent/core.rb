@@ -3,6 +3,7 @@ require "simple_form"
 require "jquery-rails"
 require "will_paginate"
 require "bootstrap-wysihtml5-rails"
+require "has_scope"
 
 require "brightcontent/rails/routes"
 require "brightcontent/engine"
