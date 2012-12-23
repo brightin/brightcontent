@@ -4,6 +4,7 @@ PATH
     brightcontent-core (2.0.1)
       bcrypt-ruby
       bootstrap-wysihtml5-rails
+      has_scope
       inherited_resources
       jquery-rails
       rails (~> 3.2.9)

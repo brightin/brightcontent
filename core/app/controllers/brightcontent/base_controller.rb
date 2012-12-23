@@ -3,6 +3,7 @@ require_dependency "brightcontent/application_controller"
 module Brightcontent
   class BaseController < ApplicationController
     inherit_resources
+    helper_method :scopes_configuration
 
     include DefaultActions
     include Pagination

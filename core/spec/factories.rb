@@ -12,5 +12,6 @@ FactoryGirl.define do
   factory :blog do
     name "Blogname"
     body "Inhoud"
+    featured false
   end
 end
