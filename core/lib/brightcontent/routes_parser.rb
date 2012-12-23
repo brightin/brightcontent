@@ -23,7 +23,7 @@ module Brightcontent
         if route && route[:action] == "index"
           route[:controller].match(/brightcontent\/(.+)/)[1]
         end
-      end.compact
+      end.compact.uniq
     end
 
     def routes_hash
