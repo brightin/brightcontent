@@ -1,8 +1,5 @@
 require "brightcontent/routes_parser"
 
-class Blog ; end
-class Article ; end
-
 module Brightcontent
   describe RoutesParser do
     let(:engine_resources) { %w{sessions admin_users} }
@@ -27,6 +24,14 @@ module Brightcontent
           routes_hash << {:action=>"index", :controller=>"brightcontent/#{resource_name}"}
         end
       end
+      it { should eq ["blogs"] }
+    end
+
+    context "duplicate resources" do
+      before do
+        routes_hash << {action: "index", controller: "brightcontent/blogs" }
+      end
+
       it { should eq ["blogs"] }
     end
 

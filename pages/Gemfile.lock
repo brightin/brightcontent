@@ -1,16 +1,17 @@
 PATH
   remote: .
   specs:
-    brightcontent-pages (2.0.1)
+    brightcontent-pages (2.0.2)
       awesome_nested_set
-      brightcontent-core (= 2.0.1)
+      brightcontent-core (= 2.0.2)
 
 PATH
   remote: ../core
   specs:
-    brightcontent-core (2.0.1)
+    brightcontent-core (2.0.2)
       bcrypt-ruby
       bootstrap-wysihtml5-rails
+      has_scope
       inherited_resources
       jquery-rails
       rails (~> 3.2.9)
