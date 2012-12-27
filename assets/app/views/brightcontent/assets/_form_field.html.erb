@@ -5,9 +5,9 @@
     <% end %>
   </div>
 
-  <%= form_for item.assets.new, remote: true do |p| %>
-    <%= p.file_field :asset %>
-  <% end %>
+  <input id="fileupload" type="file" name="asset" data-url="<%= brightcontent_assets_path %>" multiple>
+  <%= hidden_field_tag "attachable_id", item.id %>
+  <%= hidden_field_tag "attachable_type", item.class.to_s %>
 <% else %>
   First save to enable uploads
 <% end %>

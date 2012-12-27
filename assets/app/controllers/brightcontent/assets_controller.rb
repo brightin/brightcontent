@@ -1,16 +1,15 @@
 require_dependency "brightcontent/application_controller"
 
 module Brightcontent
-  class PagesController < BaseController
-    private
+  class AssetsController < ApplicationController
 
-    def list_fields
-      default_fields - %w{body depth lft rgt parent_id slug}
+    def create
+      @asset = Asset.new(params.slice(:attachable_id, :attachable_type, :asset))
+      if @asset.save
+        render json: @asset.to_json, status: :created
+      else
+        render json: @asset.errors, status: :unprocessable_entity
+      end
     end
-
-    def form_fields
-      default_fields - %w{slug depth lft rgt}
-    end
-
   end
 end

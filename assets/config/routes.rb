@@ -1,3 +1,3 @@
 Brightcontent::Engine.routes.draw do
-  resources :assets, only: [:create, :destroy]
+  put 'brightcontent_assets' => 'assets#create'
 end
