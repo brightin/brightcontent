@@ -13,5 +13,6 @@ feature "Attachments" do
     sign_in
     click_link "Blogs"
     click_link "Edit"
+    page.should have_selector "#attachments"
   end
 end

@@ -8,7 +8,7 @@ module Brightcontent
       end
 
       def add_brightcontent_column(column_name)
-        brightcontent_columns.append(column_name)
+        brightcontent_columns.append(column_name.to_s)
       end
     end
   end
