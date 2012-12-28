@@ -1,6 +1,7 @@
 .bundle/
 log/*.log
 pkg/
+spec/dummy/public/system
 spec/dummy/db/migrate/*.brightcontent.rb
 spec/dummy/db/*.sqlite3
 spec/dummy/log/*.log
