@@ -15,3 +15,5 @@
 //= require bootstrap-wysihtml5
 //= require bootstrap-wysihtml5/locales/nl-NL
 //= require brightcontent/attachments
+//= require brightcontent/main
+//= require brightcontent/custom
