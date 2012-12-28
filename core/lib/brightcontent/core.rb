@@ -14,6 +14,7 @@ module Brightcontent
   autoload :PageMethods, 'brightcontent/page_methods'
   autoload :RoutesParser, 'brightcontent/routes_parser'
   autoload :DefaultActions, 'brightcontent/default_actions'
+  autoload :ModelExtensions, 'brightcontent/model_extensions'
 
   mattr_accessor :engine_resources
   @@engine_resources = %w{sessions admin_users}

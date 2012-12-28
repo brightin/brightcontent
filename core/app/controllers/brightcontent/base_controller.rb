@@ -21,7 +21,7 @@ module Brightcontent
     helper_method :form_fields
 
     def default_fields
-      resource_class.column_names - %w{id created_at updated_at password_digest}
+      resource_class.brightcontent_columns - %w{id created_at updated_at password_digest}
     end
 
   end
