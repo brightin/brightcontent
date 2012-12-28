@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121207132810) do
+ActiveRecord::Schema.define(:version => 20121228111704) do
 
   create_table "brightcontent_admin_users", :force => true do |t|
     t.string   "email"
@@ -19,6 +19,20 @@ ActiveRecord::Schema.define(:version => 20121207132810) do
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
   end
+
+  create_table "brightcontent_attachments", :force => true do |t|
+    t.integer  "attachable_id"
+    t.string   "attachable_type"
+    t.string   "asset_file_name"
+    t.string   "asset_content_type"
+    t.integer  "asset_file_size"
+    t.datetime "asset_updated_at"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+  end
+
+  add_index "brightcontent_attachments", ["attachable_id"], :name => "index_brightcontent_attachments_on_attachable_id"
+  add_index "brightcontent_attachments", ["attachable_type"], :name => "index_brightcontent_attachments_on_attachable_type"
 
   create_table "brightcontent_pages", :force => true do |t|
     t.string   "name"

@@ -1,13 +1,16 @@
 module Brightcontent
   class Page < ActiveRecord::Base
-    acts_as_nested_set
     attr_accessible :body, :name, :parent_id
 
-    validates_presence_of :name
+    acts_as_nested_set
+    include Brightcontent::Attachable
 
+    validates_presence_of :name
     after_save :update_slug
 
-    default_scope order('lft')
+    def self.default_scope
+      order :lft
+    end
 
     def homepage?
       lft == 1
