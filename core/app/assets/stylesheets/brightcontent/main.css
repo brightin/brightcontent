@@ -2,7 +2,8 @@ body {
   background-color: #f5f5f5;
 }
 
-input, textarea {
+.form-inputs input,
+.form-inputs textarea {
   width: 622px;
 }
 

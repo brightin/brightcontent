@@ -11,7 +11,7 @@ module Brightcontent
     private
 
     def list_fields
-      form_fields
+      default_fields - %w{attachments}
     end
     helper_method :list_fields
 
