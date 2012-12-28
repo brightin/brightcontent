@@ -16,6 +16,7 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
 
   s.add_dependency "brightcontent-core", version
+  s.add_dependency "brightcontent-attachments", version
   s.add_dependency "awesome_nested_set"
 
   s.add_development_dependency "sqlite3"
