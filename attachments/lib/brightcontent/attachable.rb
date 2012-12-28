@@ -6,5 +6,10 @@ module Brightcontent
       add_brightcontent_column :attachments
       has_many :attachments, as: :attachable, dependent: :destroy, class_name: Brightcontent::Attachment
     end
+
+    def attachment
+      attachments.first
+    end
+
   end
 end
