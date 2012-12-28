@@ -9,11 +9,15 @@ module Brightcontent
     after_save :update_slug
 
     def self.default_scope
-      order :lft
+      order(:lft)
     end
 
     def homepage?
       lft == 1
+    end
+
+    def attachment_styles
+      Brightcontent.page_attachment_styles
     end
 
     private

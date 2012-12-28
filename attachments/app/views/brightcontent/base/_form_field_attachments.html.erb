@@ -4,7 +4,7 @@
     <% if item.persisted? %>
       <div id="attachments">
         <% item.attachments.each do |attachment| %>
-          <%= image_tag attachment.url(:cms) %>
+          <%= image_tag attachment.url(:brightcontent) %>
         <% end %>
       </div>
 
