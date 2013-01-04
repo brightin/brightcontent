@@ -3,7 +3,7 @@ module Brightcontent
     attr_accessible :attachable_id, :attachable_type, :asset
 
     belongs_to :attachable, polymorphic: true
-    has_attached_file :asset, styles: ->(a){ a.instance.attachment_styles }
+    has_attached_file :asset, :styles => lambda {|attachment| attachment.instance.attachment_styles }
     delegate :url, to: :asset
 
     validates :asset, attachment_presence: true
