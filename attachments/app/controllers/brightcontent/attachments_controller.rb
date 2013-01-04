@@ -11,10 +11,15 @@ module Brightcontent
     def create
       @attachment = Attachment.new(params.slice(:attachable_id, :attachable_type, :asset))
       if @attachment.save
-        render json: @attachments.to_json, status: :created
+        render json: @attachment.to_json, status: :created
       else
-        render json: @attachments.errors, status: :unprocessable_entity
+        render json: @attachment.errors, status: :unprocessable_entity
       end
+    end
+
+    def destroy
+      attachment = Attachment.destroy(params[:id])
+      redirect_to attachment.attachable
     end
 
   end

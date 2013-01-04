@@ -2,10 +2,8 @@
   <label class="optional control-label">Attachments</label>
   <div class="controls">
     <% if item.persisted? %>
-      <div id="attachments">
-        <% item.attachments.each do |attachment| %>
-          <%= image_tag attachment.url(:brightcontent) %>
-        <% end %>
+      <div id="attachments" class="clearfix">
+        <%= render item.attachments %>
       </div>
 
       <input id="fileupload" type="file" name="asset" data-url="<%= new_attachment_path %>" multiple>

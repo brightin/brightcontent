@@ -1,0 +1,4 @@
+<%= div_for attachment do %>
+  <%= image_tag attachment.url(:brightcontent) %>
+  <%= link_to "Delete", destroy_attachment_path(attachment.id), method: :delete, confirm: "Are you sure?", class: "btn btn-danger btn-mini" %>
+<% end %>
