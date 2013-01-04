@@ -20,6 +20,10 @@ module Brightcontent
       Brightcontent.page_attachment_styles
     end
 
+    def root_parent_children
+      root? ? children : ancestors.first.children
+    end
+
     private
 
     def update_slug

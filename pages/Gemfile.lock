@@ -1,23 +1,23 @@
 PATH
   remote: .
   specs:
-    brightcontent-pages (2.0.7)
+    brightcontent-pages (2.0.8)
       awesome_nested_set
-      brightcontent-attachments (= 2.0.7)
-      brightcontent-core (= 2.0.7)
+      brightcontent-attachments (= 2.0.8)
+      brightcontent-core (= 2.0.8)
 
 PATH
   remote: ../attachments
   specs:
-    brightcontent-attachments (2.0.7)
-      brightcontent-core (= 2.0.7)
+    brightcontent-attachments (2.0.8)
+      brightcontent-core (= 2.0.8)
       jquery-fileupload-rails
       paperclip
 
 PATH
   remote: ../core
   specs:
-    brightcontent-core (2.0.7)
+    brightcontent-core (2.0.8)
       bcrypt-ruby
       bootstrap-wysihtml5-rails
       has_scope
