@@ -4,7 +4,8 @@ body {
 
 .form-inputs input,
 .form-inputs textarea {
-  width: 622px;
+  width: 100%;
+  max-width: 622px;
 }
 
 .btn-right {
