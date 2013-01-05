@@ -8,7 +8,7 @@ module Brightcontent
     end
 
     def form_fields
-      %w{name parent_id body attachments}
+      %w{name parent_id hidden body attachments}
     end
 
   end

@@ -1,7 +1,6 @@
 module Brightcontent
   class Page < ActiveRecord::Base
-    attr_accessible :body, :name, :parent_id
-
+    attr_accessible :body, :name, :parent_id, :hidden
     acts_as_nested_set
     include Brightcontent::Attachable
 
