@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130105141633) do
+ActiveRecord::Schema.define(:version => 20130105142936) do
 
   create_table "brightcontent_admin_users", :force => true do |t|
     t.string   "email"
@@ -42,9 +42,9 @@ ActiveRecord::Schema.define(:version => 20130105141633) do
     t.integer  "lft"
     t.integer  "rgt"
     t.integer  "parent_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-    t.boolean  "hidden"
+    t.datetime "created_at",                   :null => false
+    t.datetime "updated_at",                   :null => false
+    t.boolean  "hidden",     :default => true, :null => false
   end
 
   add_index "brightcontent_pages", ["slug"], :name => "index_brightcontent_pages_on_slug"
