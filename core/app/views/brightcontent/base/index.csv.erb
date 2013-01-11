@@ -1,6 +1,6 @@
 <%= CSV.generate do |csv| %>
-  <% csv << list_fields %>
+  <% csv << default_fields %>
   <% collection.each do |item| %>
-    <% csv << list_fields.map { |field| item.send(field) } %>
+    <% csv << default_fields.map { |field| item.send(field) } %>
   <% end %>
 <% end %>
