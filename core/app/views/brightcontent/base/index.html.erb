@@ -3,9 +3,9 @@
   <%= link_to "Create new #{resource_instance_name.to_s.humanize}", polymorphic_url(resource_class, action: :new), class: "btn btn-primary btn-right" %>
   <h1><%= resource_collection_name.to_s.humanize %></h1>
 
-  <% if scopes_configuration %>
-    <%= render "scope_filters" %>
-  <% end %>
+  <%= render "scope_filters" if scopes_configuration %>
+  <%= render "index_top" %>
+
   <table class="table table-hover">
     <thead>
       <tr>

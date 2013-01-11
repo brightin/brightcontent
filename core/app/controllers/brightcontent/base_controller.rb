@@ -1,9 +1,11 @@
+require 'csv'
 require_dependency "brightcontent/application_controller"
 
 module Brightcontent
   class BaseController < ApplicationController
     inherit_resources
     helper_method :scopes_configuration
+    respond_to :all
 
     include DefaultActions
     include Pagination

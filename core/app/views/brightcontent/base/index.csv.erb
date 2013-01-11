@@ -1,0 +1,6 @@
+<%= CSV.generate do |csv| %>
+  <% csv << list_fields %>
+  <% collection.each do |item| %>
+    <% csv << list_fields.map { |field| item.send(field) } %>
+  <% end %>
+<% end %>
