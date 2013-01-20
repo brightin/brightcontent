@@ -4,24 +4,34 @@ module Brightcontent
 
     belongs_to :attachable, polymorphic: true
     has_attached_file :asset, :styles => lambda {|attachment| attachment.instance.attachment_styles }
+    before_post_process :resize_images
+
     delegate :url, to: :asset
 
     validates :asset, attachment_presence: true
 
     def attachment_styles
-      user_defined_styles.merge(default_attachment_styles)
+      default_attachment_styles.merge(user_defined_styles)
+    end
+
+    def image?
+      asset_content_type =~ %r{^(image|(x-)?application)/(bmp|gif|jpeg|jpg|pjpeg|png|x-png)$}
     end
 
     private
 
     def user_defined_styles
-      if attachable && attachable.respond_to?(:attachment_styles)
+      if attachable && attachable.respond_to?(:attachment_styles) && image?
         attachable.attachment_styles
       end || {}
     end
 
     def default_attachment_styles
-      { brightcontent: "100x100#" }
+      { brightcontent: "100x100#", main: "200x200#" }
+    end
+
+    def resize_images
+      return false unless image?
     end
 
   end

@@ -51,14 +51,29 @@ td.list-actions {
   margin: 0 5px 5px 0;
 }
 
-#attachments .attachment a {
+#attachments .attachment .delete,
+#attachments .attachment .insert {
   position: absolute;
   top: 3px;
   right: 3px;
   display: none;
 }
 
-#attachments .attachment:hover a {
+#attachments .attachment .insert {
+  top: 30px;
+}
+
+#attachments .attachment:hover .delete,
+#attachments .attachment:hover .insert {
   display: block;
 }
 
+#attachments .attachment-file {
+  display: block;
+  background: #ccc;
+  width: 80px;
+  height: 90px;
+  font-size: 11px;
+  overflow: hidden;
+  padding: 5px 10px;
+}

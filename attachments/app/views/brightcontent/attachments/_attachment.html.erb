@@ -1,4 +1,10 @@
 <%= div_for attachment do %>
-  <%= image_tag attachment.url(:brightcontent) %>
-  <%= link_to "Delete", destroy_attachment_path(attachment.id), method: :delete, confirm: "Are you sure?", class: "btn btn-danger btn-mini" %>
+  <% if attachment.image? %>
+    <%= image_tag attachment.url(:brightcontent) %>
+    <%= link_to "Insert", nil, class: "insert insert_image btn btn-mini", data: { insert_image: attachment.url(:main) } %>
+  <% else %>
+    <div class="attachment-file"><%= attachment.asset_file_name %></div>
+    <%= link_to "Insert", nil, class: "insert insert_link btn btn-mini", data: { insert_url: attachment.url(:original), insert_name: attachment.asset_file_name } %>
+  <% end %>
+  <%= link_to "Delete", destroy_attachment_path(attachment.id), method: :delete, confirm: "Are you sure?", class: "delete btn btn-danger btn-mini" %>
 <% end %>
