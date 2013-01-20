@@ -12,13 +12,13 @@ $(document).ready(function(){
     });
   });
 
-  $(".insert_image").click(function(e){
+  $(".insert_image").live("click", function(e){
     e.preventDefault();
     console.log($(this).data("insertImage"));
     editor.composer.commands.exec("insertImage", { src: $(this).data("insertImage") });
   });
 
-  $(".insert_link").click(function(e){
+  $(".insert_link").live("click", function(e){
     e.preventDefault();
     console.log($(this).data());
     editor.composer.commands.exec("createLink", { href: $(this).data("insertUrl"), target: "_blank", rel: "nofollow", text: $(this).data("insertName") });
