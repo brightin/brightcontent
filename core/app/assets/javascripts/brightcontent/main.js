@@ -1,3 +1,8 @@
 $(document).ready(function(){
-  $('textarea').wysihtml5({locale: "nl-NL"});
+  $('textarea').each(function(i, elem) {
+    $(elem).wysihtml5({
+      html: true,
+      locale: "nl-NL"
+    });
+  });
 });

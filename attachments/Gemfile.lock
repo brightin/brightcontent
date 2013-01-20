@@ -1,15 +1,15 @@
 PATH
   remote: .
   specs:
-    brightcontent-attachments (2.0.13)
-      brightcontent-core (= 2.0.13)
+    brightcontent-attachments (2.0.14)
+      brightcontent-core (= 2.0.14)
       jquery-fileupload-rails
       paperclip
 
 PATH
   remote: ../core
   specs:
-    brightcontent-core (2.0.13)
+    brightcontent-core (2.0.14)
       bcrypt-ruby
       bootstrap-wysihtml5-rails
       has_scope
