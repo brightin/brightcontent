@@ -5,6 +5,8 @@
               |___/
 
 
+[![Code Climate](https://codeclimate.com/badge.png)](https://codeclimate.com/github/stexy/brightcontent)
+
 Brightcontent, yet another rails CMS / admin panel
 
 * For *developers*, to make a *custom CMS* for *non-technical users*
