@@ -1,4 +1,4 @@
-<%= CSV.generate do |csv| %>
+<%= CSV.generate(:col_sep => ";") do |csv| %>
   <% csv << default_fields %>
   <% collection.each do |item| %>
     <% csv << default_fields.map { |field| item.send(field) } %>
