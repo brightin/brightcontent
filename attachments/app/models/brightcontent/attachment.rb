@@ -6,6 +6,8 @@ module Brightcontent
     has_attached_file :asset, :styles => lambda {|attachment| attachment.instance.attachment_styles }
     before_post_process :resize_images
 
+    default_scope order("id")
+
     delegate :url, to: :asset
 
     validates :asset, attachment_presence: true
