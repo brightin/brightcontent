@@ -35,9 +35,9 @@ module Brightcontent
           page.slug.should eq "homepage/about-us"
         end
 
-        it "creates a url for multiple children" do
+        it "creates a path for multiple children" do
           about_us = create(:page, name: "About us", parent: homepage)
-          create(:page, name: "More", parent: about_us).url.should eq "/homepage/about-us/more"
+          create(:page, name: "More", parent: about_us).path.should eq "/homepage/about-us/more"
         end
       end
     end

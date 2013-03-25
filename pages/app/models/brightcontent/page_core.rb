@@ -21,7 +21,7 @@ module Brightcontent
       lft == 1
     end
 
-    def url
+    def path
       "/" + slug
     end
 
