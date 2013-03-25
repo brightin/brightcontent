@@ -25,6 +25,11 @@ module Brightcontent
           create(:page, name: "About us", parent: homepage).slug.should eq "homepage/about-us"
         end
 
+        it "creates a slug for multiple children" do
+          about_us = create(:page, name: "About us", parent: homepage)
+          create(:page, name: "More", parent: about_us).slug.should eq "homepage/about-us/more"
+        end
+
         it "persists the slug" do
           page = create(:page, name: "About us", parent: homepage).reload
           page.slug.should eq "homepage/about-us"
