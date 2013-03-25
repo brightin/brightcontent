@@ -21,6 +21,10 @@ module Brightcontent
       lft == 1
     end
 
+    def url
+      "/" + slug
+    end
+
     def attachment_styles
       Brightcontent.page_attachment_styles
     end

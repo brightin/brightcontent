@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    brightcontent-core (2.0.21)
+    brightcontent-core (2.0.22)
       bcrypt-ruby
       bootstrap-wysihtml5-rails
       has_scope
