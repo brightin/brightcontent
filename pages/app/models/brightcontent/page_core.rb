@@ -3,7 +3,6 @@ module Brightcontent
     extend ActiveSupport::Concern
 
     included do
-      attr_accessible :body, :name, :parent_id, :hidden
       acts_as_nested_set
       include Brightcontent::Attachable
 

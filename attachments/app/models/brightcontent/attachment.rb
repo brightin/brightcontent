@@ -1,7 +1,5 @@
 module Brightcontent
   class Attachment < ActiveRecord::Base
-    attr_accessible :attachable_id, :attachable_type, :asset
-
     belongs_to :attachable, polymorphic: true, :inverse_of => :attachments
     has_attached_file :asset, :styles => lambda {|attachment| attachment.instance.attachment_styles }
     before_post_process :resize_images
