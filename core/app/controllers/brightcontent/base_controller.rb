@@ -10,6 +10,9 @@ module Brightcontent
     include DefaultActions
     include Pagination
 
+    # Temp until inherent resources supports strong params
+    include StrongParamsFix
+
     private
 
     def list_fields
@@ -26,6 +29,10 @@ module Brightcontent
       resource_class.brightcontent_columns - %w{id created_at updated_at password_digest}
     end
     helper_method :default_fields
+
+    def resource_params
+      params.require(resource_instance_name).permit!
+    end
 
   end
 end

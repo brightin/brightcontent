@@ -4,6 +4,7 @@ require "jquery-rails"
 require "will_paginate"
 require "bootstrap-wysihtml5-rails"
 require "has_scope"
+require "strong_parameters"
 
 require "brightcontent/rails/routes"
 require "brightcontent/engine"
@@ -14,6 +15,7 @@ module Brightcontent
   autoload :PageMethods, 'brightcontent/page_methods'
   autoload :RoutesParser, 'brightcontent/routes_parser'
   autoload :DefaultActions, 'brightcontent/default_actions'
+  autoload :StrongParamsFix, 'brightcontent/strong_params_fix'
   autoload :ModelExtensions, 'brightcontent/model_extensions'
 
   mattr_accessor :engine_resources
