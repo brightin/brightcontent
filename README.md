@@ -30,6 +30,7 @@ Generate the initializer, copy migrations and edit routes file. This can be done
 
     $ rails generate brightcontent:install
     $ rails generate brightcontent:pages:install
+    $ rails generate brightcontent:attachments:install
     $ rake db:migrate
 
 Go to `/admin` and login with default user (email: `admin@example.com` / password: `password`).
