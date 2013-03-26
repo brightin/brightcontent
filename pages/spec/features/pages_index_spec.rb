@@ -9,13 +9,13 @@ feature "Pages index" do
 
   scenario "click on edit page" do
     click_link "Pages"
-    click_link "Edit"
+    page.find(:css, '.controls .edit').click
     page.should have_content "Edit page"
   end
 
   scenario "click on delete page" do
     click_link "Pages"
-    click_link "Delete"
+    page.find(:css, '.controls .delete').click
     page.should_not have_content "Test page"
     page.should have_content "successfully"
   end

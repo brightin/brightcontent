@@ -5,6 +5,7 @@ PATH
       awesome_nested_set
       brightcontent-attachments (= 2.0.26)
       brightcontent-core (= 2.0.26)
+      the_sortable_tree (~> 2.3.0)
 
 PATH
   remote: ../attachments
