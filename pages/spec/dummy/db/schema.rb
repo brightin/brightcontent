@@ -42,9 +42,9 @@ ActiveRecord::Schema.define(:version => 20130105142936) do
     t.integer  "lft"
     t.integer  "rgt"
     t.integer  "parent_id"
-    t.datetime "created_at",                   :null => false
-    t.datetime "updated_at",                   :null => false
-    t.boolean  "hidden",     :default => true, :null => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+    t.boolean  "hidden",     :default => false, :null => false
   end
 
   add_index "brightcontent_pages", ["slug"], :name => "index_brightcontent_pages_on_slug"
