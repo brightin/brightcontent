@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130105142936) do
+ActiveRecord::Schema.define(:version => 20121228111704) do
 
   create_table "brightcontent_admin_users", :force => true do |t|
     t.string   "email"
@@ -33,20 +33,5 @@ ActiveRecord::Schema.define(:version => 20130105142936) do
 
   add_index "brightcontent_attachments", ["attachable_id"], :name => "index_brightcontent_attachments_on_attachable_id"
   add_index "brightcontent_attachments", ["attachable_type"], :name => "index_brightcontent_attachments_on_attachable_type"
-
-  create_table "brightcontent_pages", :force => true do |t|
-    t.string   "name"
-    t.text     "body"
-    t.string   "slug"
-    t.integer  "depth"
-    t.integer  "lft"
-    t.integer  "rgt"
-    t.integer  "parent_id"
-    t.datetime "created_at",                   :null => false
-    t.datetime "updated_at",                   :null => false
-    t.boolean  "hidden",     :default => true, :null => false
-  end
-
-  add_index "brightcontent_pages", ["slug"], :name => "index_brightcontent_pages_on_slug"
 
 end

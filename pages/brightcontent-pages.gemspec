@@ -18,6 +18,7 @@ Gem::Specification.new do |s|
   s.add_dependency "brightcontent-core", version
   s.add_dependency "brightcontent-attachments", version
   s.add_dependency "awesome_nested_set"
+  s.add_dependency "the_sortable_tree", "~> 2.3.0"
 
   s.add_development_dependency "sqlite3"
   s.add_development_dependency "rspec-rails"

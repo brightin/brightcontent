@@ -5,7 +5,7 @@ module Brightcontent
     included do
       acts_as_nested_set
       include Brightcontent::Attachable
-
+      include TheSortableTree::Scopes
       validates_presence_of :name
       after_save :update_slug
     end
