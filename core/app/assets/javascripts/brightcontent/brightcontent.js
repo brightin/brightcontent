@@ -16,4 +16,5 @@
 //= require bootstrap-wysihtml5/locales/nl-NL
 //= require brightcontent/attachments
 //= require brightcontent/custom
+//= require pages
 //= require_tree .

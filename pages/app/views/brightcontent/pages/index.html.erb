@@ -1,0 +1,3 @@
+<%= content_tag("ol", class:"sortable_tree", :"data-rebuild_url" => rebuild_pages_url, :"data-max_levels" => 5 ) do -%>
+  <%= sortable_tree @pages, title:"name" -%>
+<% end -%>
