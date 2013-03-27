@@ -8,6 +8,7 @@ module Brightcontent
       include TheSortableTree::Scopes
       validates_presence_of :name
       after_save :update_slug
+      after_move :update_slug
     end
 
     module ClassMethods
