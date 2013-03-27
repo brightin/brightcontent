@@ -1,24 +1,24 @@
 PATH
   remote: .
   specs:
-    brightcontent-pages (2.0.27)
+    brightcontent-pages (2.0.28)
       awesome_nested_set
-      brightcontent-attachments (= 2.0.27)
-      brightcontent-core (= 2.0.27)
+      brightcontent-attachments (= 2.0.28)
+      brightcontent-core (= 2.0.28)
       the_sortable_tree (~> 2.3.0)
 
 PATH
   remote: ../attachments
   specs:
-    brightcontent-attachments (2.0.27)
-      brightcontent-core (= 2.0.27)
+    brightcontent-attachments (2.0.28)
+      brightcontent-core (= 2.0.28)
       jquery-fileupload-rails
       paperclip
 
 PATH
   remote: ../core
   specs:
-    brightcontent-core (2.0.27)
+    brightcontent-core (2.0.28)
       bcrypt-ruby
       bootstrap-wysihtml5-rails
       has_scope

@@ -1,0 +1,74 @@
+/*
+ *= require tree
+ *= require nested_options
+ */
+
+.sortable_tree{
+  margin: 0; padding: 0;
+
+  ol{
+    margin: 0 0 0 13px;
+    padding: 0 0 0 15px;
+    border-left: 1px dashed #ddd;
+    list-style: none outside none;
+  }
+
+  li{
+    position: relative;
+    list-style: none outside none;
+  }
+
+  a{
+    font-weight:normal;
+    text-decoration:none;
+    margin-left:30px;
+    margin-right:120px;
+    display:block;
+    font-size: 14px;
+    padding: 12px 7px;
+  }
+
+  h4 {
+    margin: 0
+  }
+
+  .handle{
+    background: url(brightcontent/move.png) no-repeat;
+
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    top: 18px;
+    left: 13px;
+    cursor: move;
+  }
+
+  .item{
+    background: #fff;
+    border: 1px solid #ddd;
+    margin-bottom: -1px;
+    a { font-weight: bold; }
+    &:hover{ background: #ffc; }
+  }
+
+  .nested_set .item {
+    background: #f7f7f7;
+    a { font-weight: normal; color: #333; }
+    &:hover{ background: #ffc; }
+  }
+
+  .nested_set .nested_set .item {
+    background: #eee;
+    &:hover{ background: #ffc; }
+  }
+
+  .placeholder {
+    background-color: #d9edf7;
+  }
+
+  .ui-nestedSortable-error {
+    background: #FAA;
+    color: #8a1f11;
+  }
+
+}
