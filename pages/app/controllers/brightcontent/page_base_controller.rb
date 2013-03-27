@@ -4,10 +4,8 @@ module Brightcontent
     helper TheSortableTree::Engine.helpers
 
     def self.inherited(subclass)
-      super(subclass)
-      subclass.class_eval do
-        per_page 0
-      end
+      subclass.class_eval { per_page 0 }
+      super
     end
 
     def form_fields
