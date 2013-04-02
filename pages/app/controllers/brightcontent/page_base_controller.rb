@@ -3,8 +3,10 @@ module Brightcontent
     include TheSortableTreeController::Rebuild
     helper TheSortableTree::Engine.helpers
 
-    per_page 99999
-
+    def self.inherited(subclass)
+      subclass.class_eval { per_page 0 }
+      super
+    end
 
     def form_fields
       %w{name parent_id hidden body attachments}

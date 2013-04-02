@@ -21,8 +21,8 @@ module Brightcontent
     private
 
     def user_defined_styles
-      if attachable && attachable.respond_to?(:attachment_styles) && image?
-        attachable.attachment_styles
+      if attachable && attachable.class.attachment_styles && image?
+        attachable.class.attachment_styles
       end || {}
     end
 

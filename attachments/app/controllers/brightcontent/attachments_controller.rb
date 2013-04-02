@@ -9,7 +9,7 @@ module Brightcontent
     end
 
     def create
-      @attachment = Attachment.new(params.slice(:attachable_id, :attachable_type, :asset))
+      @attachment = Attachment.new(attachment_params)
       if @attachment.save
         render json: @attachment.to_json, status: :created
       else
@@ -20,6 +20,12 @@ module Brightcontent
     def destroy
       attachment = Attachment.destroy(params[:id])
       redirect_to attachment.attachable
+    end
+
+    private
+
+    def attachment_params
+      params.permit(:attachable_id, :attachable_type, :asset)
     end
 
   end
