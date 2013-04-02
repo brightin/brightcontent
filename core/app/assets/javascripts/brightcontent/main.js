@@ -3,6 +3,7 @@ $(document).ready(function(){
     $(elem).wysihtml5({
       html: true,
       locale: "nl-NL",
+      parserRules:  wysihtml5ParserRules,
       "events": {
         "load": function() {
           editor = $('#insertable').data("wysihtml5").editor;
