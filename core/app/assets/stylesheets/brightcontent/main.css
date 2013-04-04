@@ -78,3 +78,7 @@ td.list-actions {
   overflow: hidden;
   padding: 5px 10px;
 }
+
+.file-preview img {
+  border: 1px solid #ccc;
+}

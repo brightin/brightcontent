@@ -1,0 +1,6 @@
+<% if item.send(field).present? %>
+  <div class="controls file-preview">
+    <%= image_tag item.send(field).url(item.send(field).styles.keys.first) %>
+  </div>
+<% end %>
+<%= form.input field %>
