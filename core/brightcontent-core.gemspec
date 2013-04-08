@@ -20,8 +20,10 @@ Gem::Specification.new do |s|
   s.add_dependency "bcrypt-ruby"
   s.add_dependency "inherited_resources"
   s.add_dependency "has_scope"
+  s.add_dependency "i18n"
   s.add_dependency "simple_form"
   s.add_dependency "will_paginate"
+  s.add_dependency "will-paginate-i18n"
   s.add_dependency "bootstrap-wysihtml5-rails"
   s.add_dependency "strong_parameters"
 
