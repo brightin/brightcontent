@@ -18,7 +18,7 @@
     list-style: none outside none;
   }
 
-  a{
+  .link{
     font-weight:normal;
     text-decoration:none;
     margin-left:30px;
@@ -47,13 +47,13 @@
     background: #fff;
     border: 1px solid #ddd;
     margin-bottom: -1px;
-    a { font-weight: bold; }
+    .link { font-weight: bold; }
     &:hover{ background: #ffc; }
   }
 
   .nested_set .item {
     background: #f7f7f7;
-    a { font-weight: normal; color: #333; }
+    .link { font-weight: normal; color: #333; }
     &:hover{ background: #ffc; }
   }
 
@@ -69,6 +69,17 @@
   .ui-nestedSortable-error {
     background: #FAA;
     color: #8a1f11;
+  }
+
+  .controls {
+    display: none;
+    position: absolute;
+    right: 13px;
+    top: 11px;
+  }
+
+  .item:hover .controls {
+    display: block;
   }
 
 }
