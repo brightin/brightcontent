@@ -6,9 +6,12 @@
       <%= render_form_field(form, form_field) -%>
     <% end -%>
   </div>
+
   <%= form.button :submit, class: "btn btn-primary" %>
   <%= form.button :submit, "Save and continue", :name => "commit_and_continue" %>
+
   <% unless resource.new_record? -%>
-    <%= link_to :delete, resource, :class => "btn btn-danger", :method => :delete, :data => { :confirm => 'Are you sure?' } %>
+    <%= link_to "Delete", resource, :class => "btn btn-danger delete", :method => :delete, :data => { :confirm => 'Are you sure?' } %>
   <% end -%>
+
 <% end -%>

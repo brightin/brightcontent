@@ -82,3 +82,7 @@ td.list-actions {
 .file-preview img {
   border: 1px solid #ccc;
 }
+
+.delete {
+  float: right;
+}
