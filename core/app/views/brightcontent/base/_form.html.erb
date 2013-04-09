@@ -1,10 +1,14 @@
-<%= simple_form_for resource do |form| %>
+<%= simple_form_for resource do |form| -%>
   <%= form.error_notification %>
 
   <div class="form-inputs">
-    <% form_fields.each do |form_field| %>
-      <%= render_form_field(form, form_field) %>
-    <% end %>
+    <% form_fields.each do |form_field| -%>
+      <%= render_form_field(form, form_field) -%>
+    <% end -%>
   </div>
   <%= form.button :submit, class: "btn btn-primary" %>
-<% end %>
+  <%= form.button :submit, "Save and continue", :name => "commit_and_continue" %>
+  <% unless resource.new_record? -%>
+    <%= link_to :delete, resource, :class => "btn btn-danger", :method => :delete, :data => { :confirm => 'Are you sure?' } %>
+  <% end -%>
+<% end -%>
