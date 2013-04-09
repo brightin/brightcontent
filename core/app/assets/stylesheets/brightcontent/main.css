@@ -86,3 +86,7 @@ td.list-actions {
 .delete {
   float: right;
 }
+
+select.datetime {
+  width: 116px
+}
