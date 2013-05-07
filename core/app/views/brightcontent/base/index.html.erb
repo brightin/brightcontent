@@ -1,7 +1,7 @@
 <div id="overview">
 
   <%= link_to "Create new #{resource_instance_name.to_s.humanize}", polymorphic_url(resource_class, action: :new), class: "btn btn-primary btn-right" %>
-  <h1><%= resource_collection_name.to_s.humanize %></h1>
+  <h1><%= resource_class.model_name.human.pluralize %></h1>
 
   <%= render "scope_filters" if scopes_configuration %>
   <%= render "index_top" %>

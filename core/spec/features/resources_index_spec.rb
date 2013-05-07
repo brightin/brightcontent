@@ -27,7 +27,7 @@ feature "Resources index" do
   end
 
   def visit_blogs_page
-    click_link "Blogs"
+    click_link "Blog"
   end
 
   def page_should_have_valid_table

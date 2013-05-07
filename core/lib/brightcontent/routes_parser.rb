@@ -3,17 +3,27 @@ require 'active_support/inflector'
 module Brightcontent
   class RoutesParser
 
-    def self.parse(routes_hash=nil, engine_resources=nil)
-      new(routes_hash, engine_resources).user_resource
-    end
-
     def initialize(routes_hash=nil, engine_resources=nil)
       @routes_hash = routes_hash
       @engine_resources = engine_resources
     end
 
-    def user_resource
-      resource_names - engine_resources
+    def resources
+      (resource_names - engine_resources).map do |name|
+        Resource.new(name)
+      end
+    end
+
+    class Resource < Struct.new(:path)
+      def klass
+        path.classify.constantize
+      rescue
+        "Brightcontent::#{path.classify}".constantize
+      end
+
+      def ==(other)
+        path == other.path
+      end
     end
 
     private

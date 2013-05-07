@@ -9,14 +9,13 @@ module Brightcontent
     end
     helper_method :current_user
 
-    def resource_paths
-      @resource_paths ||= RoutesParser.parse
+    def user_resources
+      @user_resources ||= RoutesParser.new.resources
     end
-    helper_method :resource_paths
+    helper_method :user_resources
 
     def authorize
       redirect_to login_url if current_user.nil?
     end
-
   end
 end
