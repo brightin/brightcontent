@@ -10,10 +10,7 @@ module Brightcontent
     include DefaultActions
     include Pagination
 
-    # Temp until inherent resources supports strong params
-    include StrongParamsFix
-
-    private
+    protected
 
     def list_fields
       default_fields - %w{attachments}
@@ -30,8 +27,8 @@ module Brightcontent
     end
     helper_method :default_fields
 
-    def resource_params
-      params.require(resource_instance_name).permit!
+    def permitted_params
+      params.permit!
     end
 
   end
