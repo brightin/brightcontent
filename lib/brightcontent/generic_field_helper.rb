@@ -1,6 +1,6 @@
 module Brightcontent::GenericFieldHelper
   def generic_field(attribute, options={})
-    case @object.class.columns.find{|c| c.name == attribute}.type
+    case @object.class.columns.find{|c| c.name == attribute}.try(:type)
        when :string
          text_field( attribute, options )
        when :boolean
