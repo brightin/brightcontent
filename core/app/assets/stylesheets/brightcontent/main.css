@@ -9,6 +9,10 @@ body {
   max-width: 622px;
 }
 
+.form-inputs input[type=checkbox] {
+  width: auto;
+}
+
 .btn-right {
   float: right;
 }
