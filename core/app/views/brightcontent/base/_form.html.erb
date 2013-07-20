@@ -1,4 +1,4 @@
-<%= simple_form_for resource do |form| -%>
+<%= simple_form_for [parent, resource] do |form| -%>
   <%= form.error_notification %>
 
   <div class="form-inputs">
@@ -11,7 +11,7 @@
   <%= form.button :submit, "Save and continue", :name => "commit_and_continue" %>
 
   <% unless resource.new_record? -%>
-    <%= link_to "Delete", resource, :class => "btn btn-danger delete", :method => :delete, :data => { :confirm => 'Are you sure?' } %>
+    <%= link_to "Delete", [parent, resource], :class => "btn btn-danger delete", :method => :delete, :data => { :confirm => 'Are you sure?' } %>
   <% end -%>
 
 <% end -%>

@@ -17,5 +17,6 @@ module Brightcontent
     def authorize
       redirect_to login_url if current_user.nil?
     end
+
   end
 end

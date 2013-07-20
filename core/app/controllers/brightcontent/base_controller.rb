@@ -31,5 +31,10 @@ module Brightcontent
     end
     helper_method :default_fields
 
+    def parent
+      super if parent?
+    end
+    helper_method :parent
+
   end
 end
