@@ -10,6 +10,10 @@ module Brightcontent
     include DefaultActions
     include Pagination
 
+    def permitted_params
+      params.permit!
+    end
+
     protected
 
     def list_fields
@@ -26,10 +30,6 @@ module Brightcontent
       resource_class.brightcontent_columns - %w{id created_at updated_at password_digest}
     end
     helper_method :default_fields
-
-    def permitted_params
-      params.permit!
-    end
 
   end
 end
