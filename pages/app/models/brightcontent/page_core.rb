@@ -4,6 +4,7 @@ module Brightcontent
 
     included do
       acts_as_nested_set
+      has_attached_files Brightcontent.page_attachment_styles
       include Brightcontent::Attachable
       include TheSortableTree::Scopes
       validates_presence_of :name
@@ -23,10 +24,6 @@ module Brightcontent
 
     def path
       "/" + slug
-    end
-
-    def attachment_styles
-      Brightcontent.page_attachment_styles
     end
 
     def root_parent_children
