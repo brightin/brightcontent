@@ -5,8 +5,9 @@ module Brightcontent
     let(:engine_resources) { %w{sessions admin_users} }
     let(:routes_hash) do
       [ {}, nil, {:action=>"admin"},
-      {:action=>"index", :controller=>"brightcontent/blogs"},
-      {:action=>"create", :controller=>"brightcontent/blogs"} ]
+      {:action=>"index", :controller=>"brightcontent/blogs", :path_spec => '/blogs(.:format)'},
+      {:action=>"create", :controller=>"brightcontent/blogs", :path_spec => '/blogs(.:format)'},
+      {:controller=>"brightcontent/comments", :action=>"show", :path_spec=>"/blogs/:blog_id/comments/:id(.:format)"}]
     end
 
     subject(:parser) { RoutesParser.new(routes_hash, engine_resources) }
@@ -14,7 +15,7 @@ module Brightcontent
     its(:resources) { should eq [resource("blogs")] }
 
     context "with extra resource" do
-      before { routes_hash << {:action=>"index", :controller=>"brightcontent/articles"} }
+      before { routes_hash << {:action=>"index", :controller=>"brightcontent/articles", :path_spec => '/articles' } }
       its(:resources) { should eq [resource("blogs"), resource("articles")] }
     end
 
