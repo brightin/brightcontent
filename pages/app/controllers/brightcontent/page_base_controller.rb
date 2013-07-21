@@ -12,11 +12,11 @@ module Brightcontent
       %w{name parent_id hidden body attachments}
     end
 
-    protected
-
     def sortable_model
       Brightcontent::Page
     end
+
+    protected
 
     def sortable_collection
       "brightcontent_pages"
