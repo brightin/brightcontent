@@ -13,5 +13,7 @@
  *= require brightcontent/bootstrap-responsive.min
  *= require bootstrap-wysihtml5
  *= require brightcontent/main
+ *= require brightcontent/pages
+ *= require brightcontent/attachments
  *= require brightcontent/custom
  */

@@ -11,9 +11,11 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery
+//= require jquery-ui
 //= require jquery_ujs
 //= require bootstrap-wysihtml5
 //= require bootstrap-wysihtml5/locales/nl-NL
 //= require brightcontent/attachments
+//= require brightcontent/pages
 //= require brightcontent/custom
 //= require_tree .
