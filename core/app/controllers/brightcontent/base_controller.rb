@@ -36,5 +36,15 @@ module Brightcontent
     end
     helper_method :parent
 
+    def resource_item_path
+      [parent, resource]
+    end
+    helper_method :resource_item_path
+
+    def resource_index_path
+      [parent, resource_class]
+    end
+    helper_method :resource_index_path
+
   end
 end
