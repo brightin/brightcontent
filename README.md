@@ -5,7 +5,8 @@
               |___/
 
 
-[![Code Climate](https://codeclimate.com/badge.png)](https://codeclimate.com/github/stexy/brightcontent)
+[![Gem Version](https://badge.fury.io/rb/brightcontent.png)](http://badge.fury.io/rb/brightcontent)
+[![Code Climate](https://codeclimate.com/github/stexy/brightcontent.png)](https://codeclimate.com/github/stexy/brightcontent)
 [![Build Status](https://travis-ci.org/stexy/brightcontent.png?branch=master)](https://travis-ci.org/stexy/brightcontent)
 
 Brightcontent, yet another rails CMS / admin panel
