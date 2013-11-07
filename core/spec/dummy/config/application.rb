@@ -4,6 +4,7 @@ require 'rails/all'
 
 Bundler.require
 require "brightcontent-core"
+require "jquery-ui-rails"
 
 module Dummy
   class Application < Rails::Application
