@@ -5,5 +5,5 @@ Brightcontent::Engine.routes.draw do
   resources :admin_users
   resources :sessions, only: [:new, :create, :destroy]
 
-  root to: "admin_users#index"
+  root to: "application#index"
 end

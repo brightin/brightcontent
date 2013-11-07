@@ -2,6 +2,10 @@ module Brightcontent
   class ApplicationController < ActionController::Base
     before_filter :authorize
 
+    def index
+      redirect_to root_path + user_resources.first.path
+    end
+
     private
 
     def current_user
