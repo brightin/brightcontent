@@ -9,6 +9,10 @@ module Brightcontent
           rake "brightcontent_pages_engine:install:migrations"
         end
 
+        def add_routes
+          inject_into_file 'config/routes.rb', "\n    pages_resources", { :after => "brightcontent_resources do" }
+        end
+
       end
     end
   end

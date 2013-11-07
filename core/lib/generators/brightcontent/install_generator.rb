@@ -15,7 +15,6 @@ module Brightcontent
 
       def add_routes
         route "brightcontent_resources do\n" \
-        "    #pages_resources       #requires brightcontent-pages\n" \
         "    #resources :vacancies  #for example\n" \
         "  end"
       end
