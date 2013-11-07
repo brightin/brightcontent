@@ -4,7 +4,6 @@ require "jquery-rails"
 require "will_paginate"
 require "bootstrap-wysihtml5-rails"
 require "has_scope"
-require "strong_parameters"
 
 require "brightcontent/rails/routes"
 require "brightcontent/engine"

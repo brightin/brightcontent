@@ -15,15 +15,15 @@ Gem::Specification.new do |s|
   s.test_files    = `git ls-files -- spec/*`.split("\n")
   s.require_paths = ["lib"]
 
-  s.add_dependency "rails", ">= 3.2.13"
-  s.add_dependency "jquery-rails"
-  s.add_dependency "bcrypt-ruby", ">= 3.0.0"
-  s.add_dependency "inherited_resources"
+  s.add_dependency "rails", ">= 4.0.0"
+  s.add_dependency "bcrypt-ruby", ">= 3.1.0"
+  s.add_dependency "bootstrap-wysihtml5-rails"
   s.add_dependency "has_scope"
+  s.add_dependency "inherited_resources"
+  s.add_dependency "jquery-rails"
+  s.add_dependency "jquery-ui-rails", ">= 2.3.0"
   s.add_dependency "simple_form"
   s.add_dependency "will_paginate"
-  s.add_dependency "bootstrap-wysihtml5-rails"
-  s.add_dependency "strong_parameters"
 
   s.add_development_dependency "sqlite3"
   s.add_development_dependency "rspec-rails"
