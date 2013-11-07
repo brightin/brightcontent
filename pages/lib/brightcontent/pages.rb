@@ -3,6 +3,7 @@ require "brightcontent-attachments"
 require "awesome_nested_set"
 require "the_sortable_tree"
 
+require "brightcontent/pages/routes"
 require "brightcontent/pages/engine"
 
 module Brightcontent
