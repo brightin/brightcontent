@@ -14,6 +14,10 @@ module Brightcontent
       params.permit!
     end
 
+    def resource_params
+      [permitted_params[resource_instance_name]]
+    end
+
     protected
 
     def list_fields
@@ -45,6 +49,5 @@ module Brightcontent
       [parent, resource_class]
     end
     helper_method :resource_index_path
-
   end
 end
