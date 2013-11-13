@@ -9,32 +9,32 @@
 # from scratch. The latter is a flawed and unsustainable approach (the more migrations
 # you'll amass, the slower it'll run and the greater likelihood for issues).
 #
-# It's strongly recommended to check this file into your version control system.
+# It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130720211920) do
+ActiveRecord::Schema.define(version: 20130720211920) do
 
-  create_table "blogs", :force => true do |t|
+  create_table "blogs", force: true do |t|
     t.string   "name"
     t.text     "body"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.boolean  "featured"
   end
 
-  create_table "brightcontent_admin_users", :force => true do |t|
+  create_table "brightcontent_admin_users", force: true do |t|
     t.string   "email"
     t.string   "password_digest"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
-  create_table "comments", :force => true do |t|
+  create_table "comments", force: true do |t|
     t.text     "text"
     t.integer  "blog_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
-  add_index "comments", ["blog_id"], :name => "index_comments_on_blog_id"
+  add_index "comments", ["blog_id"], name: "index_comments_on_blog_id"
 
 end

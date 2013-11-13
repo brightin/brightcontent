@@ -1,6 +1,7 @@
 require "inherited_resources"
 require "simple_form"
 require "jquery-rails"
+require "jquery-ui-rails"
 require "will_paginate"
 require "bootstrap-wysihtml5-rails"
 require "has_scope"

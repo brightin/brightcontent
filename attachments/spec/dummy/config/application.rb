@@ -4,7 +4,6 @@ require 'rails/all'
 
 Bundler.require
 require "brightcontent-attachments"
-require "jquery-ui-rails"
 
 module Dummy
   class Application < Rails::Application
