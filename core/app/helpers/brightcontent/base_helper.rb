@@ -1,7 +1,7 @@
 module Brightcontent
   module BaseHelper
     def render_list_field(item, field)
-      render_if_exists("list_field_#{field}", item: item) || item.send(field).to_s.truncate(50)
+      render_if_exists("list_field_#{field}", item: item) || strip_tags(item.send(field).to_s).truncate(50)
     end
 
     def render_form_field(form, field)
