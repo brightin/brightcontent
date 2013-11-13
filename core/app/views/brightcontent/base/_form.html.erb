@@ -1,5 +1,5 @@
-<%= simple_form_for resource_item_path do |form| -%>
-  <%= form.error_notification %>
+<%= simple_form_for resource_item_path, wrapper: :bootstrap do |form| -%>
+  <%= form.error_notification class: 'alert alert-error' %>
 
   <div class="form-inputs">
     <% form_fields.each do |form_field| -%>
@@ -8,7 +8,7 @@
   </div>
 
   <%= form.button :submit, class: "btn btn-primary" %>
-  <%= form.button :submit, "Save and continue", :name => "commit_and_continue" %>
+  <%= form.button :submit, "Save and continue", class: "btn", :name => "commit_and_continue" %>
 
   <% unless resource.new_record? -%>
     <%= link_to "Delete", resource_item_path, :class => "btn btn-danger delete", :method => :delete, :data => { :confirm => 'Are you sure?' } %>
