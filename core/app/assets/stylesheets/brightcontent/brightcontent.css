@@ -9,8 +9,7 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
- *= require brightcontent/bootstrap.min
- *= require brightcontent/bootstrap-responsive.min
+ *= require brightcontent/bootstrap
  *= require bootstrap-wysihtml5
  *= require brightcontent/main
  *= require brightcontent/pages
