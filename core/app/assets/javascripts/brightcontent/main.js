@@ -1,5 +1,5 @@
 $(document).ready(function(){
-  $('textarea[name*="content"], textarea[name*="body"], textarea[name*="editor"]').each(function(i, elem) {
+  $('[data-wysihtml5]').each(function(i, elem) {
     $(elem).wysihtml5({
       html: true,
       locale: "nl-NL",
