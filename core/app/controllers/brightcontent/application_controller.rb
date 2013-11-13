@@ -1,12 +1,17 @@
 module Brightcontent
   class ApplicationController < ActionController::Base
     before_filter :authorize
+    before_filter :set_locale
 
     def index
       redirect_to root_path + user_resources.first.path
     end
 
     private
+
+    def set_locale
+      I18n.locale = Brightcontent.locale
+    end
 
     def current_user
       @current_user ||= AdminUser.find(session[:brightcontent_user_id]) if session[:brightcontent_user_id]

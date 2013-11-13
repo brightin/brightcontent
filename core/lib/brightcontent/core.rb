@@ -27,6 +27,9 @@ module Brightcontent
   mattr_accessor :application_name
   @@application_name = "Brightcontent"
 
+  mattr_accessor :locale
+  @@locale = "en"
+
   # Default way to setup Brightcontent.
   # Run rails g brightcontent:install to create initializer
   def self.setup
