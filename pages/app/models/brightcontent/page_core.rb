@@ -37,7 +37,7 @@ module Brightcontent
     end
 
     def slug_name
-      homepage? ? "" : self_and_ancestors.map { |p| p.name.parameterize }.join("/")
+      self_and_ancestors.map {|p| p.name.parameterize unless p.homepage? }.compact.join("/")
     end
   end
 end
