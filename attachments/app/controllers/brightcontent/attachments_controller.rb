@@ -25,7 +25,7 @@ module Brightcontent
     private
 
     def attachment_params
-      params.permit(:attachable_id, :attachable_type, :asset)
+      params.permit!.slice(:attachable_id, :attachable_type, :asset)
     end
 
   end
