@@ -10,35 +10,36 @@
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
 </head>
+
 <body>
-
-
   <% if current_user %>
-    <div class="navbar">
-      <div class="navbar-inner">
-        <div class="container">
-          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+    <div class="navbar navbar-default navbar-static-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
-          </a>
-          <%= link_to Brightcontent.application_name, root_path, class: "brand" %>
-          <div class="nav-collapse collapse">
-            <ul class="nav" id="menu">
-              <%= render "menu" %>
-            </ul>
-            <ul class="nav pull-right">
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= current_user.email %><b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                  <li><%= link_to "Homepage", "/" %></li>
-                  <li><%= link_to "Admins", admin_users_path %></li>
-                  <li><%= link_to "Logout", logout_path %></li>
-                <ul>
-              </li>
-            </ul>
-          </div>
+          </button>
+          <%= link_to Brightcontent.application_name, root_path, class: "navbar-brand" %>
         </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav js-menu">
+            <%= render "menu" %>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= current_user.email %><b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><%= link_to "Homepage", "/" %></li>
+                <li><%= link_to "Admins", admin_users_path %></li>
+                <li class="divider"></li>
+                <li><%= link_to "Logout", logout_path %></li>
+              </ul>
+            </li>
+          </ul>
+        </div><!--/.nav-collapse -->
       </div>
     </div>
   <% end %>
@@ -47,7 +48,6 @@
     <%= render "brightcontent/application/show_flash_names" %>
     <%= yield %>
   </div>
-
 </div>
 
 </body>

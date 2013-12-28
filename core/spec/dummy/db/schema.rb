@@ -16,23 +16,23 @@ ActiveRecord::Schema.define(version: 20130720211920) do
   create_table "blogs", force: true do |t|
     t.string   "name"
     t.text     "body"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.boolean  "featured"
   end
 
   create_table "brightcontent_admin_users", force: true do |t|
     t.string   "email"
     t.string   "password_digest"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
   create_table "comments", force: true do |t|
     t.text     "text"
     t.integer  "blog_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   add_index "comments", ["blog_id"], name: "index_comments_on_blog_id"

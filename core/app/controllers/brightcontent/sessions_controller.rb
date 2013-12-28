@@ -11,7 +11,7 @@ module Brightcontent
         session[:brightcontent_user_id] = user.id
         redirect_to root_url
       else
-        flash.now.alert = "Email or password is invalid"
+        flash.now[:danger] = "Email or password is invalid"
         render :new
       end
     end

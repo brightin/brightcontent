@@ -23,6 +23,5 @@ module Brightcontent
     def destroy
       destroy! { resource_index_path }
     end
-
   end
 end

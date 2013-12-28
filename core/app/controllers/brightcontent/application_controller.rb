@@ -1,5 +1,6 @@
 module Brightcontent
   class ApplicationController < ActionController::Base
+    add_flash_types :success, :info, :warning, :danger
     before_filter :authorize
     before_filter :set_locale
 
@@ -24,8 +25,7 @@ module Brightcontent
     helper_method :user_resources
 
     def authorize
-      redirect_to login_url if current_user.nil?
+      redirect_to login_url unless current_user
     end
-
   end
 end

@@ -1,7 +1,6 @@
 require 'spec_helper'
 
 feature "Resources index" do
-
   background do
     sign_in
   end
@@ -27,7 +26,7 @@ feature "Resources index" do
   end
 
   def visit_blogs_page
-    click_link "Blog"
+    click_link "Blogs"
   end
 
   def page_should_have_valid_table
@@ -46,5 +45,4 @@ feature "Resources index" do
   def given_10_per_page
     Brightcontent::BlogsController.class_eval { per_page 10 }
   end
-
 end

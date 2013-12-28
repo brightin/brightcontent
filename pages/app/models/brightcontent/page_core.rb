@@ -33,12 +33,13 @@ module Brightcontent
     private
 
     def update_slug
-      self.update_column(:slug, slug_name)
+      self.update_column(:slug, slug_name.to_s)
     end
 
     def slug_name
-      self_and_ancestors.map {|p| p.name.parameterize unless p.homepage? }.compact.join("/")
+      unless homepage?
+        self_and_ancestors.map { |p| p.name.parameterize }.join("/")
+      end
     end
   end
 end
-

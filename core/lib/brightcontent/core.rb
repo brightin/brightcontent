@@ -1,16 +1,16 @@
-require "inherited_resources"
-require "simple_form"
-require "jquery-rails"
-require "jquery-ui-rails"
-require "will_paginate"
+require "bootstrap-sass-rails"
 require "bootstrap-wysihtml5-rails"
 require "has_scope"
+require "inherited_resources"
+require "jquery-rails"
+require "jquery-ui-rails"
+require "simple_form"
+require "will_paginate"
 
 require "brightcontent/rails/routes"
 require "brightcontent/engine"
 
 module Brightcontent
-
   autoload :Pagination, 'brightcontent/pagination'
   autoload :PageMethods, 'brightcontent/page_methods'
   autoload :RoutesParser, 'brightcontent/routes_parser'
@@ -35,5 +35,4 @@ module Brightcontent
   def self.setup
     yield self
   end
-
 end

@@ -16,15 +16,15 @@ ActiveRecord::Schema.define(version: 20121222172513) do
   create_table "blogs", force: true do |t|
     t.string   "name"
     t.text     "body"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "brightcontent_admin_users", force: true do |t|
     t.string   "email"
     t.string   "password_digest"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
   create_table "brightcontent_attachments", force: true do |t|
@@ -34,8 +34,8 @@ ActiveRecord::Schema.define(version: 20121222172513) do
     t.string   "asset_content_type"
     t.integer  "asset_file_size"
     t.datetime "asset_updated_at"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
   end
 
   add_index "brightcontent_attachments", ["attachable_id"], name: "index_brightcontent_attachments_on_attachable_id"

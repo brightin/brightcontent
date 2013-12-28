@@ -45,8 +45,8 @@ module RenderSortableTreeHelper
 
         "
           <div class='controls'>
-            #{ h.link_to 'Edit', edit_path, :class => 'btn btn-mini btn-primary btn-edit' }
-            #{ h.link_to 'Delete', show_path, :class => 'btn btn-mini btn-delete', :method => :delete, :data => { :confirm => 'Are you sure?' } }
+            #{ h.link_to 'Edit', edit_path, :class => 'btn btn-xs btn-primary btn-edit' }
+            #{ h.link_to 'Delete', show_path, :class => 'btn btn-xs btn-delete', :method => :delete, :data => { :confirm => 'Are you sure?' } }
           </div>
         "
       end

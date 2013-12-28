@@ -23,6 +23,5 @@ module Brightcontent
         super
       end
     end
-
   end
 end

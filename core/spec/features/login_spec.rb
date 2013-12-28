@@ -1,7 +1,6 @@
 require 'spec_helper'
 
 feature "Login" do
-
   scenario "Login with invalid credentials" do
     sign_in_with_invalid_email
     page.should have_content "invalid"
@@ -9,7 +8,9 @@ feature "Login" do
 
   scenario "Login with valid credentials" do
     sign_in
-    page.should have_content "Admin users"
+    within "h1" do
+      page.should have_content "Blogs"
+    end
   end
 
   scenario "User logs out" do
@@ -25,5 +26,4 @@ feature "Login" do
     fill_in "Password", with: "wrongpass"
     click_button "Login"
   end
-
 end

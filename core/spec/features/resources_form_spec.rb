@@ -1,7 +1,6 @@
 require 'spec_helper'
 
 feature "Resources form" do
-
   scenario "Adds a new item" do
     sign_in
     create_blog "Name for blogitem"
@@ -47,5 +46,4 @@ feature "Resources form" do
       yield
     end
   end
-
 end

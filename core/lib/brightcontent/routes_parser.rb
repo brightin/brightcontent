@@ -2,7 +2,6 @@ require 'active_support/inflector'
 
 module Brightcontent
   class RoutesParser
-
     def initialize(routes_hash=nil, engine_resources=nil)
       @routes_hash = routes_hash
       @engine_resources = engine_resources
@@ -47,6 +46,5 @@ module Brightcontent
     def engine_resources
       @engine_resources ||= Brightcontent.engine_resources
     end
-
   end
 end
