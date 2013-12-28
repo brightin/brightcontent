@@ -5,6 +5,7 @@ env:
   - GEM=pages
   - GEM=attachments
 before_install:
+  - unset BUNDLE_GEMFILE
   - gem update --system
   - gem --version
   - gem install bundler
