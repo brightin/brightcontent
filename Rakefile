@@ -4,11 +4,27 @@ rescue LoadError
   puts 'You must `gem install bundler` and `bundle install` to run rake tasks'
 end
 
-require 'bundler'
-Bundler::GemHelper.install_tasks
+PROJECTS = %w{core pages attachments}
 
-Dir[File.expand_path('../lib/tasks/**/*', __FILE__)].each do |task|
-  load task
+PROJECTS.each do |name|
+  task "spec_#{name}" do
+    cmd_in_dir name, "bundle exec rake"
+  end
 end
 
+multitask spec: PROJECTS.map { |name| "spec_#{name}" }
 task :default => :spec
+
+task "release:all" do
+  version = File.read(File.expand_path("../../../VERSION",__FILE__)).strip
+  sh "rake release"
+  PROJECTS.each do |name|
+    cmd_in_dir name, "rake build && gem push pkg/brightcontent-#{name}-#{version}.gem"
+  end
+end
+
+def cmd_in_dir(dir, command)
+  Bundler.with_clean_env do
+    sh "cd #{dir} && #{command}"
+  end
+end
