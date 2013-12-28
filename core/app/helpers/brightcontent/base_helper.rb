@@ -10,13 +10,6 @@ module Brightcontent
       form.input(field.to_sym)
     end
 
-    def link_for_scope(scope)
-      case scope[:type]
-      when :boolean
-        polymorphic_url(resource_index_path, scope[:as] => true)
-      end
-    end
-
     private
 
     def render_if_exists(*args)

@@ -1,9 +1,0 @@
-<ul class="nav nav-pills">
-  <li class="disabled"><a href="#">Filter: </a></li>
-  <% scopes_configuration.each do |scope| %>
-    <li>
-      <%= link_to scope[1][:as].to_s.humanize, link_for_scope(scope[1]) %> 
-    </li>
-  <% end %>
-</ul>
-

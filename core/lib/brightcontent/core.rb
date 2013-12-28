@@ -1,6 +1,5 @@
 require "bootstrap-sass-rails"
 require "bootstrap-wysihtml5-rails"
-require "has_scope"
 require "inherited_resources"
 require "jquery-rails"
 require "jquery-ui-rails"

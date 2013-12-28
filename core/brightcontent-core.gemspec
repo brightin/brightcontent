@@ -20,7 +20,6 @@ Gem::Specification.new do |s|
   s.add_dependency "bootstrap-sass-rails"
   s.add_dependency "bootstrap-wysihtml5-rails"
   s.add_dependency "coffee-rails"
-  s.add_dependency "has_scope"
   s.add_dependency "inherited_resources", ">= 1.4.1"
   s.add_dependency "jquery-rails"
   s.add_dependency "jquery-ui-rails", ">= 2.3.0"
