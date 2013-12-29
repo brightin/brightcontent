@@ -15,7 +15,7 @@ feature "Pages index" do
 
   scenario "click on delete page" do
     click_link "Pages"
-    page.find(:css, '.controls .btn-delete').click
+    page.find(:css, '.controls .btn-danger').click
     page.should_not have_content "Test page"
     page.should have_content "successfully"
   end

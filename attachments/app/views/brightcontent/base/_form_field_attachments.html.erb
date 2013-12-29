@@ -1,18 +1,18 @@
-<div class="control-group optional">
-  <label class="optional control-label">Attachments</label>
-  <div class="controls">
+<div class="form-group">
+  <label class="col-sm-2 control-label">Attachments</label>
+  <div class="col-sm-10">
     <% if item.persisted? %>
       <div id="attachments" class="clearfix">
         <%= render item.attachments %>
       </div>
 
-      <input id="fileupload" type="file" name="asset" data-url="<%= new_attachment_path %>" multiple>
+      <input id="fileupload" type="file" name="asset" data-url="<%= new_attachment_path %>" class="form-control" multiple>
       <%= hidden_field_tag "attachable_id", item.id %>
       <%= hidden_field_tag "attachable_type", item.class.to_s %>
       <%= hidden_field_tag "attachable_url", attachments_path(item.class.to_s, item.id) %>
 
     <% else %>
-      First save to enable uploads
+      <p class="form-control-static">First save to enable uploads</p>
     <% end %>
   </div>
 </div>

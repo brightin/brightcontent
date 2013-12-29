@@ -1,10 +1,11 @@
-<div id="overview">
-
-  <%= link_to "Create new #{resource_instance_name.to_s.humanize}", polymorphic_url(resource_index_path, action: :new), class: "btn btn-primary btn-right" %>
+<div class="page-header">
+  <%= link_to "Create new #{resource_instance_name.to_s.humanize}", polymorphic_url(resource_index_path, action: :new), class: "btn btn-primary pull-right" %>
   <h1><%= resource_class.model_name.human.pluralize %></h1>
+</div>
 
-  <%= render "index_top" %>
+<%= render "index_top" %>
 
+<div class="table-responsive">
   <table class="table table-hover">
     <thead>
       <tr>
@@ -18,7 +19,8 @@
       <%= render "list", collection: collection, list_fields: list_fields  %>
     </tbody>
   </table>
+</div>
 
-  <%= will_paginate collection %>
-
+<div class="panel-footer panel-footer-pagination">
+  <%= will_paginate collection, renderer: BootstrapPagination::Rails %>
 </div>

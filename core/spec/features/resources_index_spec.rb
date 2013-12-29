@@ -30,7 +30,7 @@ feature "Resources index" do
   end
 
   def page_should_have_valid_table
-    within "#overview" do
+    within ".panel" do
       page.should have_content "Blogs"
       page.should have_content "Name"
       page.should have_content "Body"

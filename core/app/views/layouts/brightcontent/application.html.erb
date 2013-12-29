@@ -44,9 +44,11 @@
     </div>
   <% end %>
 
-  <div class="container <%= "box" unless controller.controller_name == 'sessions' %>">
-    <%= render "brightcontent/application/show_flash_names" %>
-    <%= yield %>
+  <div class="container">
+    <div class="<%= "panel panel-default" unless controller.controller_name == 'sessions' %>">
+      <%= render "brightcontent/application/show_flash_names" %>
+      <%= yield %>
+    </div>
   </div>
 </div>
 

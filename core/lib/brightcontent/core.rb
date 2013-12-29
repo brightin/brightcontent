@@ -4,6 +4,7 @@ require "inherited_resources"
 require "jquery-rails"
 require "simple_form"
 require "will_paginate"
+require "will_paginate-bootstrap"
 
 require "brightcontent/rails/routes"
 require "brightcontent/engine"
@@ -31,8 +32,6 @@ module Brightcontent
   mattr_accessor :locale
   @@locale = "en"
 
-  # Default way to setup Brightcontent.
-  # Run rails g brightcontent:install to create initializer
   def self.setup
     yield self
   end
