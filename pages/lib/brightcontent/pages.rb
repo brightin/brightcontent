@@ -8,6 +8,7 @@ require "brightcontent/pages/routes"
 require "brightcontent/pages/engine"
 
 module Brightcontent
+  register_extension 'pages'
 
   mattr_accessor :page_attachment_styles
   @@page_attachment_styles = {}

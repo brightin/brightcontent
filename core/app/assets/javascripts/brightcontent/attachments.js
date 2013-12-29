@@ -1,1 +1,0 @@
-/* Overwritten by attachments gem */

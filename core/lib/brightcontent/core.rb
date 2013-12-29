@@ -16,6 +16,9 @@ module Brightcontent
   autoload :StrongParamsFix, 'brightcontent/strong_params_fix'
   autoload :ModelExtensions, 'brightcontent/model_extensions'
 
+  mattr_reader :extensions
+  @@extensions = %w{core}
+
   mattr_accessor :engine_resources
   @@engine_resources = %w{sessions admin_users}
 
@@ -32,5 +35,9 @@ module Brightcontent
   # Run rails g brightcontent:install to create initializer
   def self.setup
     yield self
+  end
+
+  def self.register_extension(name)
+    @@extensions << name
   end
 end

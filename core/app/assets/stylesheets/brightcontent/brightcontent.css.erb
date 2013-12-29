@@ -1,0 +1,10 @@
+/*
+ *= require twitter/bootstrap
+ *= require bootstrap-wysihtml5/b3
+ *= require brightcontent/signin
+ */
+
+<% (Brightcontent.extensions + ['custom']).each do |name|
+  require_asset("brightcontent/#{name}")
+end
+%>

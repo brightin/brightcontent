@@ -1,14 +1,3 @@
-#= require jquery
-#= require jquery_ujs
-#= require twitter/bootstrap
-#= require bootstrap-wysihtml5/b3
-#= require bootstrap-wysihtml5/locales/nl-NL
-#= require brightcontent/wysithtml5-parser-rules
-#= require brightcontent/attachments
-#= require brightcontent/pages
-#= require brightcontent/custom
-#= require_self
-
 $ ->
   $('[data-wysihtml5]').wysihtml5
     html: true

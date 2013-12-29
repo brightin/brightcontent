@@ -10,6 +10,5 @@ module Brightcontent
     def attachment
       attachments.first
     end
-
   end
 end
