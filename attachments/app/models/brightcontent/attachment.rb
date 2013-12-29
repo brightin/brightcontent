@@ -33,6 +33,5 @@ module Brightcontent
     def resize_images
       return false unless image?
     end
-
   end
 end

@@ -2,7 +2,6 @@ require_dependency "brightcontent/application_controller"
 
 module Brightcontent
   class AttachmentsController < ApplicationController
-
     def show
       @attachments = Attachment.where(attachable_type: params[:type].classify, attachable_id: params[:id])
       render layout: false
@@ -27,6 +26,5 @@ module Brightcontent
     def attachment_params
       params.permit!.slice(:attachable_id, :attachable_type, :asset)
     end
-
   end
 end
