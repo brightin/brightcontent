@@ -1,6 +1,7 @@
 require "brightcontent-core"
 require "brightcontent-attachments"
 require "awesome_nested_set"
+require "jquery-ui-rails"
 require "the_sortable_tree"
 
 require "brightcontent/pages/routes"

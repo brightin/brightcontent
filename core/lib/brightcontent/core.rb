@@ -2,7 +2,6 @@ require "bootstrap-sass-rails"
 require "bootstrap-wysihtml5-rails"
 require "inherited_resources"
 require "jquery-rails"
-require "jquery-ui-rails"
 require "simple_form"
 require "will_paginate"
 
