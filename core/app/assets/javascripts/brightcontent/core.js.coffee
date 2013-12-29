@@ -1,7 +1,6 @@
 $ ->
   $('[data-wysihtml5]').wysihtml5
     html: true
-    locale: "nl-NL"
     parserRules: wysihtml5ParserRules
     events:
       load: ->
