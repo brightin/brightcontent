@@ -1,0 +1,8 @@
+nl:
+  activerecord:
+    models:
+      brightcontent/attachment: Bijlage
+
+  brightcontent:
+    save_first: Bewaar het item eerst voordat je kunt uploaden.
+    insert: Invoegen

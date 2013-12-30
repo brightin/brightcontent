@@ -1,0 +1,8 @@
+en:
+  activerecord:
+    models:
+      brightcontent/attachment: Attachment
+
+  brightcontent:
+    save_first: First save to enable uploads
+    insert: Insert

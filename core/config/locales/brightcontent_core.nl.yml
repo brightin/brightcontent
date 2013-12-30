@@ -1,0 +1,29 @@
+nl:
+  flash:
+    actions:
+      create:
+        notice: '%{resource_name} is successvol aangemaakt.'
+      update:
+        notice: '%{resource_name} is successvol geupdate.'
+      destroy:
+        notice: '%{resource_name} is succesvol verwijderd.'
+        alert: '%{resource_name} kon niet worden verwijderd.'
+
+  brightcontent:
+    create_new: Maak nieuwe
+    edit: Wijzig
+    save_and_continue: Opslaan en verder bewerken
+    delete: Verwijderen
+    are_you_sure: Zeker weten?
+    logout: Uitloggen
+    hidden: Verborgen
+    sign_in: Inloggen
+    editor_locale: "nl-NL"
+
+  activerecord:
+    models:
+      brightcontent/admin_user: Beheerder
+    attributes:
+      brightcontent/admin_user:
+        password: Wachtwoord
+        password_confirmation: Wachtwoord bevestiging

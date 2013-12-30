@@ -1,5 +1,5 @@
 <div class="form-group">
-  <label class="col-sm-2 control-label">Attachments</label>
+  <label class="col-sm-2 control-label"><%=Brightcontent::Attachment.model_name.human.pluralize%></label>
   <div class="col-sm-10">
     <% if item.persisted? %>
       <div id="attachments" class="clearfix">
@@ -12,7 +12,7 @@
       <%= hidden_field_tag "attachable_url", attachments_path(item.class.to_s, item.id) %>
 
     <% else %>
-      <p class="form-control-static">First save to enable uploads</p>
+      <p class="form-control-static"><%= t('brightcontent.save_first')%></p>
     <% end %>
   </div>
 </div>

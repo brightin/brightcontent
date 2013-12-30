@@ -6,11 +6,11 @@
   <%= stylesheet_link_tag "brightcontent/brightcontent", :media => "all" %>
   <%= csrf_meta_tags %>
   <!--[if lt IE 9]>
-    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <script src="https://html5shim.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
 </head>
 
-<body>
+<body data-editor-locale="<%=t('brightcontent.editor_locale')%>">
   <% if current_user %>
     <div class="navbar navbar-inverse navbar-bc navbar-static-top" role="navigation">
       <div class="container">
@@ -35,9 +35,9 @@
             </a>
             <ul class="dropdown-menu">
               <li><%= link_to "Homepage", "/" %></li>
-              <li><%= link_to "Admins", admin_users_path %></li>
+              <li><%= link_to Brightcontent::AdminUser.model_name.human.pluralize, admin_users_path %></li>
               <li class="divider"></li>
-              <li><%= link_to "Logout", logout_path %></li>
+              <li><%= link_to t('brightcontent.logout'), logout_path %></li>
             </ul>
             </li>
           </ul>

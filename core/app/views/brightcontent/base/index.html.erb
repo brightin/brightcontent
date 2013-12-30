@@ -1,5 +1,5 @@
 <div class="page-header">
-  <%= link_to "Create new #{resource_instance_name.to_s.humanize}", polymorphic_url(resource_index_path, action: :new), class: "btn btn-primary pull-right" %>
+  <%= link_to "#{I18n.t 'brightcontent.create_new'} #{resource_class.model_name.human}", polymorphic_url(resource_index_path, action: :new), class: "btn btn-primary pull-right" %>
   <h1><%= resource_class.model_name.human.pluralize %></h1>
 </div>
 
@@ -10,7 +10,7 @@
     <thead>
       <tr>
         <% list_fields.each do |list_field| %>
-          <th><%= list_field.humanize %></th>
+          <th><%= resource_class.human_attribute_name(list_field) %></th>
         <% end %>
         <th></th>
       </tr>

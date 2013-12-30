@@ -5,8 +5,8 @@
       <%= render_list_field(item, :name) %>
     <% end %>
     <div class='controls'>
-      <%= link_to "Edit", [:edit, item], class: "btn btn-xs btn-primary" %>
-      <%= link_to "Delete", item, class: "btn btn-xs btn-danger", data: {confirm: 'Are you sure?'}, method: :delete %>
+      <%= link_to t('brightcontent.edit'), [:edit, item], class: "btn btn-xs btn-primary" %>
+      <%= link_to t('brightcontent.delete'), item, class: "btn btn-xs btn-danger", data: {confirm: 'Are you sure?'}, method: :delete %>
     </div>
   </div>
   <% unless children.blank? %>

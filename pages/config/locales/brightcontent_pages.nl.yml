@@ -1,0 +1,10 @@
+nl:
+  activerecord:
+    models:
+      brightcontent/page: Pagina
+    attributes:
+      brightcontent/page:
+        name: Naam
+        body: Inhoud
+        hidden: Verborgen
+        parent_id: Bovenliggende pagina

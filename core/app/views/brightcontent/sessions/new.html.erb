@@ -1,5 +1,5 @@
 <%= form_tag sessions_path, class: "form-signin", role: 'form' do %>
-  <h2 class="form-signin-heading">Please sign in</h2>
+  <h2 class="form-signin-heading"><%=t('brightcontent.sign_in')%></h2>
   <%= text_field_tag :email, params[:email], class: 'form-control', placeholder: 'Email', autofocus: true %>
   <%= password_field_tag :password, nil, class: 'form-control', placeholder: 'Password' %>
   <%= submit_tag "Login", class: "btn btn-lg btn-primary btn-block" %>

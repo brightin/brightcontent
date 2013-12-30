@@ -1,0 +1,29 @@
+en:
+  flash:
+    actions:
+      create:
+        notice: '%{resource_name} was successfully created.'
+      update:
+        notice: '%{resource_name} was successfully updated.'
+      destroy:
+        notice: '%{resource_name} was successfully destroyed.'
+        alert: '%{resource_name} could not be destroyed.'
+
+  brightcontent:
+    create_new: Create new
+    edit: Edit
+    save_and_continue: Save and continue
+    delete: Delete
+    are_you_sure: Are you sure?
+    logout: Logout
+    hidden: Hidden
+    sign_in: Please sign in
+    editor_locale: ""
+
+  activerecord:
+    models:
+      brightcontent/admin_user: Admin
+    attributes:
+      brightcontent/admin_user:
+        password: Password
+        password_confirmation: Password confirmation
