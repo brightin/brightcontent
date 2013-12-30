@@ -3,7 +3,7 @@ module Brightcontent
     class Engine < ::Rails::Engine
       initializer "Add attachments class method" do
         ActiveSupport.on_load(:active_record) do
-          include AttachmentModelExtensions
+          include ModelExtensions
         end
       end
     end
