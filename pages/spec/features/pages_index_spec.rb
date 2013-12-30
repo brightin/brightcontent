@@ -1,7 +1,6 @@
 require 'spec_helper'
 
 feature "Pages index" do
-
   background do
     sign_in
     create(:page, name: "Test page")
@@ -9,7 +8,7 @@ feature "Pages index" do
 
   scenario "click on edit page" do
     click_link "Pages"
-    page.find(:css, '.controls .btn-edit').click
+    page.find(:css, '.controls .btn-primary').click
     page.should have_content "Edit Page"
   end
 
@@ -25,5 +24,4 @@ feature "Pages index" do
     click_link "Pages"
     page.should have_css(".sortable_tree li", :count => 41)
   end
-
 end

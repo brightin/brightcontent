@@ -1,0 +1,15 @@
+<li id="<%= item.id %>_brightcontent/page">
+  <div class='item'>
+    <i class='handle'></i>
+    <%= link_to item, class: 'link' do %>
+      <%= render_list_field(item, :name) %>
+    <% end %>
+    <div class='controls'>
+      <%= link_to "Edit", [:edit, item], class: "btn btn-xs btn-primary" %>
+      <%= link_to "Delete", item, class: "btn btn-xs btn-danger", data: {confirm: 'Are you sure?'}, method: :delete %>
+    </div>
+  </div>
+  <% unless children.blank? %>
+    <ol class='nested_set'><%= raw children %></ol>
+  <% end %>
+</li>
