@@ -5,23 +5,25 @@ module Brightcontent
     end
 
     def create
-      if params["commit_and_continue"].present?
-        create! { resource_item_path }
-      else
-        create! { resource_index_path }
-      end
+      create! { resource_redirect_path }
     end
 
     def update
-      if params["commit_and_continue"].present?
-        update! { resource_item_path }
-      else
-        update! { resource_index_path }
-      end
+      update! { resource_redirect_path }
     end
 
     def destroy
       destroy! { resource_index_path }
+    end
+
+    private
+
+    def resource_redirect_path
+      if params["commit_and_continue"].present?
+        resource_item_path
+      else
+        resource_index_path
+      end
     end
   end
 end
