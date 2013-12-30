@@ -11,5 +11,11 @@ module Brightcontent
         include ModelExtensions
       end
     end
+
+    initializer "Set default locale from main app" do
+      ActiveSupport.on_load(:after_initialize) do
+        Brightcontent.locale ||= I18n.default_locale
+      end
+    end
   end
 end

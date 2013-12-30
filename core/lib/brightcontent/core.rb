@@ -30,7 +30,6 @@ module Brightcontent
   @@application_name = "Brightcontent"
 
   mattr_accessor :locale
-  @@locale = "en"
 
   def self.setup
     yield self
