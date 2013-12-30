@@ -3,19 +3,17 @@ module Brightcontent
     extend ActiveSupport::Concern
 
     included do
-      acts_as_nested_set
-      has_attached_files Brightcontent.page_attachment_styles
-      include Brightcontent::Attachable
       include TheSortableTree::Scopes
+
+      has_attached_files Brightcontent.page_attachment_styles
+      acts_as_nested_set
+
       validates_presence_of :name
+
       after_save :update_slug
       after_move :update_slug
-    end
 
-    module ClassMethods
-      def default_scope
-        order(:lft)
-      end
+      default_scope { order(:lft) }
     end
 
     def homepage?
@@ -26,14 +24,10 @@ module Brightcontent
       "/" + slug
     end
 
-    def root_parent_children
-      root? ? children : ancestors.first.children
-    end
-
     private
 
     def update_slug
-      self.update_column(:slug, slug_name.to_s)
+      update_column(:slug, slug_name.to_s)
     end
 
     def slug_name

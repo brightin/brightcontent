@@ -55,29 +55,5 @@ module Brightcontent
         it { should_not be_homepage }
       end
     end
-
-    describe "root_parent_children" do
-      it "returns the children if page is root element" do
-        root, child = build(:page), build(:page)
-        root.children << child
-        root.root_parent_children.should == [child]
-      end
-
-      it "returns the children of parent if page has parent" do
-        root, page, child = create(:page), create(:page), create(:page)
-        root.children << page
-        page.children << child
-        page.root_parent_children.should == [page]
-      end
-
-      it "returns the children of root parent if page has multiple parent" do
-        root1, root2, page = create(:page), create(:page), create(:page)
-        root1.children << root2
-        root2.children << page
-        page.root_parent_children.should == [root2]
-      end
-
-    end
-
   end
 end
