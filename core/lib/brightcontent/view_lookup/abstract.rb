@@ -1,3 +1,5 @@
+require 'active_support/inflector'
+
 module Brightcontent
   module ViewLookup
     class Abstract
@@ -40,9 +42,7 @@ module Brightcontent
       end
 
       def render(*args)
-        view_context.render(*args)
-      rescue ActionView::MissingTemplate
-        nil
+        view_context.render_if_exists(*args)
       end
     end
   end

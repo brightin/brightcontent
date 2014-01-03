@@ -1,3 +1,5 @@
+require 'active_support/inflector'
+
 module Brightcontent
   Resource = Struct.new(:path) do
     def klass

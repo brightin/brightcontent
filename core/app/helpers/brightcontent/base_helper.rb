@@ -7,5 +7,11 @@ module Brightcontent
     def render_form_field(form, field)
       ViewLookup::FormField.new(self, item: form.object, field: field, form: form).call
     end
+
+    def render_if_exists(*args)
+      render(*args)
+    rescue ActionView::MissingTemplate
+      nil
+    end
   end
 end
