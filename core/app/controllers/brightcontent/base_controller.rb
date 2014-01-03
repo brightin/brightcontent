@@ -6,8 +6,9 @@ module Brightcontent
     inherit_resources
     respond_to :all
 
-    include DefaultActions
-    include Pagination
+    include BaseControllerExt::DefaultActions
+    include BaseControllerExt::Pagination
+    include BaseControllerExt::Fields
 
     def permitted_params
       params.permit!
@@ -18,21 +19,6 @@ module Brightcontent
     end
 
     protected
-
-    def list_fields
-      default_fields - %w{attachments}
-    end
-    helper_method :list_fields
-
-    def form_fields
-      default_fields
-    end
-    helper_method :form_fields
-
-    def default_fields
-      resource_class.brightcontent_columns - %w{id created_at updated_at password_digest}
-    end
-    helper_method :default_fields
 
     def parent
       super if parent?

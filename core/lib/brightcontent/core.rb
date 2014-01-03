@@ -19,6 +19,7 @@ module Brightcontent
   autoload :RoutesParser, 'brightcontent/routes_parser'
   autoload :StrongParamsFix, 'brightcontent/strong_params_fix'
   autoload :ViewLookup, 'brightcontent/view_lookup'
+  autoload :BaseControllerExt, 'brightcontent/base_controller_ext'
 
   mattr_accessor :locale
 
