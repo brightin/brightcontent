@@ -12,11 +12,11 @@ module Brightcontent
 
     subject(:parser) { RoutesParser.new(routes_hash, engine_resources) }
 
-    its(:resources) { should eq [resource("blogs")] }
+    its(:resources) { should eq [Resource.new("blogs")] }
 
     context "with extra resource" do
       before { routes_hash << {:action=>"index", :controller=>"brightcontent/articles", :path_spec => '/articles' } }
-      its(:resources) { should eq [resource("blogs"), resource("articles")] }
+      its(:resources) { should eq [Resource.new("blogs"), Resource.new("articles")] }
     end
 
     context "with engine resources" do
@@ -25,7 +25,7 @@ module Brightcontent
           routes_hash << {:action=>"index", :controller=>"brightcontent/#{resource_name}"}
         end
       end
-      its(:resources) { should eq [resource("blogs")] }
+      its(:resources) { should eq [Resource.new("blogs")] }
     end
 
     context "duplicate resources" do
@@ -33,12 +33,7 @@ module Brightcontent
         routes_hash << {action: "index", controller: "brightcontent/blogs" }
       end
 
-      its(:resources) { should eq [resource("blogs")] }
+      its(:resources) { should eq [Resource.new("blogs")] }
     end
-
-    def resource(path)
-      RoutesParser::Resource.new(path)
-    end
-
   end
 end

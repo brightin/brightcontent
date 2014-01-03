@@ -10,12 +10,16 @@ require "brightcontent/rails/routes"
 require "brightcontent/engine"
 
 module Brightcontent
-  autoload :Pagination, 'brightcontent/pagination'
-  autoload :PageMethods, 'brightcontent/page_methods'
-  autoload :RoutesParser, 'brightcontent/routes_parser'
   autoload :DefaultActions, 'brightcontent/default_actions'
-  autoload :StrongParamsFix, 'brightcontent/strong_params_fix'
   autoload :ModelExtensions, 'brightcontent/model_extensions'
+  autoload :PageMethods, 'brightcontent/page_methods'
+  autoload :Pagination, 'brightcontent/pagination'
+  autoload :Resource, 'brightcontent/resource'
+  autoload :Resources, 'brightcontent/resources'
+  autoload :RoutesParser, 'brightcontent/routes_parser'
+  autoload :StrongParamsFix, 'brightcontent/strong_params_fix'
+
+  mattr_accessor :locale
 
   mattr_reader :extensions
   @@extensions = %w{core}
@@ -29,7 +33,8 @@ module Brightcontent
   mattr_accessor :application_name
   @@application_name = "Brightcontent"
 
-  mattr_accessor :locale
+  mattr_accessor :main_menu_count
+  @@main_menu_count = 6
 
   def self.setup
     yield self

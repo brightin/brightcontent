@@ -1,5 +1,10 @@
-<% user_resources.each do |resource| %>
-  <li class="<%= 'active' if resource_class == resource.klass %>">
-    <%= link_to resource.klass.model_name.human.pluralize, root_path + resource.path %>
+<%= render user_resources.main_menu %>
+
+<% if user_resources.extra_menu? %>
+  <li class="dropdown">
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Extra <b class="caret"></b></a>
+    <ul class="dropdown-menu">
+      <%= render user_resources.extra_menu %>
+    </ul>
   </li>
 <% end %>
