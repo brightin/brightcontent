@@ -18,6 +18,7 @@ module Brightcontent
   autoload :Resources, 'brightcontent/resources'
   autoload :RoutesParser, 'brightcontent/routes_parser'
   autoload :StrongParamsFix, 'brightcontent/strong_params_fix'
+  autoload :ViewLookup, 'brightcontent/view_lookup'
 
   mattr_accessor :locale
 
