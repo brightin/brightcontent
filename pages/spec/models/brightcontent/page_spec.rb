@@ -8,6 +8,27 @@ module Brightcontent
       end
     end
 
+    describe "callbacks" do
+      it 'expires path cache after commit' do
+        expect(Pages::PathConstraint).to receive(:expire)
+        create(:page)
+      end
+    end
+
+    describe "#find_by_path" do
+      it 'finds the page by path' do
+        create(:page)
+        page = create(:page, name: "About us")
+        expect(Page.find_by_path('/about-us')).to eq page
+      end
+    end
+
+    describe '#sanitize_path' do
+      it 'removes the leading slash' do
+        expect(Page.sanitize_path('/path')).to eq 'path'
+      end
+    end
+
     describe "slugs" do
       context "first page" do
         subject { create(:page, name: "Homepage") }

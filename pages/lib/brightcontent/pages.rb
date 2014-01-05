@@ -15,5 +15,6 @@ module Brightcontent
 
   module Pages
     autoload :Methods, 'brightcontent/pages/methods'
+    autoload :PathConstraint, 'brightcontent/pages/path_constraint'
   end
 end

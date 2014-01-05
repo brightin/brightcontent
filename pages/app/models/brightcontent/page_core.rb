@@ -10,10 +10,24 @@ module Brightcontent
 
       validates_presence_of :name
 
-      after_save :update_slug
-      after_move :update_slug
+      after_save :update_slug, :expire_path_cache
+      after_move :update_slug, :expire_path_cache
 
       default_scope { order(:lft) }
+    end
+
+    module ClassMethods
+      def find_by_path(path)
+        find_by(slug: sanitize_path(path))
+      end
+
+      def find_by_path!(path)
+        find_by!(slug: sanitize_path(path))
+      end
+
+      def sanitize_path(path)
+        path[1..-1]
+      end
     end
 
     def homepage?
@@ -34,6 +48,10 @@ module Brightcontent
       unless homepage?
         self_and_ancestors.map { |p| p.name.parameterize }.join("/")
       end
+    end
+
+    def expire_path_cache
+      Pages::PathConstraint.expire
     end
   end
 end

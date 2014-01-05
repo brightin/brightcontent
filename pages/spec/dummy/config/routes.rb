@@ -3,5 +3,5 @@ Rails.application.routes.draw do
     pages_resources
   end
   root to: "pages#index"
-  get "*path" => "pages#show"
+  get "*path" => "pages#show", constraints: Brightcontent::Pages::PathConstraint.new
 end

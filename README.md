@@ -58,5 +58,5 @@ Pages gives you a Page model with tree structure and pretty urls. Every page rel
 This adds an extra layer on top of your existing routes. However when there aren't any routes available for the specific url, Rails cannot render the page. Therefore it is best to add a catch-all route (at the very bottom of the file) for all general pages:
 
 ```ruby
-get "*path" => "pages#show"
+get "*path" => "pages#show", constraints: Brightcontent::Pages::PathConstraint.new
 ```
