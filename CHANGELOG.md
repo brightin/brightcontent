@@ -2,6 +2,8 @@
 
 ### Core
 
+* Drop Rails 3 support.
+
 * Upgrade from bootstrap 2 to 3. Including restyle.
 
 * I18n support. Local defaults to same language as main app, but can be overwritten by initializer specifically for Brightcontent.
