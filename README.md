@@ -15,7 +15,6 @@ Brightcontent, yet another rails CMS / admin panel
 * Strong Parameters support
 
 ![Brightcontent preview](doc/browser.jpg)
-
 Installation
 ------------
 
