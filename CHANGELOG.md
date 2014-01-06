@@ -44,6 +44,10 @@
 
 * Use ERB templates for rendering of tree. This is less performant but increases maintainability.
 
+* Add `PathConstraint`. Limit the amount of urls the catch-all route responds to by constraining. The `PathConstraint` class caches all paths in the database. Example:
+
+        get "*path" => "pages#show", constraints: Brightcontent::Pages::PathConstraint.new
+
 ### Attachments
 
 * Refactoring: move attachments classes to correct namespace.
