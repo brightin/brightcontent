@@ -1,9 +1,5 @@
-     ___     _      _   _    ___         _           _
-    | _ )_ _(_)__ _| |_| |_ / __|___ _ _| |_ ___ _ _| |
-    | _ \ '_| / _` | ' \  _| (__/ _ \ ' \  _/ -_) ' \  _|
-    |___/_| |_\__, |_||_\__|\___\___/_||_\__\___|_||_\__|
-              |___/
-
+Brightcontent
+=============
 
 [![Gem Version](https://badge.fury.io/rb/brightcontent.png)](http://badge.fury.io/rb/brightcontent)
 [![Code Climate](https://codeclimate.com/github/stexy/brightcontent.png)](https://codeclimate.com/github/stexy/brightcontent)
@@ -17,6 +13,8 @@ Brightcontent, yet another rails CMS / admin panel
 * Only exception: Page model is provided with tree structure, sorting, hidden and pretty urls like `/services/cleaning/houses`
 * Rails 4 only
 * Strong Parameters support
+
+![Brightcontent preview](doc/browser.jpg)
 
 Installation
 ------------
