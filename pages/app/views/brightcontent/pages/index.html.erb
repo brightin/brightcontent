@@ -3,7 +3,7 @@
   <h1><%= resource_class.model_name.human.pluralize %></h1>
 </div>
 
-<%= render "index_top" %>
+<%= render_if_exists "index_top" %>
 
 <div class="panel-body">
   <ol class="sortable_tree" data-rebuild_url="<%=rebuild_pages_url%>" data-max_levels="5">
