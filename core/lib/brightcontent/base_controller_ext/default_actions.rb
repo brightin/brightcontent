@@ -2,7 +2,11 @@ module Brightcontent
   module BaseControllerExt
     module DefaultActions
       def show
-        redirect_to action: :edit
+        if request.format == :html
+          redirect_to action: :edit
+        else
+          show!
+        end
       end
 
       def create
