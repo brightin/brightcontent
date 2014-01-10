@@ -3,8 +3,6 @@
   <h1><%= resource_class.model_name.human.pluralize %></h1>
 </div>
 
-<%= render "index_top" %>
-
 <div class="table-responsive">
   <table class="table table-hover">
     <thead>
@@ -16,7 +14,7 @@
       </tr>
     </thead>
     <tbody>
-      <%= render "list", collection: collection, list_fields: list_fields  %>
+      <%= render partial: 'list_item', collection: collection, as: :item %>
     </tbody>
   </table>
 </div>

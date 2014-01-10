@@ -1,0 +1,6 @@
+<%= content_tag_for :tr, item do %>
+  <% list_fields.each do |field| %>
+    <td><%= render_list_field(item, field) %></td>
+  <% end %>
+  <td class="list-actions"><%= render "list_actions", item: item %></td>
+<% end %>
