@@ -1,10 +1,14 @@
-<%= div_for attachment do %>
+<li class="well attachment media" data-attachment-id="<%= attachment.id %>">
   <% if attachment.image? %>
-    <%= image_tag attachment.url(:brightcontent) %>
-    <%= link_to "Insert", nil, class: "insert insert_image btn btn-mini", data: { insert_image: attachment.url(:main) } %>
-  <% else %>
-    <div class="attachment-file"><%= attachment.asset_file_name %></div>
-    <%= link_to "Insert", nil, class: "insert insert_link btn btn-mini", data: { insert_url: attachment.url(:original), insert_name: attachment.asset_file_name } %>
+    <%= image_tag attachment.url(:brightcontent), class: "media-object pull-left" %>
   <% end %>
-  <%= link_to "Delete", destroy_attachment_path(attachment.id), method: :delete, confirm: "Are you sure?", class: "delete btn btn-danger btn-mini" %>
-<% end %>
+  <div class="media-body">
+    <h4 class="attachment-file media-heading"><%= attachment.asset_file_name %></h4>
+    <% if attachment.image? %>
+      <%= link_to "Insert", nil, class: "insert insert_image btn btn-mini", data: { insert_image: attachment.url(:main) } %>
+    <% else %>
+      <%= link_to "Insert", nil, class: "insert insert_link btn btn-mini", data: { insert_url: attachment.url(:original), insert_name: attachment.asset_file_name } %>
+    <% end %>
+    <%= link_to "Delete", destroy_attachment_path(attachment.id), method: :delete, confirm: "Are you sure?", class: "delete btn btn-danger btn-mini" %>
+  </div>
+</li>

@@ -2,13 +2,13 @@
   <label class="optional control-label">Attachments</label>
   <div class="controls">
     <% if item.persisted? %>
-      <div id="attachments" class="clearfix">
+      <ul class="media-list" id="attachments">
         <%= render item.attachments %>
-      </div>
+      </ul>
 
-      <input id="fileupload" type="file" name="asset" data-url="<%= new_attachment_path %>" multiple>
-      <%= hidden_field_tag "attachable_id", item.id %>
-      <%= hidden_field_tag "attachable_type", item.class.to_s %>
+      <input id="fileupload" type="file" name="attachment[asset]" data-url="<%= new_attachment_path %>" multiple>
+      <%= hidden_field_tag "attachment[attachable_id]", item.id %>
+      <%= hidden_field_tag "attachment[attachable_type]", item.class.to_s %>
       <%= hidden_field_tag "attachable_url", attachments_path(item.class.to_s, item.id) %>
 
     <% else %>
