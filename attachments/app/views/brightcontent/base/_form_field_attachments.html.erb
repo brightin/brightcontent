@@ -1,6 +1,6 @@
 <div class="control-group optional">
   <label class="optional control-label">Attachments</label>
-  <div class="controls">
+  <div class="controls" id="attachments-controls">
     <% if item.persisted? %>
       <ul class="media-list" id="attachments">
         <%= render item.attachments %>
