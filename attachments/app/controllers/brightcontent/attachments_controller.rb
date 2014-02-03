@@ -18,8 +18,8 @@ module Brightcontent
     end
 
     def destroy
-      attachment = Attachment.destroy(params[:id])
-      redirect_to attachment.attachable
+      Attachment.destroy params[:id]
+      head :no_content
     end
 
     def reposition

@@ -9,6 +9,6 @@
     <% else %>
       <%= link_to "Insert", nil, class: "insert insert_link btn btn-mini", data: { insert_url: attachment.url(:original), insert_name: attachment.asset_file_name } %>
     <% end %>
-    <%= link_to "Delete", destroy_attachment_path(attachment.id), method: :delete, confirm: "Are you sure?", class: "delete btn btn-danger btn-mini" %>
+    <%= link_to "Delete", destroy_attachment_path(attachment.id), class: "delete btn btn-danger btn-mini" %>
   </div>
 </li>

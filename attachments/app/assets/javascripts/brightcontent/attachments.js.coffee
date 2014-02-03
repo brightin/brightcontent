@@ -20,6 +20,17 @@ $ ->
         $("#attachments-controls").css opacity: 1
 
 
+  $("#attachments").on "click", ".delete", ->
+    el = $(this).parents(".attachment")
+    spinner.spin el[0]
+    el.css opacity: 0.5
+    el.find("*").attr disabled: true
+    $.ajax
+      method: "DELETE"
+      url: $(this).attr "href"
+      success: -> el.remove()
+    false
+
   $("#attachments").sortable
     axis: "y"
     cancel: "input,textarea,button,select,option,a"
