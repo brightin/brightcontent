@@ -10,6 +10,7 @@ module Brightcontent
 
     delegate :url, to: :asset
 
+    validates :attachable, presence: true
     validates :asset, attachment_presence: true
 
     def self.reposition!(positions)
@@ -46,7 +47,7 @@ module Brightcontent
     end
 
     def set_position
-      self.position ||= self.class.maximum(:position) + 1
+      self.position ||= self.class.for_attachable(attachable_type, attachable_id).maximum(:position) + 1
     end
 
   end
