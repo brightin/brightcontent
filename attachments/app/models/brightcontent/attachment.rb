@@ -47,7 +47,7 @@ module Brightcontent
     end
 
     def set_position
-      self.position ||= self.class.for_attachable(attachable_type, attachable_id).maximum(:position) + 1
+      self.position ||= self.class.for_attachable(attachable_type, attachable_id).maximum(:position).to_i + 1
     end
 
   end
