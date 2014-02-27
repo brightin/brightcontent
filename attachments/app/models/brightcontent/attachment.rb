@@ -3,7 +3,7 @@ module Brightcontent
     belongs_to :attachable, polymorphic: true, :inverse_of => :attachments
     has_attached_file :asset, :styles => lambda {|attachment| attachment.instance.attachment_styles }
     before_post_process :resize_images
-    before_save :set_position
+    before_create :set_position
 
     default_scope { order("position, id") }
     scope :for_attachable, -> type, id { where(attachable_type: type.classify, attachable_id: id) }
