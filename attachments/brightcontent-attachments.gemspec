@@ -16,7 +16,7 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
 
   s.add_dependency "brightcontent-core", version
-  s.add_dependency "paperclip", "~> 3.5.4"
+  s.add_dependency "paperclip", "3.5.4"
   s.add_dependency "jquery-fileupload-rails"
 
   s.add_development_dependency "sqlite3"

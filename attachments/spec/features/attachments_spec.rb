@@ -21,21 +21,20 @@ feature "Attachments" do
   context "with image" do
     background do
       blog = create(:blog)
-      @attachment = Brightcontent::Attachment.create!(:asset => Rails.root.join("public/rails.png").open)
-      blog.attachments << @attachment
+      @attachment = blog.attachments.create!(:asset => Rails.root.join("public/rails.png").open)
       click_link "Blogs"
       click_link "Edit"
     end
 
     scenario "shows images" do
-      page.should have_selector "#attachment_#{@attachment.id}"
+      page.should have_selector "[data-attachment-id=\"#{@attachment.id}\"]"
     end
 
     scenario "delete image" do
-      within "#attachment_#{@attachment.id}" do
+      within "[data-attachment-id=\"#{@attachment.id}\"]" do
         click_link "Delete"
       end
-      page.should_not have_selector "#attachment_#{@attachment.id}"
+      page.should_not have_selector "[data-attachment-id=\"#{@attachment.id}\"]"
     end
   end
 end
