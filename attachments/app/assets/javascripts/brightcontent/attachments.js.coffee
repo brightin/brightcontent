@@ -6,6 +6,7 @@ $ ->
 
   spinner = new Spinner().spin()
   $('#fileupload').fileupload
+    method: "PUT"
     send: ->
       spinner.spin $("#attachments-controls")[0]
       $("#attachments *").attr disabled: true
