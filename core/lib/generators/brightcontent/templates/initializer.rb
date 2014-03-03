@@ -13,4 +13,8 @@ Brightcontent.setup do |config|
   # If there are more resources than this number, the remaining will be 
   # accumulated in a drop down menu.
   # config.main_menu_count = 6
+
+  # The attachments model only allows images and pdf documents by default.
+  # Set to empty array to disable.
+  # config.attachment_content_types = [/\Aimage/, "application/pdf"]
 end

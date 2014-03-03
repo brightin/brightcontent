@@ -10,6 +10,7 @@ module Brightcontent
 
     delegate :url, to: :asset
 
+    validates_attachment_content_type :asset, content_type: Brightcontent.attachment_content_types
     validates :attachable, presence: true
     validates :asset, attachment_presence: true
 
