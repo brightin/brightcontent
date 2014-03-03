@@ -1,4 +1,4 @@
-require "bootstrap-sass-rails"
+require "bootstrap-sass"
 require "bootstrap-wysihtml5-rails"
 require "inherited_resources"
 require "jquery-rails"
