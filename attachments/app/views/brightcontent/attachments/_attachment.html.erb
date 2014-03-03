@@ -1,10 +1,16 @@
-<%= div_for attachment do %>
-  <% if attachment.image? %>
-    <%= image_tag attachment.url(:brightcontent) %>
-    <%= link_to t('brightcontent.insert'), nil, class: "insert insert_image btn btn-xs", data: { insert_image: attachment.url(:main) } %>
-  <% else %>
-    <div class="attachment-file"><%= attachment.asset_file_name %></div>
-    <%= link_to t('brightcontent.insert'), nil, class: "insert insert_link btn btn-xs", data: { insert_url: attachment.url(:original), insert_name: attachment.asset_file_name } %>
-  <% end %>
-  <%= link_to t('brightcontent.delete'), destroy_attachment_path(attachment.id), method: :delete, data: {confirm: t('brightcontent.are_you_sure')}, class: "delete btn btn-danger btn-xs" %>
-<% end %>
+<li class="list-group-item attachment" data-attachment-id="<%= attachment.id %>">
+  <div class="media">
+    <% if attachment.image? %>
+      <%= image_tag attachment.url(:brightcontent), class: "media-object pull-left" %>
+    <% end %>
+    <div class="media-body">
+      <h4 class="attachment-file media-heading"><%= attachment.asset_file_name %></h4>
+      <% if attachment.image? %>
+        <%= link_to "Insert", nil, class: "insert insert_image btn btn-primary btn-xs", data: { insert_image: attachment.url(:main) } %>
+      <% else %>
+        <%= link_to "Insert", nil, class: "insert insert_link btn btn-primary btn-xs", data: { insert_url: attachment.url(:original), insert_name: attachment.asset_file_name } %>
+      <% end %>
+      <%= link_to "Delete", destroy_attachment_path(attachment.id), class: "delete btn btn-danger btn-xs", method: "delete" %>
+    </div>
+  </div>
+</li>
