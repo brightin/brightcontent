@@ -3,49 +3,35 @@ module Brightcontent
     module Fields
       extend ActiveSupport::Concern
 
-      included do
-        helper_method :list_fields, :form_fields, :default_fields
+      module ClassMethods
+        def define_setting(name)
+          class_eval <<-RUBY
+            def self.#{name}(*fields)
+              define_method(:#{name}) { fields.flatten }
+            end
+            helper_method :#{name}
+          RUBY
+        end
       end
 
-      module ClassMethods
-        def _list_fields
-          @_list_fields ||= _default_fields - %w{attachments}
-        end
-
-        def _form_fields
-          @_form_fields ||= _default_fields
-        end
-
-        def _default_fields
-          @_default_fields ||=
-            resource_class.brightcontent_columns - %w{id created_at updated_at password_digest}
-        end
-
-        def list_fields(*fields)
-          @_list_fields = fields
-        end
-
-        def form_fields(*fields)
-          @_form_fields = fields
-        end
-
-        def default_fields(*fields)
-          @_default_fields = fields
-        end
+      included do
+        define_setting :list_fields
+        define_setting :form_fields
+        define_setting :default_fields
       end
 
       protected
 
       def list_fields
-        self.class._list_fields
+        default_fields
       end
 
       def form_fields
-        self.class._form_fields
+        default_fields
       end
 
       def default_fields
-        self.class._default_fields
+        resource_class.brightcontent_columns - %w{id created_at updated_at password_digest}
       end
     end
   end
