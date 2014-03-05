@@ -1,9 +1,6 @@
-<div class="page-header">
-  <%= link_to "#{I18n.t 'brightcontent.create_new'} #{resource_class.model_name.human}", polymorphic_url(resource_index_path, action: :new), class: "btn btn-primary pull-right" %>
-  <h1><%= resource_class.model_name.human.pluralize %></h1>
-</div>
+<%= render "list_header" %>
 
-<%= render_if_exists "index_top" %>
+<%= render "list_filters" %>
 
 <div class="table-responsive">
   <table class="table table-hover">

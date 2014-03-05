@@ -4,6 +4,10 @@ module Brightcontent
       ViewLookup::ListField.new(self, item: item, field: field).call
     end
 
+    def render_filter_field(form, field)
+      ViewLookup::FilterField.new(self, field: field, form: form).call
+    end
+
     def render_form_field(form, field)
       ViewLookup::FormField.new(self, item: form.object, field: field, form: form).call
     end

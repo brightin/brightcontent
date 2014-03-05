@@ -30,7 +30,7 @@ module Brightcontent
       end
 
       def field_type
-        NotImplementedError
+        raise NotImplementedError
       end
 
       def name
@@ -38,7 +38,7 @@ module Brightcontent
       end
 
       def field_value
-        value = options[:item].send(options[:field])
+        options[:item].send(options[:field])
       end
 
       def render(*args)

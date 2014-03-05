@@ -3,9 +3,9 @@ module Brightcontent
     module Fields
       extend ActiveSupport::Concern
 
-      module ClassMethods
-        def define_setting(name)
-          class_eval <<-RUBY
+      included do
+        %w[list_fields filter_fields form_fields default_fields].each do |name|
+          class_eval <<-RUBY, __FILE__, __LINE__ + 1
             def self.#{name}(*fields)
               define_method(:#{name}) { fields.flatten }
             end
@@ -14,16 +14,14 @@ module Brightcontent
         end
       end
 
-      included do
-        define_setting :list_fields
-        define_setting :form_fields
-        define_setting :default_fields
-      end
-
       protected
 
       def list_fields
         default_fields
+      end
+
+      def filter_fields
+        []
       end
 
       def form_fields

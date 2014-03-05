@@ -26,6 +26,7 @@ Gem::Specification.new do |s|
   s.add_dependency "simple_form"
   s.add_dependency "will_paginate"
   s.add_dependency "will_paginate-bootstrap"
+  s.add_dependency "ransack", "~> 1.1"
 
   s.add_development_dependency "rake"
   s.add_development_dependency "sqlite3"

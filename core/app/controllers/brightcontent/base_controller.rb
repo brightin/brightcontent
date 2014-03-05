@@ -9,6 +9,7 @@ module Brightcontent
     include BaseControllerExt::DefaultActions
     include BaseControllerExt::Pagination
     include BaseControllerExt::Fields
+    include BaseControllerExt::Filtering
 
     def permitted_params
       params.permit!
