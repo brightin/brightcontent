@@ -10,7 +10,7 @@ module PageSupport
   # before_filter to set @page
   def set_page
     path = params[:path] || request.path
-    path = "/#{path}" if !path.starts_with?('/')
+    path = "/#{path}" if !path.start_with?('/')
     @page = Page.all.detect{|p| p.url == path}
     
     if @page.nil?
