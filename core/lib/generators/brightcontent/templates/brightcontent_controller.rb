@@ -1,2 +1,2 @@
-class Brightcontent::<%= name.capitalize.pluralize %>Controller < Brightcontent::BaseController
+class Brightcontent::<%= name.camelize.pluralize %>Controller < Brightcontent::BaseController
 end
