@@ -22,7 +22,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'acts_as_list'
   s.add_dependency 'will_paginate', '~> 3.0'
   s.add_dependency 'RedCloth'
-  s.add_dependency 'paperclip'
+  s.add_dependency 'paperclip', '~> 3.4.2'
   s.add_dependency 'bcrypt-ruby', '~> 3.0.0'
   s.add_dependency 'haml', '~> 3.1'
   

@@ -78,14 +78,14 @@ module Brightcontent::DefaultActions
         @search_fields.each do |field|
           if field.include?(".")
             field = field.split(".")
-            possible_joins << field[0].singularize.to_sym
+            possible_joins << field[0].to_sym
           end
         end
 
         if possible_joins.present?
           possible_joins.uniq!
           possible_joins.each do |join_model|
-            m = m.joins(join_model)
+            m = m.includes(join_model)
           end
         end
 
