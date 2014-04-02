@@ -2,7 +2,11 @@
   <%= form.error_notification %>
 
   <div class="page-header">
-    <h1><%= resource.new_record? ? t('brightcontent.create_new') : t('brightcontent.edit') %> <%= resource_class.model_name.human %></h1>
+    <h1><%= if resource.new_record?
+           t('brightcontent.create_new', model: resource_class.model_name.human).humanize
+         else
+            t('brightcontent.edit_model', model: resource_class.model_name.human).humanize
+         end %></h1>
   </div>
 
   <div class="panel-body form-fields">
