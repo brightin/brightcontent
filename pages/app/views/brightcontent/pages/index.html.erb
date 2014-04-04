@@ -1,6 +1,6 @@
 <div class="page-header">
   <%= link_to "#{I18n.t('brightcontent.create_new', model: resource_class.model_name.human).humanize}", polymorphic_url([parent, resource_class], action: :new), class: "btn btn-primary pull-right" %>
-  <h1><%= resource_class.model_name.human.pluralize(I18n.locale).humanize %></h1>
+  <h1><%= nominative_plural(resource_class).capitalize %></h1>
 </div>
 
 <%= render_if_exists "index_top" %>

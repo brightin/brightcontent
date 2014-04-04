@@ -3,9 +3,9 @@
 
   <div class="page-header">
     <h1><%= if resource.new_record?
-           t('brightcontent.create_new', model: resource_class.model_name.human).humanize
+           t('brightcontent.create_new', model: resource_class.model_name.human).capitalize
          else
-            t('brightcontent.edit_model', model: resource_class.model_name.human).humanize
+            t('brightcontent.edit_model', model: resource_class.model_name.human).capitalize
          end %></h1>
   </div>
 
