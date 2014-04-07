@@ -19,20 +19,18 @@ module Brightcontent
     #   nominative_plural(User) => "gebruikers"
     #   nominative_plural("thing") => "dingen"
     def nominative_plural(thing)
-      case thing
-      when ActiveRecord::Base
-        nomative_plural(thing.model_name.human)
-      when String
-        I18n.t "#{string}.title", default: string.pluralize(I18n.locale)
+      if thing.respond_to? :model_name
+        nominative_plural(thing.model_name.human)
+      else
+        I18n.t "#{thing}.title", default: thing.to_s.pluralize(I18n.locale)
       end
     end
 
     def nominative_singular(thing)
-      case thing
-      when ActiveRecord::Base
-        nomative_plural(thing.model_name.human)
-      when String
-        I18n.t "#{string}.title", default: string.singularize(I18n.locale)
+      if thing.respond_to? :model_name
+        nominative_singular(thing.model_name.human)
+      else
+        I18n.t "#{thing}.title", default: thing.to_s.singularize(I18n.locale)
       end
     end
 
