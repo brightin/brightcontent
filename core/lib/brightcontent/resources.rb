@@ -7,15 +7,19 @@ module Brightcontent
     delegate :each, :==, to: :resources
 
     def main_menu
-      take(Brightcontent.main_menu_count)
+      take main_menu_count
     end
 
     def extra_menu
-      drop(Brightcontent.main_menu_count)
+      drop main_menu_count
     end
 
     def extra_menu?
-      extra_menu.present?
+      resources.length > Brightcontent.main_menu_count
+    end
+
+    def main_menu_count
+      Brightcontent.main_menu_count - (extra_menu? ? 1 : 0)
     end
   end
 end
