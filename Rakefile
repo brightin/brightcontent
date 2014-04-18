@@ -8,7 +8,7 @@ PROJECTS = %w{core pages attachments}
 
 PROJECTS.each do |name|
   task "spec_#{name}" do
-    cmd_in_dir name, "bundle && bundle exec rake db:migrate spec RAILS_ENV=test"
+    cmd_in_dir name, "bundle install --quiet && bundle exec rake db:migrate spec RAILS_ENV=test"
   end
 end
 

@@ -1,3 +1,4 @@
+require "coffee_script"
 require "bootstrap-sass"
 require "bootstrap-wysihtml5-rails"
 require "inherited_resources"
