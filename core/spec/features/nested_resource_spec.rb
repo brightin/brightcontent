@@ -23,7 +23,7 @@ feature "Nested resource" do
 
   def create_comment(title)
     visit brightcontent.blog_comments_path(blog)
-    click_link "Create new Comment"
+    click_link "Create new comment"
     fill_in "Text", with: title
     click_button "Create Comment"
   end
