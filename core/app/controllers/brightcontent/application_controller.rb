@@ -3,6 +3,7 @@ module Brightcontent
     add_flash_types :success, :info, :warning, :danger
     before_filter :authorize
     before_filter :set_locale
+    helper TranslationHelper
 
     def index
       redirect_to root_path + user_resources.first.path

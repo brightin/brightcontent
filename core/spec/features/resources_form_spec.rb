@@ -23,7 +23,7 @@ feature "Resources form" do
 
   def create_blog(title)
     visit brightcontent.blogs_url
-    click_link "Create new Blog"
+    click_link "Create new blog"
     fill_in "Name", with: title
     click_button "Create Blog"
   end

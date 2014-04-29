@@ -10,8 +10,9 @@ en:
         alert: '%{resource_name} could not be destroyed.'
 
   brightcontent:
-    create_new: Create new
+    create_new: 'Create new %{model}'
     edit: Edit
+    edit_model: 'Edit %{model}'
     save_and_continue: Save and continue
     delete: Delete
     are_you_sure: Are you sure?
