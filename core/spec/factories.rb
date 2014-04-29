@@ -13,5 +13,9 @@ FactoryGirl.define do
     name "Blogname"
     body "Inhoud"
     featured false
+
+    factory :featured_blog do
+      featured true
+    end
   end
 end

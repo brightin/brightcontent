@@ -22,7 +22,15 @@ feature "Resources index" do
     given_10_per_page
     given_31_blog_items
     visit_blogs_page
-    page.should have_css("tbody tr", :count => 10)
+    page_should_have_n_rows 10
+  end
+
+  scenario "Filter by 'featured'" do
+    given_31_blog_items
+    visit_blogs_page
+    select "true", from: "Featured"
+    click_button "Search"
+    page_should_have_n_rows 6
   end
 
   def visit_blogs_page
@@ -38,8 +46,13 @@ feature "Resources index" do
     end
   end
 
+  def page_should_have_n_rows(n)
+    page.should have_css("tbody tr", :count => n)
+  end
+
   def given_31_blog_items
-    31.times { create :blog }
+    25.times { create :blog }
+    6.times { create :featured_blog }
   end
 
   def given_10_per_page
