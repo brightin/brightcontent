@@ -10,8 +10,9 @@ nl:
         alert: '%{resource_name} kon niet worden verwijderd.'
 
   brightcontent:
-    create_new: Maak nieuwe
+    create_new: '%{model} toevoegen'
     edit: Wijzig
+    edit_model: '%{model} wijzigen'
     save_and_continue: Opslaan en verder bewerken
     delete: Verwijderen
     are_you_sure: Zeker weten?

@@ -9,7 +9,7 @@ feature "Pages index" do
   scenario "click on edit page" do
     click_link "Pages"
     page.find(:css, '.controls .btn-primary').click
-    page.should have_content "Edit Page"
+    page.should have_content "Edit page"
   end
 
   scenario "click on delete page" do

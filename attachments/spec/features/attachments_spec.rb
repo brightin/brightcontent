@@ -7,7 +7,7 @@ feature "Attachments" do
 
   scenario "show message if item is not saved" do
     click_link "Blogs"
-    click_link "Create new Blog"
+    click_link "Create new blog"
     page.should have_content "First save to enable uploads"
   end
 
