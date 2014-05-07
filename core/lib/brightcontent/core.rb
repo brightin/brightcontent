@@ -1,6 +1,7 @@
 require "coffee_script"
 require "bootstrap-sass"
 require "bootstrap-wysihtml5-rails"
+require "bootstrap-datepicker-rails"
 require "inherited_resources"
 require "ransack"
 require "jquery-rails"
