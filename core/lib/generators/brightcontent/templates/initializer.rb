@@ -10,11 +10,17 @@ Brightcontent.setup do |config|
   # config.locale = "nl"
 
   # Set the amount of menu items which are shown directly in the top bar.
-  # If there are more resources than this number, the remaining will be 
+  # If there are more resources than this number, the remaining will be
   # accumulated in a drop down menu.
   # config.main_menu_count = 6
 
   # The attachments model only allows images and pdf documents by default.
   # Set to empty array to disable.
   # config.attachment_content_types = [/\Aimage/, "application/pdf"]
+
+  # Brightcontent provides its own user model: AdminUser. This is used by
+  # default. You can set a custom user model. It has to implement an
+  # authenticate method.
+  # config.user_model = "Brightcontent::AdminUser"
+
 end
