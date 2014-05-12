@@ -1,6 +1,10 @@
 <div class="form-group">
   <%= form.label field %>
   <div class="col-sm-10">
-    <%= form.text_field field, class: 'form-control', data: {behaviour: 'datepicker'} %>
+    <%= form.text_field field, class: 'form-control', data: {behaviour: 'datetimepicker', format: "dd/MM/yyyy HH:mm"} %>
+    <span class="add-on">
+      <i data-time-icon="icon-clock" data-date-icon="icon-calendar">
+      </i>
+    </span>
   </div>
 </div>
