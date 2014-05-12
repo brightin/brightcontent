@@ -19,7 +19,8 @@ Gem::Specification.new do |s|
   s.add_dependency "bcrypt-ruby"
   s.add_dependency "bootstrap-sass", "~> 3.1"
   s.add_dependency "bootstrap-wysihtml5-rails"
-  s.add_dependency 'bootstrap-datepicker-rails'
+  s.add_dependency "momentjs-rails", "~> 2.5.0"
+  s.add_dependency "bootstrap3-datetimepicker-rails", "~> 3.0.0"
   s.add_dependency "coffee-rails"
   s.add_dependency "inherited_resources", ">= 1.4.1"
   s.add_dependency "jquery-rails"
