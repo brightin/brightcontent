@@ -38,6 +38,7 @@ Add a resource to Brightcontent
 -------------------------------
 
 Lets say, we want to add projects. Just create the `Project` model the rails way:
+
     $ rails g model Project name:string description:text
     $ rake db:migrate
 
