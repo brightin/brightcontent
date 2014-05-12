@@ -3,7 +3,7 @@
 <%= render "list_filters" %>
 
 <div class="table-responsive">
-  <table class="table table-hover">
+  <table class="table table-hover <%= dom_class(resource_class, :table) %>">
     <thead>
       <tr>
         <% list_fields.each do |list_field| %>
