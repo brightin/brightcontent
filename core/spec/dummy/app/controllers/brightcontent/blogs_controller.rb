@@ -1,3 +1,3 @@
 class Brightcontent::BlogsController < Brightcontent::BaseController
-  filter_fields %w[featured]
+  filter_fields %w[featured author]
 end

@@ -11,7 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130720211920) do
+ActiveRecord::Schema.define(version: 20140512090832) do
+
+  create_table "authors", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "blogs", force: true do |t|
     t.string   "name"
@@ -19,6 +25,7 @@ ActiveRecord::Schema.define(version: 20130720211920) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "featured"
+    t.integer  "author_id"
   end
 
   create_table "brightcontent_admin_users", force: true do |t|

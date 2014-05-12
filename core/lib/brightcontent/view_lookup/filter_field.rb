@@ -26,7 +26,7 @@ module Brightcontent
       def field_name
         if field?
           options[:field]
-        elsif belongs_to_assocation?
+        elsif belongs_to_association?
           association.foreign_key
         end
       end
@@ -34,7 +34,7 @@ module Brightcontent
       def select_options
         if field?
           field_type == :boolean ? raw_options : raw_options.sort
-        elsif belongs_to_assocation?
+        elsif belongs_to_association?
           association.klass.where(association.association_primary_key => raw_options).map do |record|
             [record, record[association.association_primary_key]]
           end
