@@ -2,9 +2,9 @@ nl:
   flash:
     actions:
       create:
-        notice: '%{resource_name} is successvol aangemaakt.'
+        notice: '%{resource_name} is succesvol aangemaakt.'
       update:
-        notice: '%{resource_name} is successvol geupdate.'
+        notice: '%{resource_name} is succesvol geupdate.'
       destroy:
         notice: '%{resource_name} is succesvol verwijderd.'
         alert: '%{resource_name} kon niet worden verwijderd.'
