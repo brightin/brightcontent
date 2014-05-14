@@ -4,7 +4,7 @@ nl:
       create:
         notice: '%{resource_name} is succesvol aangemaakt.'
       update:
-        notice: '%{resource_name} is succesvol geupdate.'
+        notice: '%{resource_name} is succesvol geüpdatet.'
       destroy:
         notice: '%{resource_name} is succesvol verwijderd.'
         alert: '%{resource_name} kon niet worden verwijderd.'
