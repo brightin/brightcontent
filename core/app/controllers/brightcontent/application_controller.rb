@@ -21,7 +21,7 @@ module Brightcontent
     helper_method :current_user
 
     def user_resources
-      @user_resources ||= RoutesParser.new.resources
+      @user_resources ||= @current_user.resources
     end
     helper_method :user_resources
 
