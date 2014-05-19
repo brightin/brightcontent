@@ -16,7 +16,7 @@ multitask spec: PROJECTS.map { |name| "spec_#{name}" }
 task :default => :spec
 
 task "release:all" do
-  version = File.read(File.expand_path("../../../VERSION",__FILE__)).strip
+  version = File.read(File.expand_path("../VERSION", __FILE__)).strip
   sh "rake release"
   PROJECTS.each do |name|
     cmd_in_dir name, "rake build && gem push pkg/brightcontent-#{name}-#{version}.gem"
