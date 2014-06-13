@@ -37,6 +37,9 @@ module Brightcontent
   mattr_accessor :application_name
   @@application_name = "Brightcontent"
 
+  mattr_accessor :user_model
+  @@user_model = "Brightcontent::AdminUser"
+
   mattr_accessor :main_menu_count
   @@main_menu_count = 6
 
