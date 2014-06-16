@@ -7,6 +7,11 @@ class CreateBrightcontentAdminUsers < ActiveRecord::Migration
       t.timestamps
     end
 
-    Brightcontent::AdminUser.create!(:email => 'admin@example.com', :password => 'password', :password_confirmation => 'password')
+    attrs = {email: 'admin@example.com', password: 'password', password_confirmation: 'password'}
+    if defined? ProtectedAttributes
+      Brightcontent::AdminUser.create! attrs, without_protection: true
+    else
+      Brightcontent::AdminUser.create! attrs
+    end
   end
 end
