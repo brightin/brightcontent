@@ -2,8 +2,8 @@ Brightcontent
 =============
 
 [![Gem Version](https://badge.fury.io/rb/brightcontent.png)](http://badge.fury.io/rb/brightcontent)
-[![Code Climate](https://codeclimate.com/github/stexy/brightcontent.png)](https://codeclimate.com/github/stexy/brightcontent)
-[![Build Status](https://travis-ci.org/stefanroex/brightcontent.png?branch=master)](https://travis-ci.org/stefanroex/brightcontent)
+[![Code Climate](https://codeclimate.com/github/brightin/brightcontent.png)](https://codeclimate.com/github/brightin/brightcontent)
+[![Build Status](https://travis-ci.org/brightin/brightcontent.png?branch=master)](https://travis-ci.org/brightin/brightcontent)
 
 Brightcontent, yet another rails CMS / admin panel
 
