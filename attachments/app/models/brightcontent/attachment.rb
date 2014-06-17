@@ -14,6 +14,8 @@ module Brightcontent
     validates :attachable, presence: true
     validates :asset, attachment_presence: true
 
+    attr_accessible *column_names if defined? ProtectedAttributes
+
     def self.reposition!(positions)
       positions.map! &:to_i
       transaction do
