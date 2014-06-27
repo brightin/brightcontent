@@ -12,10 +12,7 @@ require "brightcontent/rails/routes"
 require "brightcontent/engine"
 
 module Brightcontent
-  autoload :DefaultActions, 'brightcontent/default_actions'
   autoload :ModelExtensions, 'brightcontent/model_extensions'
-  autoload :PageMethods, 'brightcontent/page_methods'
-  autoload :Pagination, 'brightcontent/pagination'
   autoload :Resource, 'brightcontent/resource'
   autoload :Resources, 'brightcontent/resources'
   autoload :RoutesParser, 'brightcontent/routes_parser'
