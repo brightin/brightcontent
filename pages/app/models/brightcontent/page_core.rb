@@ -38,6 +38,10 @@ module Brightcontent
       "/" + slug
     end
 
+    def to_s
+      name
+    end
+
     private
 
     def update_slug
