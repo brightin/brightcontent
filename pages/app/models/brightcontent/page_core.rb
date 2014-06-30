@@ -13,6 +13,9 @@ module Brightcontent
       after_save :update_slug, :expire_path_cache
       after_move :update_slug, :expire_path_cache
 
+      scope :visible, -> { where(arel_table[:hidden].eq false) }
+      scope :hidden, -> { where(arel_table[:hidden].eq true) }
+
       default_scope { order(:lft) }
     end
 
