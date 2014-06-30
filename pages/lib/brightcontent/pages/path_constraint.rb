@@ -8,7 +8,7 @@ module Brightcontent
       end
 
       def matches?(request)
-        slug = Page.sanitize_path(request.path)
+        slug = Brightcontent.page_model.sanitize_path(request.path)
         cached_page_slugs.include?(slug)
       end
 
@@ -19,7 +19,7 @@ module Brightcontent
       end
 
       def page_slugs
-        Page.pluck(:slug)
+        Brightcontent.page_model.pluck(:slug)
       end
     end
   end

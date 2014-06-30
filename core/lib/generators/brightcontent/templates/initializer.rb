@@ -23,4 +23,8 @@ Brightcontent.setup do |config|
   # It has to implement an authenticate method.
   # config.user_model = "Brightcontent::AdminUser"
 
+  # brightcontent-pages provides a Brightcontent::Page model which is used
+  # by default. If you want to user another model for pages (eg. to avoid
+  # the namespace) you can specify it as a string or class.
+  # config.page_model = "Brightcontent::Page"
 end
