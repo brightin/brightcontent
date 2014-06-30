@@ -4,11 +4,15 @@ module Brightcontent
 
     module ClassMethods
       def brightcontent_columns
-        @brightcontent_columns ||= column_names.dup
+        (column_names + added_brightcontent_columns).uniq
       end
 
       def add_brightcontent_column(column_name)
-        brightcontent_columns.append(column_name.to_s)
+        added_brightcontent_columns << column_name.to_s
+      end
+
+      def added_brightcontent_columns
+        @_added_brightcontent_columns ||= []
       end
     end
   end
