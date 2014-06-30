@@ -34,7 +34,10 @@ module Brightcontent
   mattr_accessor :application_name
   @@application_name = "Brightcontent"
 
-  mattr_accessor :user_model
+  mattr_writer :user_model
+  def self.user_model
+    @@user_model.is_a?(String) ? @@user_model.constantize : @@user_model
+  end
   @@user_model = "Brightcontent::AdminUser"
 
   mattr_accessor :main_menu_count
