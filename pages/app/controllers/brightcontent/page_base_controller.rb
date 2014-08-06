@@ -13,7 +13,11 @@ module Brightcontent
     end
 
     def sortable_model
-      Brightcontent::Page
+      Brightcontent.page_model
+    end
+
+    def self.resource_class
+      Brightcontent.page_model
     end
 
     protected
