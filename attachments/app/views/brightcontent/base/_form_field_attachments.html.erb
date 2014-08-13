@@ -1,6 +1,6 @@
-<div class="control-group">
-  <label class="control-label"><%=Brightcontent::Attachment.model_name.human.pluralize%></label>
-  <div class="controls" id="attachments-controls">
+<div class="form-group">
+  <label class="control-label col-sm-2"><%=Brightcontent::Attachment.model_name.human.pluralize%></label>
+  <div class="col-sm-10" id="attachments-controls">
     <% if item.persisted? %>
       <ul class="media-list" id="attachments">
         <%= render item.attachments %>
