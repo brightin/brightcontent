@@ -33,6 +33,14 @@ feature "Resources index" do
     page_should_have_n_rows 6
   end
 
+  scenario "Filter by author" do
+    given_20_blogs_from_two_authors
+    visit_blogs_page
+    select "Bob", from: "Author"
+    click_button "Search"
+    page_should_have_n_rows 9
+  end
+
   def visit_blogs_page
     click_link "Blogs"
   end
@@ -53,6 +61,11 @@ feature "Resources index" do
   def given_31_blog_items
     25.times { create :blog }
     6.times { create :featured_blog }
+  end
+
+  def given_20_blogs_from_two_authors
+    create(:author_with_blogs, blogs_count: 11, name: "Alice")
+    create(:author_with_blogs, blogs_count: 9, name: "Bob")
   end
 
   def given_10_per_page

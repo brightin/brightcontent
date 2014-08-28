@@ -1,6 +1,8 @@
-<% if item.send(field).present? %>
-  <div class="controls file-preview">
-    <%= image_tag item.send(field).url(item.send(field).styles.keys.first) %>
+<%= form.input field %>
+<% if item.send(field).present? && item.send(field).content_type =~ /^image\// %>
+  <div class="form-group file-preview">
+    <div class="col-sm-offset-2 col-sm-10">
+      <%= image_tag item.send(field).url(item.send(field).styles.keys.first) %>
+    </div>
   </div>
 <% end %>
-<%= form.input field %>

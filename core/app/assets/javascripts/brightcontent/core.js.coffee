@@ -1,4 +1,4 @@
-#= require bootstrap-wysihtml5/b3
+#= require bootstrap-wysihtml5
 #= require brightcontent/wysithtml5-parser-rules
 #= require bootstrap-wysihtml5/locales/nl-NL
 
