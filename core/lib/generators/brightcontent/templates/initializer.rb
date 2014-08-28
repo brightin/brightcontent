@@ -19,8 +19,12 @@ Brightcontent.setup do |config|
   # config.attachment_content_types = [/\Aimage/, "application/pdf"]
 
   # Brightcontent provides its own user model: AdminUser. This is used by
-  # default. You can set a custom user model. It has to implement an
-  # authenticate method.
+  # default. You can specify a custom user model as string or class.
+  # It has to implement an authenticate method.
   # config.user_model = "Brightcontent::AdminUser"
 
+  # brightcontent-pages provides a Brightcontent::Page model which is used
+  # by default. If you want to user another model for pages (eg. to avoid
+  # the namespace) you can specify it as a string or class.
+  # config.page_model = "Brightcontent::Page"
 end

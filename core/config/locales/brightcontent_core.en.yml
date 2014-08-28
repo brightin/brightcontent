@@ -20,6 +20,7 @@ en:
     hidden: Hidden
     sign_in: Please sign in
     editor_locale: ""
+    extra_menu: More
 
   activerecord:
     models:

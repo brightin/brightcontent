@@ -14,10 +14,7 @@ require "brightcontent/rails/routes"
 require "brightcontent/engine"
 
 module Brightcontent
-  autoload :DefaultActions, 'brightcontent/default_actions'
   autoload :ModelExtensions, 'brightcontent/model_extensions'
-  autoload :PageMethods, 'brightcontent/page_methods'
-  autoload :Pagination, 'brightcontent/pagination'
   autoload :Resource, 'brightcontent/resource'
   autoload :Resources, 'brightcontent/resources'
   autoload :RoutesParser, 'brightcontent/routes_parser'
@@ -39,7 +36,10 @@ module Brightcontent
   mattr_accessor :application_name
   @@application_name = "Brightcontent"
 
-  mattr_accessor :user_model
+  mattr_writer :user_model
+  def self.user_model
+    @@user_model.is_a?(String) ? @@user_model.constantize : @@user_model
+  end
   @@user_model = "Brightcontent::AdminUser"
 
   mattr_accessor :main_menu_count

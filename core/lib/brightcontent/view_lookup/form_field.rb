@@ -1,6 +1,6 @@
 module Brightcontent
   module ViewLookup
-    class FormField < Abstract
+    class FormField < Base
       def render_default
         options[:form].input(options[:field].to_sym)
       end
