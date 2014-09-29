@@ -17,8 +17,8 @@ Gem::Specification.new do |s|
 
   s.add_dependency "rails", ">= 4.0.0"
   s.add_dependency "bcrypt-ruby"
-  s.add_dependency "bootstrap-sass", "~> 3.1"
-  s.add_dependency "bootstrap-wysihtml5-rails", "~> 0.3.2"
+  s.add_dependency "bootstrap-sass", ">= 3.1"
+  s.add_dependency "bootstrap-wysihtml5-rails", ">= 0.3.2"
   s.add_dependency "coffee-rails"
   s.add_dependency "inherited_resources", "~> 1.4.1"
   s.add_dependency "jquery-rails"
