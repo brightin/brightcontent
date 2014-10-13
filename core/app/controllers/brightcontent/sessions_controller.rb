@@ -3,6 +3,7 @@ module Brightcontent
     skip_before_filter :authorize
 
     def new
+      redirect_to root_url if current_user
     end
 
     def create
