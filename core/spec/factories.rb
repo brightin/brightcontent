@@ -21,7 +21,7 @@ FactoryGirl.define do
 
   factory :author do
     factory :author_with_blogs do
-      ignore do
+      transient do
         blogs_count 5
       end
       after(:create) do |author, evaluator|
