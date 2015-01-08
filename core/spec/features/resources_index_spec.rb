@@ -44,7 +44,7 @@ feature "Resources index" do
   scenario "Filter by name" do
     given_2_blog_items_with_different_names
     visit_blogs_page
-    fill_in "Name", with: "Foo"
+    fill_in "Name", with: "oo"
     click_button "Search"
     page_should_have_n_rows 1
   end
