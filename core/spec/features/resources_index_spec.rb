@@ -41,6 +41,14 @@ feature "Resources index" do
     page_should_have_n_rows 9
   end
 
+  scenario "Filter by name" do
+    given_2_blog_items_with_different_names
+    visit_blogs_page
+    fill_in "Name", with: "Foo"
+    click_button "Search"
+    page_should_have_n_rows 1
+  end
+
   def visit_blogs_page
     click_link "Blogs"
   end
@@ -70,5 +78,10 @@ feature "Resources index" do
 
   def given_10_per_page
     Brightcontent::BlogsController.class_eval { per_page 10 }
+  end
+
+  def given_2_blog_items_with_different_names
+    create :blog, name: "Foo"
+    create :blog, name: "Bar"
   end
 end

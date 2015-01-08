@@ -1,3 +1,5 @@
+ENV['RANSACK_FORM_BUILDER'] ||= '::SimpleForm::FormBuilder'
+
 require "coffee_script"
 require "bootstrap-sass"
 require "bootstrap-wysihtml5-rails"

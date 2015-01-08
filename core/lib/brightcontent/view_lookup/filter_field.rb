@@ -3,10 +3,7 @@ module Brightcontent
     class FilterField < Base
       def render_default
         raise "invalid filter field: #{options[:field]}" unless field_name
-        [
-          options[:form].label(:"#{field_name}_eq", options[:field].humanize),
-          options[:form].select(:"#{field_name}_eq", select_options, {include_blank: true}, class: "form-control input-sm")
-        ].join(" ").html_safe
+        options[:form].input(:"#{field_name}_eq", input_options)
       end
 
       private
@@ -27,13 +24,31 @@ module Brightcontent
         end
       end
 
-      def select_options
+      def input_options
+        # Load the collection if a proc is given.
+        if options[:collection] && options[:collection].respond_to?(:call)
+          options[:collection] = options[:collection].call
+        end
+
+        default_input_options.merge(options[:options] || {})
+      end
+
+      def default_input_options
+        {
+          label:         options[:field].to_s.humanize,
+          input_html:    { class: "form-control input-sm" },
+          required:      false,
+          as:            :select,
+          collection:    default_collection,
+          include_blank: true
+        }
+      end
+
+      def default_collection
         if field?
           field_type == :boolean ? raw_options : raw_options.sort
         elsif belongs_to_association?
-          association.klass.where(association.association_primary_key => raw_options).map do |record|
-            [record, record[association.association_primary_key]]
-          end
+          association.klass.where(association.association_primary_key => raw_options)
         end
       end
 
