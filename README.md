@@ -11,7 +11,7 @@ Brightcontent, yet another rails CMS / admin panel
 * No standard 'cms-modules', we hate those, making custom is easy enough
 * Built in the rails way, use your normals models, only controllers and views are provided
 * Only exception: Page model is provided with tree structure, sorting, hidden and pretty urls like `/services/cleaning/houses`
-* Rails 4 only
+* Rails 4 only (currently >= 4.2 is not supported)
 * Strong Parameters support
 
 ![Brightcontent preview](doc/browser.jpg)
