@@ -8,6 +8,10 @@ module Brightcontent
 
       private
 
+      def controller
+        view_context.controller
+      end
+
       def field?
         resource_class.column_names.include? options[:field].to_s
       end
@@ -45,8 +49,8 @@ module Brightcontent
 
         if collection.respond_to?(:call)
           collection.call
-        elsif collection.is_a?(Symbol) && view_context.respond_to?(collection)
-          view_context.send(collection)
+        elsif collection.is_a?(Symbol) && controller.respond_to?(collection, true)
+          controller.send(collection)
         elsif collection
           collection
         elsif as_collection?
