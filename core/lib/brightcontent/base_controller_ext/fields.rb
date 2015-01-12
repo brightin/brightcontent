@@ -12,7 +12,6 @@ module Brightcontent
             helper_method :#{name}
           RUBY
         end
-        helper_method :filter_fields_with_options
       end
 
       protected
@@ -23,20 +22,6 @@ module Brightcontent
 
       def filter_fields
         []
-      end
-
-      # Returns filter field definitions as a nested array.
-      #
-      #  [:foo, { bar: { as: :select }, qux: { as: :string } }]
-      #
-      # Becomes:
-      #
-      #  [[:foo], [:bar, { as: :select }], [:qux, { as: :string }]]
-      #
-      def filter_fields_with_options
-        filter_fields.map do |field, result|
-          field.is_a?(Hash) ? field.to_a : [[field]]
-        end.flatten(1)
       end
 
       def form_fields

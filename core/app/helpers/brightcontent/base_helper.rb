@@ -17,5 +17,19 @@ module Brightcontent
     rescue ActionView::MissingTemplate
       nil
     end
+
+    # Returns filter field definitions as a nested array.
+    #
+    #  [:foo, { bar: { as: :select }, qux: { as: :string } }]
+    #
+    # Becomes:
+    #
+    #  [[:foo], [:bar, { as: :select }], [:qux, { as: :string }]]
+    #
+    def normalized_filter_fields
+      filter_fields.flat_map do |field|
+        field.is_a?(Hash) ? field.to_a : [[field]]
+      end
+    end
   end
 end

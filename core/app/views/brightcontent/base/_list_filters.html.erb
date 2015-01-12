@@ -1,7 +1,7 @@
 <% if filter_fields.present? %>
   <div class="panel-body">
     <%= search_form_for ransack_search, class: "form-inline" do |form| %>
-      <% filter_fields_with_options.each do |field, options| %>
+      <% normalized_filter_fields.each do |field, options| %>
         <%= render_filter_field form, field, options %>
       <% end %>
       <%= form.submit class: "btn btn-default btn-sm" %>
