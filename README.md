@@ -48,6 +48,82 @@ To add the resource to brightcontent run:
 
 Gratz! Projects can now be controlled with Brightcontent.
 
+Filters
+-------
+
+Using `filter_fields` you may define filters for your index pages:
+
+```ruby
+class BlogsController < Brightcontent::BaseController
+  filter_fields :author, :name
+end
+```
+
+The above will render two filters on the blogs index page. Blog belongs to Author, therefore by default the filter is displayed as a drop-down list containing all authors that have blogs. The name-filter is displayed as a drop-down list containing all values for the `name` attribute found in the blogs table.
+
+### Options
+
+In order to control the way filters are displayed and how they behave you can supply options:
+
+```ruby
+# Supplying options:
+filter_fields author: { ... }, name: { ... }
+
+# Combining filters without options and filters with options:
+filter_fields :author, name: { ... }
+```
+
+Basically all options are delegated to `SimpleForm::FormBuilder#input`, such as `:as`, `:input_html`, and `:label_method`. Refer to [Simple Form's documentation](http://www.rubydoc.info/github/plataformatec/simple_form/master/SimpleForm/FormBuilder#input-instance_method) for more information.
+
+#### Other options
+
+##### <tt>:collection</tt>
+
+Extends SimpleForm's `:collection` option. It also accepts a Proc, or method name as a symbol. It defaults to either a list of all existing values for the corresponding attribute or a list of all associated records in case of a belongs-to relationship.
+
+##### <tt>:predicate</tt>
+
+Allows for specifying the Ransack search predicate to be used. Defaults to "cont" (contains) for string type filters (`:string` or `:search`) and to "eq" (equals) for all other types. For more information refer to [Ransack's documentation](https://github.com/activerecord-hackery/ransack/wiki/Basic-Searching).
+
+### Examples
+
+```ruby
+class BlogsController < Brightcontent::BaseController
+  # Two default drop-down list filters:
+  filter_fields :name, :author
+
+  # Free form text filter, returns all blogs where name contains given query:
+  filter_fields name: { as: :string, predicate: "cont" }
+
+  # Same as above:
+  filter_fields name: { as: :string }
+
+  # Customized label:
+  filter_fields author: { label: "Written by" }
+
+  # Select filter with custom options:
+  filter_fields name: { collection: ["Game reviews", "Programming tips", "Arthur's blog"] }
+
+  # Belongs-to filter with custom options:
+  filter_fields author: { collection: ->{ Author.order(:name) }, label_method: :display_name }
+
+  # Or by means of a controller method:
+  filter_fields author: { collection: :published_authors }
+
+  # Or even a fully customized filter, using a fictitious custom SimpleForm input field:
+  filter_fields author: { as: :remote_select, url: "/authors.json?order=name" }
+
+  # Filter by start date:
+  filter_fields created_at: { as: :date, predicate: "gteq", label: "Posted since" }
+
+  private
+
+  def published_authors
+    Author.published
+  end
+end
+```
+
 Pages
 -----
 
