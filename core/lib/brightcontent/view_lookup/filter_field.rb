@@ -3,13 +3,14 @@ module Brightcontent
     class FilterField < Base
       def render_default
         raise "invalid filter field: #{options[:field]}" unless field_name
-        [
-          options[:form].label(:"#{field_name}_eq", options[:field].humanize),
-          options[:form].select(:"#{field_name}_eq", select_options, {include_blank: true}, class: "form-control input-sm")
-        ].join(" ").html_safe
+        options[:form].input(:"#{field_name}_#{predicate}", input_options.merge(collection: collection))
       end
 
       private
+
+      def controller
+        view_context.controller
+      end
 
       def field?
         resource_class.column_names.include? options[:field].to_s
@@ -27,17 +28,63 @@ module Brightcontent
         end
       end
 
-      def select_options
-        if field?
-          field_type == :boolean ? raw_options : raw_options.sort
-        elsif belongs_to_association?
-          association.klass.where(association.association_primary_key => raw_options).map do |record|
-            [record, record[association.association_primary_key]]
-          end
+      def filter_options
+        options[:options] || {}
+      end
+
+      def predicate
+        filter_options[:predicate] || default_predicate
+      end
+
+      def default_predicate
+        as_string? ? "cont" : "eq"
+      end
+
+      def input_options
+        default_input_options.merge(filter_options.except(:predicate))
+      end
+
+      def collection
+        collection = filter_options[:collection]
+
+        if collection.respond_to?(:call)
+          collection.call
+        elsif collection.is_a?(Symbol) && controller.respond_to?(collection, true)
+          controller.send(collection)
+        elsif collection
+          collection
+        elsif as_collection?
+          default_collection
         end
       end
 
-      def raw_options
+      def as_collection?
+        %i(select radio_buttons check_boxes).include?(input_options[:as].to_sym)
+      end
+
+      def as_string?
+        %i(string search).include?(input_options[:as].to_sym)
+      end
+
+      def default_input_options
+        {
+          label:         options[:field].to_s.humanize,
+          input_html:    { class: "form-control input-sm" },
+          required:      false,
+          as:            :select,
+          include_blank: true
+        }
+      end
+
+      def default_collection
+        if field?
+          field_type == :boolean ? raw_collection : raw_collection.sort
+        elsif belongs_to_association?
+          association.klass.where(association.association_primary_key => raw_collection)
+        end
+      end
+
+      def raw_collection
         resource_class.uniq.pluck(field_name)
       end
     end

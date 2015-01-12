@@ -1,3 +1,8 @@
+# Make SimpleForm helpers available in Ransack's search form:
+# https://github.com/activerecord-hackery/ransack#using-simpleform
+#
+ENV['RANSACK_FORM_BUILDER'] ||= '::SimpleForm::FormBuilder'
+
 require "coffee_script"
 require "bootstrap-sass"
 require "bootstrap-wysihtml5-rails"

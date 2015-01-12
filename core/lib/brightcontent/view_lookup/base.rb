@@ -7,7 +7,7 @@ module Brightcontent
 
       def initialize(view_context, options)
         @view_context = view_context
-        @options = options
+        @options = options.symbolize_keys
       end
 
       def call
