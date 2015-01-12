@@ -2,7 +2,6 @@ module Brightcontent
   module ViewLookup
     class FilterField < Base
       def render_default
-        raise "invalid filter field: #{options[:field]}" unless field_name
         options[:form].input(:"#{field_name}_#{predicate}", input_options.merge(collection: collection))
       end
 
@@ -12,7 +11,7 @@ module Brightcontent
         view_context.controller
       end
 
-      def field?
+      def column?
         resource_class.column_names.include? options[:field].to_s
       end
 
@@ -21,10 +20,10 @@ module Brightcontent
       end
 
       def field_name
-        if field?
-          options[:field]
-        elsif belongs_to_association?
+        if belongs_to_association?
           association.foreign_key
+        else
+          options[:field]
         end
       end
 
@@ -71,13 +70,17 @@ module Brightcontent
           label:         options[:field].to_s.humanize,
           input_html:    { class: "form-control input-sm" },
           required:      false,
-          as:            :select,
+          as:            default_type,
           include_blank: true
         }
       end
 
+      def default_type
+        (column? || belongs_to_association?) ? :select : :string
+      end
+
       def default_collection
-        if field?
+        if column?
           field_type == :boolean ? raw_collection : raw_collection.sort
         elsif belongs_to_association?
           association.klass.where(association.association_primary_key => raw_collection)

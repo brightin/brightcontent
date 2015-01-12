@@ -29,4 +29,9 @@ FactoryGirl.define do
       end
     end
   end
+
+  factory :comment do
+    text "Comment text"
+    blog
+  end
 end
