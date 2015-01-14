@@ -49,6 +49,14 @@ feature "Resources index" do
     page_should_have_n_rows 1
   end
 
+  scenario "Filter by name or comments text" do
+    given_3_blog_items_and_a_comment
+    visit_blogs_page
+    fill_in "Find", with: "oo"
+    click_button "Search"
+    page_should_have_n_rows 2
+  end
+
   def visit_blogs_page
     click_link "Blogs"
   end
@@ -83,5 +91,11 @@ feature "Resources index" do
   def given_2_blog_items_with_different_names
     create :blog, name: "Foo"
     create :blog, name: "Bar"
+  end
+
+  def given_3_blog_items_and_a_comment
+    create :blog, name: "Foo"
+    create :blog, name: "Bar"
+    create :comment, text: "Doodles"
   end
 end
