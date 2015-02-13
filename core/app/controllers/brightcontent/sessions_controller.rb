@@ -1,3 +1,5 @@
+require_dependency "brightcontent/application_controller"
+
 module Brightcontent
   class SessionsController < ApplicationController
     skip_before_filter :authorize
