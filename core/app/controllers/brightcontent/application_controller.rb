@@ -12,7 +12,7 @@ module Brightcontent
     private
 
     def set_locale
-      I18n.locale = Brightcontent.locale
+      I18n.locale = params[:locale] || Brightcontent.locale
     end
 
     def current_user
