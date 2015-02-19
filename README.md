@@ -83,7 +83,7 @@ Extends SimpleForm's `:collection` option. It also accepts a Proc, or method nam
 
 ##### <tt>:predicate</tt>
 
-Allows for specifying the Ransack search predicate to be used. Defaults to "cont" (contains) for string type filters (`:string` or `:search`) and to "eq" (equals) for all other types. For more information refer to [Ransack's documentation](https://github.com/activerecord-hackery/ransack/wiki/Basic-Searching).
+Allows for specifying the Ransack search predicate to be used. Set it to `false` to avoid a predicate. Defaults to "cont" (contains) for string type filters (`:string` or `:search`) and to "eq" (equals) for all other types. It defaults to `false` if the field name refers to [a ransackable scope](https://github.com/activerecord-hackery/ransack#using-scopesclass-methods). For more information refer to [Ransack's documentation](https://github.com/activerecord-hackery/ransack/wiki/Basic-Searching).
 
 ### Examples
 
@@ -116,10 +116,21 @@ class BlogsController < Brightcontent::BaseController
   # Filter by start date:
   filter_fields created_at: { as: :date, predicate: "gteq", label: "Posted since" }
 
+  # Filter by scope (see definition of Blog below):
+  filter_fields exclude_inactive: { as: :select, collection: [["Yes", true], ["No", false]] }
+
   private
 
   def published_authors
     Author.published
+  end
+end
+
+def Blog < ActiveRecord::Base
+  scope :exclude_inactive, ->{ where(active: true) }
+
+  def self.ransackable_scopes(auth_object = nil)
+    [:exclude_inactive]
   end
 end
 ```
