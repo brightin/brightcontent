@@ -19,6 +19,7 @@ nl:
     logout: Uitloggen
     hidden: Verborgen
     sign_in: Inloggen
+    login: Inloggen
     editor_locale: "nl-NL"
     extra_menu: Meer
 

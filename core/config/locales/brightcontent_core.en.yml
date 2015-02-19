@@ -19,6 +19,7 @@ en:
     logout: Logout
     hidden: Hidden
     sign_in: Please sign in
+    login: Login
     editor_locale: ""
     extra_menu: More
 
