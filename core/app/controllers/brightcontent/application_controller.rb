@@ -9,6 +9,10 @@ module Brightcontent
       redirect_to root_path + user_resources.first.path
     end
 
+    def default_url_options(options = {})
+      { locale: I18n.locale }.merge options
+    end
+
     private
 
     def set_locale
