@@ -32,7 +32,11 @@ module Brightcontent
       end
 
       def input_name
-        [field_name.to_s, predicate].reject(&:!).join("_")
+        if predicate
+          "#{field_name}_#{predicate}"
+        else
+          field_name.to_s
+        end
       end
 
       def filter_options
