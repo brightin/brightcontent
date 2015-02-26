@@ -2,7 +2,7 @@ module Brightcontent
   module ViewLookup
     class FilterField < Base
       def render_default
-        options[:form].input(:"#{field_name}_#{predicate}", input_options.merge(collection: collection))
+        options[:form].input(input_name, input_options.merge(collection: collection))
       end
 
       private
@@ -13,6 +13,10 @@ module Brightcontent
 
       def column?
         resource_class.column_names.include? options[:field].to_s
+      end
+
+      def scope?
+        resource_class.ransackable_scopes.include?(options[:field].to_sym)
       end
 
       def belongs_to_association?
@@ -27,16 +31,26 @@ module Brightcontent
         end
       end
 
+      def input_name
+        [field_name.to_s, predicate].reject(&:!).join("_")
+      end
+
       def filter_options
         options[:options] || {}
       end
 
       def predicate
-        filter_options[:predicate] || default_predicate
+        filter_options.fetch(:predicate) { default_predicate }
       end
 
       def default_predicate
-        as_string? ? "cont" : "eq"
+        if scope?
+          false
+        elsif as_string?
+          "cont"
+        else
+          "eq"
+        end
       end
 
       def input_options

@@ -57,6 +57,15 @@ feature "Resources index" do
     page_should_have_n_rows 2
   end
 
+  scenario "Filter by exclude_inactive scope" do
+    given_an_active_and_inactive_blog
+    visit_blogs_page
+    page_should_have_n_rows 2
+    check "Exclude inactive"
+    click_button "Search"
+    page_should_have_n_rows 1
+  end
+
   def visit_blogs_page
     click_link "Blogs"
   end
@@ -97,5 +106,10 @@ feature "Resources index" do
     create :blog, name: "Foo"
     create :blog, name: "Bar"
     create :comment, text: "Doodles"
+  end
+
+  def given_an_active_and_inactive_blog
+    create :blog, name: "Foo", active: false
+    create :blog, name: "Bar", active: true
   end
 end
