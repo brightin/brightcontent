@@ -16,7 +16,9 @@ module Brightcontent
     end
 
     def current_user
-      @current_user ||= Brightcontent.user_model.find(session[:brightcontent_user_id]) if session[:brightcontent_user_id]
+      @current_user ||= begin
+        Brightcontent.user_model.find(session[:brightcontent_user_id]) if session[:brightcontent_user_id]
+      end
     end
     helper_method :current_user
 
