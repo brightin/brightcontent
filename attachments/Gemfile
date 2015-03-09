@@ -1,5 +1,6 @@
-source "http://rubygems.org"
+source "https://rubygems.org"
 
 gem 'brightcontent-core', path: '../core'
+gem 'inherited_resources', github: 'josevalim/inherited_resources', branch: 'rails-4-2'
 
 gemspec
