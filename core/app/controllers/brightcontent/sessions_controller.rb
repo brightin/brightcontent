@@ -9,8 +9,8 @@ module Brightcontent
     end
 
     def create
-      user = Brightcontent.user_model.find_by_email(params[:email])
-      if user && user.authenticate(params[:password])
+      user = Brightcontent.user_model.authenticate(params[:email], params[:password])
+      if user
         session[:brightcontent_user_id] = user.id
         redirect_to root_url
       else
