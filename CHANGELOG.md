@@ -1,4 +1,10 @@
-## 2.1.0 (unreleased)
+## 2.2.0
+
+* Support Rails 4.2
+
+* Drop support for Rails < 4.2
+
+## 2.1.0
 
 ### Core
 
