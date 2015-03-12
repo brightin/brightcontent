@@ -4,6 +4,7 @@ module Brightcontent
     before_filter :authorize
     before_filter :set_locale
     helper TranslationHelper
+    protect_from_forgery
 
     def index
       redirect_to root_path + user_resources.first.path

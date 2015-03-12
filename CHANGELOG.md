@@ -1,3 +1,9 @@
+## 2.3.0
+
+* Enable CSRF protection for Brightcontent::ApplicationController
+
+* Simplify `AdminUser` API to make it easier to replace.
+
 ## 2.2.0
 
 * Support Rails 4.2
