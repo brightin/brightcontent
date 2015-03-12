@@ -6,11 +6,11 @@
     <div class="media-body">
       <h4 class="attachment-file media-heading"><%= attachment.asset_file_name %></h4>
       <% if attachment.image? %>
-        <%= link_to "Insert", nil, class: "insert insert_image btn btn-primary btn-xs", data: { insert_image: attachment.url(:main) } %>
+        <%= link_to "Insert", attachment.url(:main), class: "insert insert-image btn btn-primary btn-xs" %>
       <% else %>
-        <%= link_to "Insert", nil, class: "insert insert_link btn btn-primary btn-xs", data: { insert_url: attachment.url(:original), insert_name: attachment.asset_file_name } %>
+        <%= link_to "Insert", attachment.url(:original), class: "insert insert-link btn btn-primary btn-xs", data: { name: attachment.asset_file_name } %>
       <% end %>
-      <%= link_to "Delete", destroy_attachment_path(attachment.id), class: "delete btn btn-danger btn-xs", method: "delete" %>
+      <%= link_to "Delete", destroy_attachment_path(attachment.id), class: "delete btn btn-danger btn-xs" %>
     </div>
   </div>
 </li>
