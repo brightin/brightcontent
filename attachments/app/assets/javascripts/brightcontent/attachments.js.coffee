@@ -3,7 +3,6 @@
 
 $ ->
   request_url = $("#attachable_url").val()
-  editor = $("#insertable").data("wysihtml5").editor
 
   spinner = new Spinner().spin()
   $('#fileupload').fileupload
@@ -23,11 +22,13 @@ $ ->
 
   $("#attachments").on "click", ".insert-image", (e) ->
     e.preventDefault()
+    editor = $("#insertable").data("wysihtml5").editor
     editor.composer.commands.exec "insertImage",
       src: $(this).attr "href"
 
   $("#attachments").on "click", ".insert-link", (e) ->
     e.preventDefault()
+    editor = $("#insertable").data("wysihtml5").editor
     editor.composer.commands.exec "createLink",
       href: $(this).attr "href"
       target: "_blank"
