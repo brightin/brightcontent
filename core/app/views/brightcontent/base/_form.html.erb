@@ -1,4 +1,4 @@
-<%= simple_form_for resource_item_path do |form| %>
+<%= simple_form_for resource_path do |form| %>
   <%= form.error_notification %>
 
   <div class="page-header">
@@ -16,7 +16,7 @@
     <%= form.button :submit, t('brightcontent.save_and_continue'), class: "btn btn-default", name: "commit_and_continue" %>
 
     <% unless resource.new_record? %>
-      <%= link_to t('brightcontent.delete'), resource_item_path, class: "btn btn-danger pull-right", method: :delete, data: { confirm: 'Are you sure?' } %>
+      <%= link_to t('brightcontent.delete'), resource_path, class: "btn btn-danger pull-right", method: :delete, data: { confirm: 'Are you sure?' } %>
     <% end %>
   </div>
 <% end %>

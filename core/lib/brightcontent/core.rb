@@ -5,7 +5,6 @@ ENV['RANSACK_FORM_BUILDER'] ||= '::SimpleForm::FormBuilder'
 
 require "bootstrap-sass"
 require "bootstrap-wysihtml5-rails"
-require "inherited_resources"
 require "ransack"
 require "jquery-rails"
 require "simple_form"

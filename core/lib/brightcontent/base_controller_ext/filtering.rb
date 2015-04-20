@@ -10,7 +10,7 @@ module Brightcontent
       end
 
       def ransack_search
-        @_ransack_search ||= end_of_association_chain.ransack(params[:q])
+        @_ransack_search ||= base_collection.ransack(params[:q])
       end
 
       def collection
