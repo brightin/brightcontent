@@ -7,7 +7,7 @@ module Brightcontent
     protect_from_forgery
 
     def index
-      redirect_to root_path + user_resources.first.path
+      redirect_to polymorphic_url(user_resources.first.klass)
     end
 
     private

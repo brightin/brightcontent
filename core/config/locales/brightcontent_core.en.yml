@@ -19,6 +19,7 @@ en:
     logout: Logout
     hidden: Hidden
     sign_in: Please sign in
+    login: Login
     editor_locale: ""
     extra_menu: More
 
@@ -27,5 +28,6 @@ en:
       brightcontent/admin_user: Admin
     attributes:
       brightcontent/admin_user:
+        email: Email
         password: Password
         password_confirmation: Password confirmation
