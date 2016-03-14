@@ -1,3 +1,4 @@
+require "coffee_script"
 require "brightcontent-core"
 require "brightcontent-attachments"
 require "awesome_nested_set"
