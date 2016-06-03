@@ -145,3 +145,20 @@ This adds an extra layer on top of your existing routes. However when there aren
 ```ruby
 get "*path" => "pages#show", constraints: Brightcontent::Pages::PathConstraint.new
 ```
+
+Pagination
+----------
+
+The number of pages can be set in a controller by calling `per_page 50`.
+
+If multiple page sizes are preferred, you can provide those sizes with
+
+``` ruby
+page_size_options [10, 25, 50, 100]
+```
+
+This will set the default page size to `10` and inject 4 page size options in
+the index views. The `per_page` value (if provided), will be ignored.
+
+Invalid options will be ignored, so `page_size_options ["a", 10, 25, nil, 50, 100]`
+will lead to the same result.

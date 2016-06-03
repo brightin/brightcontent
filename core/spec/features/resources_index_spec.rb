@@ -66,6 +66,71 @@ feature "Resources index" do
     page_should_have_n_rows 1
   end
 
+  scenario "shows no page size options" do
+    given_blog_items
+    visit_blogs_page
+    page.should_not have_css(".pagination.page-sizes")
+  end
+
+  context "with adjustable pagination page size" do
+    scenario "shows pagination size options" do
+      given_page_sizes
+      given_blog_items
+      visit_blogs_page
+
+      page.should have_css(".pagination.page-sizes li", count: 3)
+      within ".pagination.page-sizes .active" do
+        page.should have_content "2"
+      end
+    end
+
+    scenario "shows 2 items" do
+      given_page_sizes
+      given_blog_items
+      visit_blogs_page
+      page_should_have_n_rows 2
+    end
+
+    scenario "can switch to different page size" do
+      given_page_sizes [3, 6, 9]
+      given_blog_items
+      visit_blogs_page
+      within ".pagination.page-sizes" do
+        click_link "6"
+      end
+
+      page_should_have_n_rows 6
+    end
+
+    scenario "adjusts active page to page size" do
+      given_page_sizes [2, 4, 8]
+      given_blog_items 16
+      visit_blogs_page
+
+      within ".pagination.pages" do
+        click_link "4"
+      end
+
+      within ".pagination.page-sizes" do
+        click_link "4"
+      end
+
+      within ".pagination.pages .active" do
+        page.should have_content "2"
+      end
+    end
+
+    context "with invalid entries in page sizes list" do
+      scenario "shows the valid options" do
+        given_page_sizes ["a", 2, 5, nil, 8]
+        given_blog_items
+        visit_blogs_page
+
+        page.should have_css(".pagination.page-sizes li", count: 3)
+      end
+    end
+  end
+
   def visit_blogs_page
     click_link "Blogs"
   end
@@ -111,5 +176,13 @@ feature "Resources index" do
   def given_an_active_and_inactive_blog
     create :blog, name: "Foo", active: false
     create :blog, name: "Bar", active: true
+  end
+
+  def given_page_sizes(sizes = [2, 6, 10])
+    Brightcontent::BlogsController.class_eval { page_size_options sizes }
+  end
+
+  def given_blog_items(num = 10)
+    num.times { create [:blog, :featured_blog].sample }
   end
 end
