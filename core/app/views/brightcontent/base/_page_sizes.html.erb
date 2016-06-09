@@ -2,7 +2,7 @@
   <ul class="pagination page-sizes pull-left">
     <% sizes.each do |size| %>
       <li class="<%= :active if size == current_size %>">
-        <%= link_to size, { per_page: size, page: corrected_page(size) } %>
+        <%= link_to size, params.merge({ per_page: size, page: corrected_page(size) }) %>
       </li>
     <% end %>
   </ul>
