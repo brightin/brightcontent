@@ -1,4 +1,4 @@
-<% if sizes.try(:any?) %>
+<% if sizes.length > 1 && collection.count > sizes.min %>
   <ul class="pagination page-sizes pull-left">
     <% sizes.each do |size| %>
       <li class="<%= :active if size == current_size %>">
