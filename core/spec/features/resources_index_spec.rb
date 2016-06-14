@@ -120,6 +120,48 @@ feature "Resources index" do
       end
     end
 
+    scenario "retains page size after applying filter" do
+      given_page_sizes [2, 4, 8]
+      given_blog_items 9
+      visit_blogs_page
+      within ".pagination.page-sizes" do
+        click_link "4"
+      end
+
+      fill_in "Name", with: "Blog"
+      click_button "Search"
+
+      within ".pagination.page-sizes .active" do
+        page.should have_content "4"
+      end
+    end
+
+    scenario "retains filter after applying page size" do
+      given_page_sizes [2, 4, 8]
+      given_blog_items 14
+      visit_blogs_page
+      fill_in "Name", with: "Blog 1"
+      click_button "Search"
+
+      # 3 numbered links and previous/next links
+      page.should have_css(".pagination.pages li", count: 5)
+
+      within ".pagination.page-sizes" do
+        click_link "4"
+      end
+
+      # 2 numbered links and previous/next links
+      page.should have_css(".pagination.pages li", count: 4)
+    end
+
+    scenario "hides page size options when there is only a single page" do
+      given_page_sizes [5, 6, 7]
+      given_blog_items 4
+      visit_blogs_page
+
+      page.should_not have_css(".pagination.page-sizes")
+    end
+
     context "with invalid entries in page sizes list" do
       scenario "shows the valid options" do
         given_page_sizes ["a", 2, 5, nil, 8]
@@ -183,6 +225,6 @@ feature "Resources index" do
   end
 
   def given_blog_items(num = 10)
-    num.times { create [:blog, :featured_blog].sample }
+    num.times { |num| create [:blog, :featured_blog].sample, name: "Blog #{num}" }
   end
 end
