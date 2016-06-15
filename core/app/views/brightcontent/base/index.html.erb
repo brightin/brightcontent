@@ -19,7 +19,6 @@
 </div>
 
 <div class="panel-footer panel-footer-pagination">
-  <%= render partial: "page_sizes",
-    locals: { sizes: per_page_sizes, current_size: items_per_page } %>
+  <%= render partial: "page_sizes" %>
   <%= will_paginate collection, class: :pages, renderer: BootstrapPagination::Rails %>
 </div>

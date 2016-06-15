@@ -161,16 +161,6 @@ feature "Resources index" do
 
       page.should_not have_css(".pagination.page-sizes")
     end
-
-    context "with invalid entries in page sizes list" do
-      scenario "shows the valid options" do
-        given_page_sizes ["a", 2, 5, nil, 8]
-        given_blog_items
-        visit_blogs_page
-
-        page.should have_css(".pagination.page-sizes li", count: 3)
-      end
-    end
   end
 
   def visit_blogs_page
