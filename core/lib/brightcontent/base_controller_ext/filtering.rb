@@ -14,7 +14,7 @@ module Brightcontent
       end
 
       def collection
-        @_collection ||= ransack_search.result(distinct: true)
+        @_collection ||= ransack_search.result
       end
     end
   end
