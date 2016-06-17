@@ -66,6 +66,103 @@ feature "Resources index" do
     page_should_have_n_rows 1
   end
 
+  scenario "shows no page size options" do
+    given_blog_items
+    visit_blogs_page
+    page.should_not have_css(".pagination.page-sizes")
+  end
+
+  context "with adjustable pagination page size" do
+    scenario "shows pagination size options" do
+      given_page_sizes
+      given_blog_items
+      visit_blogs_page
+
+      page.should have_css(".pagination.page-sizes li", count: 3)
+      within ".pagination.page-sizes .active" do
+        page.should have_content "2"
+      end
+    end
+
+    scenario "shows 2 items" do
+      given_page_sizes
+      given_blog_items
+      visit_blogs_page
+      page_should_have_n_rows 2
+    end
+
+    scenario "can switch to different page size" do
+      given_page_sizes [3, 6, 9]
+      given_blog_items
+      visit_blogs_page
+      within ".pagination.page-sizes" do
+        click_link "6"
+      end
+
+      page_should_have_n_rows 6
+    end
+
+    scenario "adjusts active page to page size" do
+      given_page_sizes [2, 4, 8]
+      given_blog_items 16
+      visit_blogs_page
+
+      within ".pagination.pages" do
+        click_link "4"
+      end
+
+      within ".pagination.page-sizes" do
+        click_link "4"
+      end
+
+      within ".pagination.pages .active" do
+        page.should have_content "2"
+      end
+    end
+
+    scenario "retains page size after applying filter" do
+      given_page_sizes [2, 4, 8]
+      given_blog_items 9
+      visit_blogs_page
+      within ".pagination.page-sizes" do
+        click_link "4"
+      end
+
+      fill_in "Name", with: "Blog"
+      click_button "Search"
+
+      within ".pagination.page-sizes .active" do
+        page.should have_content "4"
+      end
+    end
+
+    scenario "retains filter after applying page size" do
+      given_page_sizes [2, 4, 8]
+      given_blog_items 14
+      visit_blogs_page
+      fill_in "Name", with: "Blog 1"
+      click_button "Search"
+
+      # 3 numbered links and previous/next links
+      page.should have_css(".pagination.pages li", count: 5)
+
+      within ".pagination.page-sizes" do
+        click_link "4"
+      end
+
+      # 2 numbered links and previous/next links
+      page.should have_css(".pagination.pages li", count: 4)
+    end
+
+    scenario "hides page size options when there is only a single page" do
+      given_page_sizes [5, 6, 7]
+      given_blog_items 4
+      visit_blogs_page
+
+      page.should_not have_css(".pagination.page-sizes")
+    end
+  end
+
   def visit_blogs_page
     click_link "Blogs"
   end
@@ -111,5 +208,13 @@ feature "Resources index" do
   def given_an_active_and_inactive_blog
     create :blog, name: "Foo", active: false
     create :blog, name: "Bar", active: true
+  end
+
+  def given_page_sizes(sizes = [2, 6, 10])
+    Brightcontent::BlogsController.class_eval { page_size_options sizes }
+  end
+
+  def given_blog_items(num = 10)
+    num.times { |num| create [:blog, :featured_blog].sample, name: "Blog #{num}" }
   end
 end

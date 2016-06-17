@@ -1,6 +1,7 @@
 <% if filter_fields.present? %>
   <div class="panel-body">
     <%= search_form_for ransack_search, class: "form-inline" do |form| %>
+      <%= hidden_field_tag :per_page, items_per_page %>
       <% normalized_filter_fields.each do |field, options| %>
         <%= render_filter_field form, field, options %>
       <% end %>

@@ -1,0 +1,9 @@
+<% if page_sizes.length > 1 && collection.count > page_sizes.min %>
+  <ul class="pagination page-sizes pull-left">
+    <% page_sizes.each do |size| %>
+      <li class="<%= :active if size == items_per_page %>">
+        <%= link_to size, params.merge({ per_page: size, page: corrected_page(size) }) %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
