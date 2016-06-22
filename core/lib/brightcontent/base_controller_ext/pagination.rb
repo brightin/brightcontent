@@ -10,6 +10,7 @@ module Brightcontent
         helper_method :current_page
         helper_method :page_sizes
         helper_method :corrected_page
+        helper_method :page_sizes_visible?
       end
 
       module ClassMethods
@@ -41,6 +42,16 @@ module Brightcontent
           else
             self.class.per_page_count
           end
+      end
+
+      def page_sizes_visible?(collection)
+        total_entries = collection.count
+
+        if total_entries.respond_to?(:size) && !total_entries.is_a?(Integer)
+          total_entries = total_entries.size
+        end
+
+        page_sizes.length > 1 && total_entries > page_sizes.min
       end
 
       def current_page
