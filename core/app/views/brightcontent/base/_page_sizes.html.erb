@@ -1,4 +1,4 @@
-<% if page_sizes.length > 1 && collection.count > page_sizes.min %>
+<% if page_sizes_visible?(collection) %>
   <ul class="pagination page-sizes pull-left">
     <% page_sizes.each do |size| %>
       <li class="<%= :active if size == items_per_page %>">
