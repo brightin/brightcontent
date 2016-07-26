@@ -13,3 +13,7 @@ before_script:
   - cd $GEM
 script:
   - bundle exec rake db:migrate spec RAILS_ENV=test
+matrix:
+  exclude:
+    - rvm: 2.1.10
+      gemfile: gemfiles/rails-5.0.x.gemfile
