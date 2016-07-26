@@ -9,7 +9,7 @@ PROJECTS = %w{core pages attachments}
 
 PROJECTS.each do |name|
   task "spec_#{name}" do
-    cmd_in_dir name, "bundle install --quiet && bundle exec rake db:migrate spec RAILS_ENV=test"
+    sh "cd #{name} && bundle exec rake db:migrate spec RAILS_ENV=test"
   end
 end
 
@@ -22,12 +22,6 @@ task "release:all" do
   version = File.read(File.expand_path("../VERSION", __FILE__)).strip
   sh "rake release"
   PROJECTS.each do |name|
-    cmd_in_dir name, "rake build && gem push pkg/brightcontent-#{name}-#{version}.gem"
-  end
-end
-
-def cmd_in_dir(dir, command)
-  Bundler.with_clean_env do
-    sh "cd #{dir} && #{command}"
+    sh "cd #{name} && rake build && gem push pkg/brightcontent-#{name}-#{version}.gem"
   end
 end
