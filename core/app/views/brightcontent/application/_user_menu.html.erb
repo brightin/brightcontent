@@ -1,4 +1,4 @@
 <li><%= link_to "Homepage", "/" %></li>
-<li><%= link_to Brightcontent::AdminUser.model_name.human.pluralize(I18n.locale).humanize, admin_users_path %></li>
+<li><%= link_to nominative_plural(Brightcontent.user_model), admin_users_path %></li>
 <li class="divider"></li>
 <li><%= link_to t('brightcontent.logout'), logout_path %></li>
