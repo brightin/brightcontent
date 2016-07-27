@@ -7,5 +7,9 @@ module Brightcontent
     def self.authenticate(email, password)
       find_by_email(email).try :authenticate, password
     end
+
+    def resources
+      Brightcontent::RoutesParser.new.resources
+    end
   end
 end
