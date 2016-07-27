@@ -1,6 +1,0 @@
-source "http://rubygems.org"
-
-gem 'brightcontent-core', path: '../core'
-gem 'brightcontent-attachments', path: '../attachments'
-
-gemspec

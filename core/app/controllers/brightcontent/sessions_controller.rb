@@ -1,13 +1,16 @@
+require_dependency "brightcontent/application_controller"
+
 module Brightcontent
   class SessionsController < ApplicationController
     skip_before_filter :authorize
 
     def new
+      redirect_to root_url if current_user
     end
 
     def create
-      user = Brightcontent.user_model.find_by_email(params[:email])
-      if user && user.authenticate(params[:password])
+      user = Brightcontent.user_model.authenticate(params[:email], params[:password])
+      if user
         session[:brightcontent_user_id] = user.id
         redirect_to root_url
       else

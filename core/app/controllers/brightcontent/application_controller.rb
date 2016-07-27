@@ -4,6 +4,7 @@ module Brightcontent
     before_filter :authorize
     before_filter :set_locale
     helper TranslationHelper
+    protect_from_forgery
 
     def index
       redirect_to polymorphic_url(user_resources.first.klass)
@@ -20,7 +21,9 @@ module Brightcontent
     end
 
     def current_user
-      @current_user ||= Brightcontent.user_model.find(session[:brightcontent_user_id]) if session[:brightcontent_user_id]
+      @current_user ||= begin
+        Brightcontent.user_model.find(session[:brightcontent_user_id]) if session[:brightcontent_user_id]
+      end
     end
     helper_method :current_user
 

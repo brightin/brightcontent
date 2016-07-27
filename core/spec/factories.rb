@@ -19,14 +19,33 @@ FactoryGirl.define do
     end
   end
 
+  factory :grouped_blog do
+    name "Blogname"
+    body "Inhoud"
+  end
+
   factory :author do
     factory :author_with_blogs do
-      ignore do
+      transient do
         blogs_count 5
       end
       after(:create) do |author, evaluator|
         create_list(:blog, evaluator.blogs_count, author: author)
       end
+
     end
+    factory :author_with_grouped_blogs do
+      transient do
+        blogs_count 5
+      end
+      after(:create) do |author, evaluator|
+        create_list(:grouped_blog, evaluator.blogs_count, author: author)
+      end
+    end
+  end
+
+  factory :comment do
+    text "Comment text"
+    blog
   end
 end

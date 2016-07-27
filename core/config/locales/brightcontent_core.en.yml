@@ -28,5 +28,6 @@ en:
       brightcontent/admin_user: Admin
     attributes:
       brightcontent/admin_user:
+        email: Email
         password: Password
         password_confirmation: Password confirmation

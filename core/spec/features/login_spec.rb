@@ -13,6 +13,14 @@ feature "Login" do
     end
   end
 
+  scenario "Visit login page after logging in" do
+    sign_in
+    visit "/admin/login"
+    within "h1" do
+      page.should have_content "Blogs"
+    end
+  end
+
   scenario "User logs out" do
     sign_in
     click_link "Logout"

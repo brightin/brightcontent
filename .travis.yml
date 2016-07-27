@@ -1,15 +1,14 @@
+env:
+  - GEM=core BUNDLE_WITHOUT=attachments:pages
+  - GEM=attachments BUNDLE_WITHOUT=pages
+  - GEM=pages
+rvm:
+  - 2.1.10
+  - 2.2.5
+  - 2.3.1
+gemfile:
+  - gemfiles/rails-4.2.x.gemfile
+before_script:
+  - cd $GEM
 script:
   - bundle exec rake db:migrate spec RAILS_ENV=test
-env:
-  - GEM=core
-  - GEM=pages
-  - GEM=attachments
-before_install:
-  - unset BUNDLE_GEMFILE
-  - gem update --system
-  - gem --version
-  - gem install bundler
-  - cd $GEM
-rvm:
-  - 2.0.0
-  - 2.1.1

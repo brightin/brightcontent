@@ -20,7 +20,7 @@ Brightcontent.setup do |config|
 
   # Brightcontent provides its own user model: AdminUser. This is used by
   # default. You can specify a custom user model as string or class.
-  # It has to implement an authenticate method.
+  # It has to implement an `authenticate` class method.
   # config.user_model = "Brightcontent::AdminUser"
 
   # brightcontent-pages provides a Brightcontent::Page model which is used

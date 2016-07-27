@@ -8,9 +8,15 @@ class CreateBrightcontentPages < ActiveRecord::Migration
       t.integer :lft
       t.integer :rgt
       t.integer :parent_id
+      t.boolean :hidden, default: false, null: false
 
       t.timestamps
     end
+
     add_index :brightcontent_pages, :slug
+  end
+
+  def down
+    drop_table :brightcontent_pages
   end
 end

@@ -28,6 +28,7 @@ nl:
       brightcontent/admin_user: Beheerder
     attributes:
       brightcontent/admin_user:
-        email: Email
+        email: E-mail
+        login: Inloggen
         password: Wachtwoord
         password_confirmation: Wachtwoord bevestiging

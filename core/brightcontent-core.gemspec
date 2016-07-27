@@ -15,20 +15,19 @@ Gem::Specification.new do |s|
   s.test_files    = `git ls-files -- spec/*`.split("\n")
   s.require_paths = ["lib"]
 
-  s.add_dependency "rails", ">= 4.0.0"
-  s.add_dependency "bcrypt-ruby"
-  s.add_dependency "bootstrap-sass", "~> 3.1"
-  s.add_dependency "bootstrap-wysihtml5-rails", "~> 0.3.2"
+  s.add_dependency "rails", ">= 4.2.0"
+  s.add_dependency "bcrypt"
+  s.add_dependency "bootstrap-sass", ">= 3.1"
+  s.add_dependency "bootstrap-wysihtml5-rails", ">= 0.3.2"
   s.add_dependency "momentjs-rails", "~> 2.5.0"
   s.add_dependency "bootstrap3-datetimepicker-rails", "~> 3.0.0"
-  s.add_dependency "coffee-rails"
-  s.add_dependency "inherited_resources", "~> 1.4.1"
+  s.add_dependency "inherited_resources", ">= 1.6.0"
   s.add_dependency "jquery-rails"
   s.add_dependency "sass-rails", ">= 4.0.2"
   s.add_dependency "simple_form"
   s.add_dependency "will_paginate"
   s.add_dependency "will_paginate-bootstrap"
-  s.add_dependency "ransack", "~> 1.1"
+  s.add_dependency "ransack", ">= 1.1"
 
   s.add_development_dependency "rake"
   s.add_development_dependency "sqlite3"
