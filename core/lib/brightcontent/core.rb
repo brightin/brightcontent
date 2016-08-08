@@ -5,6 +5,8 @@ ENV['RANSACK_FORM_BUILDER'] ||= '::SimpleForm::FormBuilder'
 
 require "bootstrap-sass"
 require "bootstrap-wysihtml5-rails"
+require "momentjs-rails"
+require "bootstrap3-datetimepicker-rails"
 require "ransack"
 require "jquery-rails"
 require "simple_form"

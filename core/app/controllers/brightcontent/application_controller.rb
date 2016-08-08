@@ -10,10 +10,14 @@ module Brightcontent
       redirect_to polymorphic_url(user_resources.first.klass)
     end
 
+    def default_url_options(options = {})
+      { locale: I18n.locale }.merge options
+    end
+
     private
 
     def set_locale
-      I18n.locale = Brightcontent.locale
+      I18n.locale = params[:locale] || Brightcontent.locale
     end
 
     def current_user
@@ -24,7 +28,7 @@ module Brightcontent
     helper_method :current_user
 
     def user_resources
-      @user_resources ||= RoutesParser.new.resources
+      @user_resources ||= @current_user.resources
     end
     helper_method :user_resources
 
