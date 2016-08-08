@@ -106,7 +106,7 @@ module Brightcontent
       end
 
       def raw_collection
-        resource_class.uniq.pluck(field_name)
+        resource_class.distinct.pluck(field_name)
       end
     end
   end

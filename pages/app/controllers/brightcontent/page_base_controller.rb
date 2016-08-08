@@ -16,7 +16,7 @@ module Brightcontent
       Brightcontent.page_model
     end
 
-    def self.resource_class
+    def resource_class
       Brightcontent.page_model
     end
 

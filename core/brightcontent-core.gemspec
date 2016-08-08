@@ -19,7 +19,6 @@ Gem::Specification.new do |s|
   s.add_dependency "bcrypt"
   s.add_dependency "bootstrap-sass", ">= 3.1"
   s.add_dependency "bootstrap-wysihtml5-rails", ">= 0.3.2"
-  s.add_dependency "inherited_resources", ">= 1.6.0"
   s.add_dependency "jquery-rails"
   s.add_dependency "sass-rails", ">= 4.0.2"
   s.add_dependency "simple_form"

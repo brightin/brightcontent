@@ -1,5 +1,5 @@
 <div class="page-header">
-  <%= link_to "#{I18n.t('brightcontent.create_new', model: resource_class.model_name.human).capitalize}", polymorphic_url(resource_index_path, action: :new), class: "btn btn-primary pull-right" %>
+  <%= link_to "#{I18n.t('brightcontent.create_new', model: resource_class.model_name.human).capitalize}", url_for(action: :new), class: "btn btn-primary pull-right" %>
   <h1><%= nominative_plural(resource_class).capitalize %></h1>
 </div>
 
