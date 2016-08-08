@@ -66,7 +66,7 @@ module Brightcontent
         self.class.page_sizes
       end
 
-      def end_of_association_chain
+      def collection
         if action_name == "index" && items_per_page > 0
           super.paginate(page: params[:page], per_page: items_per_page)
         else

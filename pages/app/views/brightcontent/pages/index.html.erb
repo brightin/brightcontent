@@ -1,9 +1,4 @@
-<div class="page-header">
-  <%= link_to "#{I18n.t('brightcontent.create_new', model: resource_class.model_name.human).humanize}", polymorphic_url([parent, resource_class], action: :new), class: "btn btn-primary pull-right" %>
-  <h1><%= nominative_plural(resource_class).capitalize %></h1>
-</div>
-
-<%= render_if_exists "index_top" %>
+<%= render "list_header" %>
 
 <div class="panel-body">
   <ol class="sortable_tree" data-rebuild_url="<%=rebuild_pages_url%>" data-max_levels="5">

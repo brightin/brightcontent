@@ -8,7 +8,15 @@ rvm:
   - 2.3.1
 gemfile:
   - gemfiles/rails-4.2.x.gemfile
+  - gemfiles/rails-5.0.x.gemfile
 before_script:
   - cd $GEM
 script:
   - bundle exec rake db:migrate spec RAILS_ENV=test
+matrix:
+  exclude:
+    - rvm: 2.1.10
+      gemfile: gemfiles/rails-5.0.x.gemfile
+  allow_failures:
+    - gemfile: gemfiles/rails-5.0.x.gemfile
+  fast_finish: true

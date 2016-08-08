@@ -1,2 +1,2 @@
-<%= link_to t('brightcontent.edit'), [:edit, parent, item], class: "btn btn-xs btn-primary" %>
-<%= link_to t('brightcontent.delete'), [parent, item], class: "btn btn-xs btn-danger", data: {confirm: t('brightcontent.are_you_sure')}, method: :delete %>
+<%= link_to t('brightcontent.edit'), resource_edit_path(item), class: "btn btn-xs btn-primary" %>
+<%= link_to t('brightcontent.delete'), resource_path(item), class: "btn btn-xs btn-danger", data: {confirm: t('brightcontent.are_you_sure')}, method: :delete %>

@@ -1,4 +1,4 @@
-<%= content_tag_for :tr, item do %>
+<%= content_tag :tr, id: dom_id(item), class: dom_class(item) do %>
   <% list_fields.each do |field| %>
     <td><%= render_list_field(item, field) %></td>
   <% end %>
