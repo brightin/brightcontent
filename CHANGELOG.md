@@ -1,3 +1,17 @@
+## 2.4.0
+
+* Drop dependency on `inherited_resource` to prepare support for Rails 5
+
+* Adjustable pagination sizes
+
+* Use bootstrap-datetimepicker for date & datetime fields
+
+* Allow locale to be passed in from params
+
+* Per-user resource tabs
+
+* Don't call distinct on ransack results
+
 ## 2.3.0
 
 * Enable CSRF protection for Brightcontent::ApplicationController
