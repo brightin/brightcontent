@@ -17,6 +17,6 @@ $(function() {
     }
   });
 
-  $('[data-behaviour~=datepicker]').datetimepicker(pickTime: false, language: 'nl')
-  $('[data-behaviour~=datetimepicker]').datetimepicker(language: 'nl')
+  $('[data-behaviour~=datepicker]').datetimepicker({ pickTime: false, language: 'nl' })
+  $('[data-behaviour~=datetimepicker]').datetimepicker({ language: 'nl' })
 });
