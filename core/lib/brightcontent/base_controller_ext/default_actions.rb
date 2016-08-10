@@ -36,11 +36,15 @@ module Brightcontent
       end
 
       def resource_name
-        controller_name
+        resource_class.model_name.plural
       end
 
       def resource_instance_name
-        resource_name.singularize
+        resource_class.model_name.singular
+      end
+
+      def resource_human_name(options = {})
+        resource_class.model_name.human(options)
       end
 
       def index
@@ -60,7 +64,7 @@ module Brightcontent
       def create
         self.resource = base_collection.new(resource_params)
         if resource.save
-          redirect_to resource_redirect_path, notice: t("flash.actions.create.notice", resource_name: resource_instance_name.capitalize)
+          redirect_to resource_redirect_path, notice: t("flash.actions.create.notice", resource_name: resource_human_name)
         else
           render :new
         end
@@ -68,7 +72,7 @@ module Brightcontent
 
       def update
         if resource.update(resource_params)
-          redirect_to resource_redirect_path, notice: t("flash.actions.update.notice", resource_name: resource_instance_name.capitalize)
+          redirect_to resource_redirect_path, notice: t("flash.actions.update.notice", resource_name: resource_human_name)
         else
           render :edit
         end
@@ -76,9 +80,9 @@ module Brightcontent
 
       def destroy
         if resource.destroy
-          redirect_to resource_index_path, notice: t("flash.actions.destroy.notice", resource_name: resource_instance_name.capitalize)
+          redirect_to resource_index_path, notice: t("flash.actions.destroy.notice", resource_name: resource_human_name)
         else
-          redirect_to resource_index_path, alert: t("flash.actions.destroy.alert", resource_name: resource_instance_name.capitalize)
+          redirect_to resource_index_path, alert: t("flash.actions.destroy.alert", resource_name: resource_human_name)
         end
       end
 
