@@ -7,7 +7,7 @@ module Brightcontent
 
       included do
         before_action :set_collection
-        before_action :set_resource, only: [:show, :edit, :update, :destroy]
+        before_action :set_resource
         helper_method :resource, :resource_class, :resource_index_path, :resource_path, :collection, :resource_edit_path
       end
 
@@ -89,7 +89,7 @@ module Brightcontent
       end
 
       def set_resource
-        self.resource = base_collection.find(params[:id])
+        self.resource = base_collection.find(params[:id]) if params[:id].present?
       end
 
       def resource_params
