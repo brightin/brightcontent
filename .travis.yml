@@ -17,6 +17,4 @@ matrix:
   exclude:
     - rvm: 2.1.10
       gemfile: gemfiles/rails-5.0.x.gemfile
-  allow_failures:
-    - gemfile: gemfiles/rails-5.0.x.gemfile
   fast_finish: true

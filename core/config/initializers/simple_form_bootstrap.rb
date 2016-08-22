@@ -30,7 +30,7 @@ SimpleForm.setup do |config|
 
     b.use :html5
     b.use :min_max
-    b.use :maxlength
+    # b.use :maxlength
     b.use :placeholder
 
     b.optional :pattern
