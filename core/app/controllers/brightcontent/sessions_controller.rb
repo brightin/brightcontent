@@ -2,7 +2,7 @@ require_dependency "brightcontent/application_controller"
 
 module Brightcontent
   class SessionsController < ApplicationController
-    skip_before_filter :authorize
+    skip_before_action :authorize
 
     def new
       redirect_to root_url if current_user

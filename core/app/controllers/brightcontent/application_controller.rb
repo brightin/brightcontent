@@ -1,8 +1,8 @@
 module Brightcontent
   class ApplicationController < ActionController::Base
     add_flash_types :success, :info, :warning, :danger
-    before_filter :authorize
-    before_filter :set_locale
+    before_action :authorize
+    before_action :set_locale
     helper TranslationHelper
     protect_from_forgery
 
