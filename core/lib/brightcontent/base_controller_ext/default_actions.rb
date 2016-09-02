@@ -12,7 +12,7 @@ module Brightcontent
       end
 
       def base_collection
-        instance_variable_get :"@#{resource_name.pluralize}"
+        instance_variable_get :"@#{resource_collection_name}"
       end
 
       def collection
@@ -20,7 +20,7 @@ module Brightcontent
       end
 
       def collection=(val)
-        instance_variable_set :"@#{resource_name.pluralize}", val
+        instance_variable_set :"@#{resource_collection_name}", val
       end
 
       def resource
@@ -35,12 +35,12 @@ module Brightcontent
         controller_name.classify.constantize
       end
 
-      def resource_name
-        resource_class.model_name.plural
+      def resource_instance_name
+        resource_class.model_name.param_key
       end
 
-      def resource_instance_name
-        resource_class.model_name.singular
+      def resource_collection_name
+        resource_instance_name.pluralize
       end
 
       def resource_human_name(options = {})

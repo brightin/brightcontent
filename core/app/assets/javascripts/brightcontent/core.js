@@ -11,7 +11,7 @@ $(function() {
     parserRules: wysihtml5ParserRules,
     events: {
       load: function() {
-        var editor = $("#insertable").data("wysihtml5").editor;
+        var editor = $('[data-wysihtml5]').first().data('wysihtml5');
         editor.focus();
       }
     }
