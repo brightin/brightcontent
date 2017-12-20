@@ -159,3 +159,8 @@ page_size_options [10, 25, 50, 100]
 
 This will set the default page size to `10` and inject 4 page size options in
 the index views. The `per_page` value (if provided), will be ignored.
+
+Layouts
+-------
+
+Besides the regular `application` layout that uses Bootstrap's maximum width, there is a `wide` layout using the full page width. Include `layout "brightcontent/wide"` in the controller to use it.
