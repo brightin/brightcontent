@@ -24,7 +24,7 @@ module Brightcontent
       end
 
       it 'does have any exta menu items' do
-        expect(resources.extra_menu?).to be_true
+        expect(resources.extra_menu?).to be true
       end
     end
 
@@ -42,7 +42,7 @@ module Brightcontent
       end
 
       it 'does not have any exta menu items' do
-        expect(resources.extra_menu?).to be_false
+        expect(resources.extra_menu?).to be false
       end
     end
 
@@ -60,7 +60,7 @@ module Brightcontent
       end
 
       it 'does not have any exta menu items' do
-        expect(resources.extra_menu?).to be_false
+        expect(resources.extra_menu?).to be false
       end
     end
   end
