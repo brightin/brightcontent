@@ -9,7 +9,7 @@ PROJECTS = %w{core pages attachments}
 
 PROJECTS.each do |name|
   task "spec_#{name}" do
-    sh "cd #{name} && bundle exec rake db:migrate spec RAILS_ENV=test"
+    sh "cd #{name} && bundle exec rake db:schema:load spec RAILS_ENV=test"
   end
 end
 
