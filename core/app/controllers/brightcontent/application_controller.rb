@@ -23,7 +23,7 @@ module Brightcontent
     def current_user
       @current_user ||= begin
         Brightcontent.user_model.find(session[:brightcontent_user_id]) if session[:brightcontent_user_id]
-      end
+      end.tap { |u| logger.info "Current Brightcontent user: #{u&.to_gid}" }
     end
     helper_method :current_user
 
