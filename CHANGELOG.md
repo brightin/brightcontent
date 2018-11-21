@@ -1,3 +1,12 @@
+## 2.5.0
+
+* Add details about currently logged in admin user to the logs
+
+* Inline gem `will_paginate-bootstrap` to fix deprecation warnings about Fixnum.
+  NB. replace `BootstrapPagination::Rails` with `Brightcontent::PaginationRenderer` if your admin views use `will_paginate`.
+
+* Update tests and dependencies, test on Rails 4.2 and 5.2
+
 ## 2.4.0
 
 * Drop dependency on `inherited_resource` to prepare support for Rails 5
