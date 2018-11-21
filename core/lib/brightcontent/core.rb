@@ -11,7 +11,6 @@ require "ransack"
 require "jquery-rails"
 require "simple_form"
 require "will_paginate"
-require "will_paginate-bootstrap"
 
 require "brightcontent/rails/routes"
 require "brightcontent/engine"
@@ -24,6 +23,7 @@ module Brightcontent
   autoload :StrongParamsFix, 'brightcontent/strong_params_fix'
   autoload :ViewLookup, 'brightcontent/view_lookup'
   autoload :BaseControllerExt, 'brightcontent/base_controller_ext'
+  autoload :PaginationRenderer, 'brightcontent/pagination_renderer'
 
   mattr_accessor :locale
 
