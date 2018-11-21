@@ -3,6 +3,6 @@ class PagesController < ApplicationController
   end
 
   def show
-    render text: current_page.name
+    render plain: current_page.name
   end
 end

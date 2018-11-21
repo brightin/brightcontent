@@ -1,4 +1,4 @@
-class CreateBrightcontentAdminUsers < ActiveRecord::Migration
+class CreateBrightcontentAdminUsers < ActiveRecord::Migration[4.2]
   def up
     create_table :brightcontent_admin_users do |t|
       t.string :email

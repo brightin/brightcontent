@@ -1,4 +1,4 @@
-class CreateGroupedBlogs < ActiveRecord::Migration
+class CreateGroupedBlogs < ActiveRecord::Migration[4.2]
   def change
     create_table :grouped_blogs do |t|
       t.string :name

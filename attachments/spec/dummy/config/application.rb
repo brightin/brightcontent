@@ -47,7 +47,7 @@ module Dummy
     config.assets.enabled = true
 
     # config.i18n.enforce_available_locales = true
-    config.active_record.raise_in_transactional_callbacks = true
+    # config.active_record.raise_in_transactional_callbacks = true
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'

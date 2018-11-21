@@ -2,6 +2,7 @@ ENV["RAILS_ENV"] = "test"
 ENGINE_RAILS_ROOT = File.join(File.dirname(__FILE__), '../')
 
 require File.expand_path("../dummy/config/environment.rb",  __FILE__)
+require 'rspec/its'
 require 'rspec/rails'
 require 'capybara/rspec'
 require 'factory_girl_rails'

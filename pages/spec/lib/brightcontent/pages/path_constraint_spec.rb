@@ -18,11 +18,11 @@ module Brightcontent
 
         it 'returns true if path is existing' do
           request = double(:request, path: '/existing')
-          expect(subject.matches?(request)).to be_true
+          expect(subject.matches?(request)).to eq true
         end
         it 'returns false if path is non-existing' do
           request = double(:request, path: '/nonexisting')
-          expect(subject.matches?(request)).to be_false
+          expect(subject.matches?(request)).to eq false
         end
       end
     end

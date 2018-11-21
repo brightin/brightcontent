@@ -1,4 +1,5 @@
 require 'spec_helper'
+include Brightcontent::TranslationHelper
 
 describe Brightcontent::TranslationHelper do
   let(:string) { "thing" }

@@ -3,18 +3,15 @@ env:
   - GEM=attachments BUNDLE_WITHOUT=pages
   - GEM=pages
 rvm:
-  - 2.1.10
-  - 2.2.5
-  - 2.3.1
+  - 2.3.8
+  - 2.4.5
+  - 2.5.3
 gemfile:
   - gemfiles/rails-4.2.x.gemfile
-  - gemfiles/rails-5.0.x.gemfile
+  - gemfiles/rails-5.2.x.gemfile
 before_script:
   - cd $GEM
 script:
   - bundle exec rake db:migrate spec RAILS_ENV=test
 matrix:
-  exclude:
-    - rvm: 2.1.10
-      gemfile: gemfiles/rails-5.0.x.gemfile
   fast_finish: true

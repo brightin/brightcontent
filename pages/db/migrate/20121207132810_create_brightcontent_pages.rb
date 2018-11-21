@@ -1,4 +1,4 @@
-class CreateBrightcontentPages < ActiveRecord::Migration
+class CreateBrightcontentPages < ActiveRecord::Migration[4.2]
   def change
     create_table :brightcontent_pages do |t|
       t.string :name
