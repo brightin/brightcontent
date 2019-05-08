@@ -1,3 +1,7 @@
+## 2.5.1
+
+* Depend on sassc-rails instead of sass-rails
+
 ## 2.5.0
 
 * Add details about currently logged in admin user to the logs
