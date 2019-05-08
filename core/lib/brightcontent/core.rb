@@ -3,6 +3,7 @@
 #
 ENV['RANSACK_FORM_BUILDER'] ||= '::SimpleForm::FormBuilder'
 
+require "sassc-rails"
 require "bootstrap-sass"
 require "bootstrap-wysihtml5-rails"
 require "momentjs-rails"
