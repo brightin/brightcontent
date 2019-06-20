@@ -33,7 +33,10 @@ module Brightcontent
     helper_method :user_resources
 
     def authorize
-      redirect_to login_url unless current_user
+      unless current_user
+        session[:return_to] = request.original_url
+        redirect_to login_url
+      end
     end
   end
 end
