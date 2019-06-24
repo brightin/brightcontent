@@ -27,6 +27,11 @@ feature "Login" do
     page.should have_content "Please sign in"
   end
 
+  scenario "Return to original page after logging in " do
+    sign_in "/admin/grouped_blogs"
+    current_url.should end_with "/admin/grouped_blogs"
+  end
+
   def sign_in_with_invalid_email
     @user = create(:admin_user)
     visit "/admin"
