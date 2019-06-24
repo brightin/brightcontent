@@ -1,3 +1,7 @@
+## 2.6.0
+
+* Redirect to original page after login
+
 ## 2.5.0
 
 * Add details about currently logged in admin user to the logs
