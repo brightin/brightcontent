@@ -1,6 +1,6 @@
 source "http://rubygems.org"
 
-gem "rake", "< 11.0"
+gem "rake", ">= 12.3.3"
 
 gemspec
 gemspec name: "brightcontent-core", path: "core"
