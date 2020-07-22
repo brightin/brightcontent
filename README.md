@@ -1,6 +1,10 @@
 Brightcontent
 =============
 
+## Deprecated
+
+Brightcontent is deprecated. We will only support this project for as far as it suits our own needs. If you're looking for a Rails admin panel to use, you might want to look [here](https://www.ruby-toolbox.com/categories/rails_admin_interfaces).
+
 [![Gem Version](https://badge.fury.io/rb/brightcontent.svg)](http://badge.fury.io/rb/brightcontent)
 [![Code Climate](https://codeclimate.com/github/brightin/brightcontent.svg)](https://codeclimate.com/github/brightin/brightcontent)
 [![Build Status](https://travis-ci.org/brightin/brightcontent.svg?branch=master)](https://travis-ci.org/brightin/brightcontent)
