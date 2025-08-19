@@ -18,7 +18,7 @@ Gem::Specification.new do |s|
   s.add_dependency "brightcontent-core", version
   s.add_dependency "brightcontent-attachments", version
   s.add_dependency "awesome_nested_set", ">= 3.0.0.rc.3"
-  s.add_dependency "jquery-ui-rails", "~> 7.0.0"
+  s.add_dependency "jquery-ui-rails", "~> 8.0.0"
   s.add_dependency "the_sortable_tree", "~> 2.3.0"
   s.add_dependency "coffee-rails"
 end
